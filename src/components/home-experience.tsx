@@ -110,11 +110,6 @@ export function HomeExperience({
         <h1 className="sr-only">Plan your session with Pip</h1>
         <section className="flex items-center gap-4">
           <div className="relative shrink-0">
-            <span
-              aria-hidden
-              className="absolute inset-2 rounded-full opacity-50 blur-2xl transition-colors duration-500 ease-out"
-              style={{ backgroundColor: pipAccent }}
-            />
             <div className="relative md:scale-125">
               <Pip
                 expression={pipExpression}
