@@ -1,14 +1,19 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { FocusPicker } from "@/components/focus-picker";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
+import { MoodCheckIn } from "@/components/mood-check-in";
 import { MoodPicker } from "@/components/mood-picker";
+import { Pip } from "@/components/pal/pip";
 import { SuggestionList } from "@/components/suggestion-list";
+import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
 import type { FocusArea, FocusId } from "@/features/library/focus-areas";
 import type { Mood, MoodId } from "@/features/moods/moods";
+import { moodExpression, type PalExpression } from "@/features/pal/expressions";
 import type { SuggestionView } from "@/features/suggestions/suggestion-view";
 
 type Status = "idle" | "loading" | "ready" | "error";
@@ -22,8 +27,10 @@ type SuggestionsResponse = {
 type Selection = { mood: MoodId | null; focus: FocusId | null };
 
 const GENERIC_ERROR = "I couldn't fetch ideas just now. Give it another try in a moment.";
-const PROMPT_COPY = "Pick a mood or a focus area and I'll find a few ideas for you.";
+const INTRO_COPY = "Hey, I'm Pip. Tell me how you feel, or tap a mood below.";
 const LIBRARY_UNAVAILABLE = "LIBRARY_UNAVAILABLE";
+const DEFAULT_ACCENT = "var(--color-accent-sky)";
+const DEFAULT_EXPRESSION: PalExpression = "happy";
 
 async function postSelection(endpoint: string, selection: Selection): Promise<SuggestionsResponse> {
   const body = {
@@ -45,14 +52,17 @@ export function HomeExperience({
   moods: readonly Mood[];
   focusAreas: readonly FocusArea[];
 }) {
+  const reduce = useReducedMotion();
   const [selection, setSelection] = useState<Selection>({ mood: null, focus: null });
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<SuggestionsResponse["data"]>(null);
   const [errorCode, setErrorCode] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(GENERIC_ERROR);
 
-  const selectedLabel = moods.find((mood) => mood.id === selection.mood);
+  const selectedMood = moods.find((mood) => mood.id === selection.mood);
   const selectedFocusArea = focusAreas.find((area) => area.id === selection.focus);
+  const pipAccent = selectedMood ? `var(--color-${selectedMood.accent})` : DEFAULT_ACCENT;
+  const pipExpression = selection.mood ? moodExpression[selection.mood] : DEFAULT_EXPRESSION;
 
   async function request(endpoint: string, next: Selection) {
     setStatus("loading");
@@ -90,36 +100,80 @@ export function HomeExperience({
   }
 
   return (
-    <div className="flex flex-col gap-6 px-4 py-6">
-      <p className="text-base">{selectedLabel ? selectedLabel.buddyLine : PROMPT_COPY}</p>
-      <MoodPicker
-        moods={moods}
-        selectedMood={selection.mood}
-        onSelect={(mood) => runSelection({ ...selection, mood })}
+    <div className="relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-80 opacity-30 transition-colors duration-500 ease-out [mask-image:linear-gradient(black,transparent)]"
+        style={{ backgroundColor: pipAccent }}
       />
-      <FocusPicker
-        focusAreas={focusAreas}
-        selectedFocus={selection.focus}
-        onSelect={(focus) => runSelection({ ...selection, focus })}
-      />
-      {selectedFocusArea ? (
-        <Link href={`/library/${selectedFocusArea.id}`} className="text-sm font-semibold underline">
-          Browse all {selectedFocusArea.label} ideas
-        </Link>
-      ) : null}
-      {status === "loading" ? <p role="status">Finding ideas…</p> : null}
-      {status === "error" && errorCode === LIBRARY_UNAVAILABLE ? <LibraryError /> : null}
-      {status === "error" && errorCode !== LIBRARY_UNAVAILABLE ? (
-        <p role="alert">{errorMessage}</p>
-      ) : null}
-      {status === "ready" && result ? (
-        <SuggestionList
-          suggestions={result.suggestions}
-          partial={result.partial}
-          onAnotherIdea={showAnotherIdea}
-        />
-      ) : null}
-      <MedicalNotice />
+      <main className="relative mx-auto flex w-full max-w-md flex-col gap-8 px-4 py-6 md:max-w-3xl">
+        <section className="flex items-center gap-4">
+          <div className="relative shrink-0">
+            <motion.span
+              aria-hidden
+              className="absolute inset-2 rounded-full blur-2xl"
+              style={{ backgroundColor: pipAccent }}
+              animate={
+                reduce ? undefined : { scale: [0.92, 1.08, 0.92], opacity: [0.45, 0.7, 0.45] }
+              }
+              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <div className="relative md:scale-125">
+              <Pip
+                expression={pipExpression}
+                accent={pipAccent}
+                label={selectedMood?.label.toLowerCase() ?? "ready"}
+                sizePx={132}
+              />
+            </div>
+          </div>
+          <div className="relative flex-1 rounded-2xl border-2 border-black/15 bg-white p-4 text-base leading-snug">
+            {selectedMood ? selectedMood.buddyLine : INTRO_COPY}
+          </div>
+        </section>
+
+        <MoodCheckIn moods={moods} onMood={(mood) => runSelection({ ...selection, mood })} />
+
+        <section className="flex flex-col gap-3">
+          <h2 className="text-base font-semibold">Your mood</h2>
+          <MoodPicker
+            moods={moods}
+            selectedMood={selection.mood}
+            onSelect={(mood) => runSelection({ ...selection, mood })}
+          />
+        </section>
+
+        <section className="flex flex-col gap-3">
+          <h2 className="text-base font-semibold">Muscle group</h2>
+          <FocusPicker
+            focusAreas={focusAreas}
+            selectedFocus={selection.focus}
+            onSelect={(focus) => runSelection({ ...selection, focus })}
+          />
+          {selectedFocusArea ? (
+            <Link
+              href={`/library/${selectedFocusArea.id}`}
+              className="text-sm font-semibold underline"
+            >
+              Browse all {selectedFocusArea.label} ideas
+            </Link>
+          ) : null}
+        </section>
+
+        {status === "loading" ? <SuggestionSkeleton /> : null}
+        {status === "error" && errorCode === LIBRARY_UNAVAILABLE ? <LibraryError /> : null}
+        {status === "error" && errorCode !== LIBRARY_UNAVAILABLE ? (
+          <p role="alert">{errorMessage}</p>
+        ) : null}
+        {status === "ready" && result ? (
+          <SuggestionList
+            suggestions={result.suggestions}
+            partial={result.partial}
+            onAnotherIdea={showAnotherIdea}
+          />
+        ) : null}
+        <MedicalNotice />
+      </main>
     </div>
   );
 }
