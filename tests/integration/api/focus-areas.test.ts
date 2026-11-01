@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { handleListFocusAreas } from "@/features/library/handle-focus-areas";
 
-const FOCUS_COUNT = 8;
+const FOCUS_COUNT = 10;
 
 describe("GET /api/focus-areas", () => {
   it("returns 401 UNAUTHENTICATED when signed out", async () => {

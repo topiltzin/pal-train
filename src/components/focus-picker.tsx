@@ -3,6 +3,8 @@
 import {
   Barbell,
   Flame,
+  PersonArmsSpread,
+  PersonSimpleTaiChi,
   Heartbeat,
   Lightning,
   PersonSimpleRun,
@@ -29,6 +31,8 @@ const FOCUS_ICONS: Record<FocusId, Icon> = {
   cardio: Heartbeat,
   "hyrox-style": Timer,
   conditioning: Flame,
+  calisthenics: PersonArmsSpread,
+  stretching: PersonSimpleTaiChi,
 };
 
 const PRESS_SCALE = 0.97;

@@ -7,6 +7,8 @@ export const focusIds = [
   "cardio",
   "hyrox-style",
   "conditioning",
+  "calisthenics",
+  "stretching",
 ] as const;
 
 export type FocusId = (typeof focusIds)[number];
@@ -26,4 +28,14 @@ export const focusAreas: readonly FocusArea[] = [
   { id: "cardio", label: "Cardio", description: "Sustained heart-rate work." },
   { id: "hyrox-style", label: "Hyrox-style", description: "Functional race-style intervals." },
   { id: "conditioning", label: "Conditioning", description: "General work capacity and circuits." },
+  {
+    id: "calisthenics",
+    label: "Calisthenics",
+    description: "Bodyweight strength, control, and skills.",
+  },
+  {
+    id: "stretching",
+    label: "Stretching",
+    description: "Mobility holds and recovery for the whole body.",
+  },
 ];

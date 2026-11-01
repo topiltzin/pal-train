@@ -8,7 +8,8 @@ test.describe("sign-in gate", () => {
     await page.goto("/");
 
     // Assert
-    await expect(page).toHaveURL(/\/sign-in$/);
+    // The first load after a rebuild can compile the dev route, so allow for that.
+    await expect(page).toHaveURL(/\/sign-in$/, { timeout: 20000 });
     await expect(page.getByRole("heading", { name: "Hey, I'm your gym buddy" })).toBeVisible();
     await expect(page.getByRole("region", { name: "Workout ideas" })).toHaveCount(0);
     await expect(page.getByRole("group", { name: "How are you feeling?" })).toHaveCount(0);

@@ -1,4 +1,6 @@
 import biceps from "../../../content/templates/biceps.json";
+import calisthenics from "../../../content/templates/calisthenics.json";
+import stretching from "../../../content/templates/stretching.json";
 import back from "../../../content/templates/back.json";
 import cardio from "../../../content/templates/cardio.json";
 import chest from "../../../content/templates/chest.json";
@@ -16,4 +18,6 @@ export const rawTemplateFiles: readonly unknown[] = [
   cardio,
   hyroxStyle,
   conditioning,
+  calisthenics,
+  stretching,
 ];
