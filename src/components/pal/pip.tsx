@@ -6,7 +6,7 @@ import type { PalExpression } from "@/features/pal/expressions";
 
 /**
  * Pip is the hand-drawn companion. The brief asks for a character, so this is the one place we
- * draw SVG by hand. One body, a headband, a sprout, a dumbbell, and a few expression parts.
+ * draw SVG by hand. One body, a sweatband, a dumbbell, brows, and a few expression parts.
  */
 const INK = "#14161f";
 const BLUSH = "#ff7a95";
@@ -28,7 +28,19 @@ type Point = { x: number; y: number };
 
 const LEFT_EYE: Point = { x: 78, y: 102 };
 const RIGHT_EYE: Point = { x: 122, y: 102 };
-const STROKE = 5;
+const STROKE = 4.5;
+
+/** Two short brows give Pip a confident, grown-up look. "Angled" reads as focus. */
+function Brows({ angled }: { angled: boolean }) {
+  const left = angled ? "M 64 80 L 86 88" : "M 66 84 Q 76 79 88 83";
+  const right = angled ? "M 136 80 L 114 88" : "M 134 84 Q 124 79 112 83";
+  return (
+    <>
+      <path d={left} stroke={INK} strokeWidth={4} strokeLinecap="round" fill="none" />
+      <path d={right} stroke={INK} strokeWidth={4} strokeLinecap="round" fill="none" />
+    </>
+  );
+}
 
 function Glint({ x, y }: Point) {
   return (
@@ -193,9 +205,9 @@ function Sparkle({ x, y }: Point) {
 function Dumbbell() {
   return (
     <g>
-      <rect x={156} y={146} width={40} height={6} rx={3} fill={INK} />
-      <rect x={150} y={138} width={9} height={22} rx={3} fill={INK} />
-      <rect x={191} y={138} width={9} height={22} rx={3} fill={INK} />
+      <rect x={150} y={146} width={40} height={6} rx={3} fill={INK} />
+      <rect x={144} y={138} width={9} height={22} rx={3} fill={INK} />
+      <rect x={185} y={138} width={9} height={22} rx={3} fill={INK} />
     </g>
   );
 }
@@ -248,25 +260,6 @@ export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
           transition={{ type: "spring", stiffness: 420, damping: 40 }}
           style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
         >
-          {/* Sprout on top */}
-          <path
-            d="M 100 46 Q 94 28 106 22"
-            stroke={INK}
-            strokeWidth={STROKE}
-            strokeLinecap="round"
-            fill="none"
-          />
-          <ellipse
-            cx={108}
-            cy={22}
-            rx={7}
-            ry={4.5}
-            fill={accent}
-            stroke={INK}
-            strokeWidth={3}
-            transform="rotate(-18 108 22)"
-          />
-
           {/* Arms, feet, body */}
           <ellipse
             cx={36}
@@ -317,8 +310,6 @@ export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
             opacity={0.35}
           />
 
-          <circle cx={62} cy={126} r={9} fill={BLUSH} opacity={0.22} />
-          <circle cx={138} cy={126} r={9} fill={BLUSH} opacity={0.22} />
           <motion.g
             key={`eyes-${expression}`}
             animate={blink}
@@ -327,6 +318,9 @@ export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
           >
             <Eyes expression={expression} />
           </motion.g>
+          {expression === "happy" || expression === "determined" ? (
+            <Brows angled={expression === "determined"} />
+          ) : null}
           <Mouth expression={expression} />
           <Dumbbell />
         </motion.g>
