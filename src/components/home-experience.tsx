@@ -106,7 +106,8 @@ export function HomeExperience({
         className="pointer-events-none absolute inset-x-0 top-0 h-80 opacity-30 transition-colors duration-500 ease-out [mask-image:linear-gradient(black,transparent)]"
         style={{ backgroundColor: pipAccent }}
       />
-      <main className="relative mx-auto flex w-full max-w-md flex-col gap-8 px-4 py-6 md:max-w-3xl">
+      <main className="relative mx-auto flex w-full max-w-md flex-col gap-8 px-4 py-6 md:max-w-3xl md:py-10">
+        <h1 className="sr-only">Plan your session with Pip</h1>
         <section className="flex items-center gap-4">
           <div className="relative shrink-0">
             <motion.span
@@ -127,7 +128,11 @@ export function HomeExperience({
               />
             </div>
           </div>
-          <div className="relative flex-1 rounded-2xl border-2 border-black/15 bg-white p-4 text-base leading-snug">
+          <div className="relative flex-1 rounded-2xl border-2 border-black/15 bg-white p-4 text-pretty text-base leading-snug">
+            <span
+              aria-hidden
+              className="absolute -left-2 top-6 size-3.5 -rotate-45 border-b-2 border-l-2 border-black/15 bg-white"
+            />
             {selectedMood ? selectedMood.buddyLine : INTRO_COPY}
           </div>
         </section>

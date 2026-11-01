@@ -1,5 +1,16 @@
 "use client";
 
+import {
+  Coffee,
+  Confetti,
+  Crosshair,
+  Drop,
+  Leaf,
+  Moon,
+  Sparkle,
+  Wind,
+  type Icon,
+} from "@phosphor-icons/react";
 import { motion, useReducedMotion } from "motion/react";
 import type { Mood, MoodId } from "@/features/moods/moods";
 
@@ -7,6 +18,17 @@ type MoodPickerProps = {
   moods: readonly Mood[];
   selectedMood: MoodId | null;
   onSelect: (mood: MoodId) => void;
+};
+
+const MOOD_ICONS: Record<MoodId, Icon> = {
+  energized: Sparkle,
+  tired: Moon,
+  stressed: Wind,
+  focused: Crosshair,
+  playful: Confetti,
+  unmotivated: Coffee,
+  "want-to-sweat": Drop,
+  calm: Leaf,
 };
 
 const PRESS_SCALE = 0.97;
@@ -23,6 +45,7 @@ export function MoodPicker({ moods, selectedMood, onSelect }: MoodPickerProps) {
     >
       {moods.map((mood) => {
         const isSelected = mood.id === selectedMood;
+        const TileIcon = MOOD_ICONS[mood.id];
         return (
           <motion.button
             key={mood.id}
@@ -31,7 +54,7 @@ export function MoodPicker({ moods, selectedMood, onSelect }: MoodPickerProps) {
             onClick={() => onSelect(mood.id)}
             whileTap={reduce ? undefined : { scale: PRESS_SCALE }}
             transition={PRESS_TRANSITION}
-            className="relative isolate overflow-hidden rounded-2xl border-2 border-black/15 bg-white px-4 py-3 text-left font-semibold text-black"
+            className="relative isolate flex items-center gap-2 overflow-hidden rounded-2xl border-2 border-black/15 bg-white px-3 py-3 text-left text-[15px] font-semibold text-black transition-colors duration-150 hover:border-black/40"
           >
             {isSelected ? (
               <motion.span
@@ -42,7 +65,8 @@ export function MoodPicker({ moods, selectedMood, onSelect }: MoodPickerProps) {
                 transition={reduce ? { duration: 0 } : PILL_TRANSITION}
               />
             ) : null}
-            <span className="relative">{mood.label}</span>
+            <TileIcon size={20} weight="duotone" aria-hidden className="shrink-0 text-black/70" />
+            <span className="whitespace-nowrap">{mood.label}</span>
           </motion.button>
         );
       })}

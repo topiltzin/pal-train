@@ -29,6 +29,12 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+/* One visible focus style for keyboard users, on every control. */
+:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 3px;
+}
+
 /* Loading shimmer for skeleton cards. Still under reduced motion: the bar stays solid. */
 .skeleton-shimmer {
   background: linear-gradient(90deg, #e6eaf2 0%, #f7f9fc 50%, #e6eaf2 100%);
