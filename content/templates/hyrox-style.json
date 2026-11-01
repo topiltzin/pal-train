@@ -1,0 +1,136 @@
+[
+  {
+    "id": "hyrox-style-001",
+    "name": "Mini Hyrox loop",
+    "focus": "hyrox-style",
+    "moods": ["energized", "want-to-sweat"],
+    "duration_minutes": 40,
+    "intensity": "high",
+    "equipment": ["rowing machine", "sled", "dumbbells"],
+    "description": "Short race-style rounds mixing rowing, carries, and lunges.",
+    "caution": "Race-style rounds are intense. Pace yourself and stop if you feel dizzy or sharp pain."
+  },
+  {
+    "id": "hyrox-style-002",
+    "name": "Sled push practice",
+    "focus": "hyrox-style",
+    "moods": ["focused"],
+    "duration_minutes": 25,
+    "intensity": "moderate",
+    "equipment": ["sled"],
+    "description": "Steady pushes with controlled breathing."
+  },
+  {
+    "id": "hyrox-style-003",
+    "name": "Farmers carry ladder",
+    "focus": "hyrox-style",
+    "moods": ["energized", "focused"],
+    "duration_minutes": 20,
+    "intensity": "moderate",
+    "equipment": ["dumbbells"],
+    "description": "Carry heavier weights across the room and back, one step up each round."
+  },
+  {
+    "id": "hyrox-style-004",
+    "name": "Ski erg intervals",
+    "focus": "hyrox-style",
+    "moods": ["want-to-sweat"],
+    "duration_minutes": 20,
+    "intensity": "high",
+    "equipment": ["ski erg"],
+    "description": "Short hard efforts with rest between them.",
+    "caution": "Ski erg intervals raise your heart rate quickly. Stop if you feel chest pain."
+  },
+  {
+    "id": "hyrox-style-005",
+    "name": "Wall ball flow",
+    "focus": "hyrox-style",
+    "moods": ["playful", "energized"],
+    "duration_minutes": 20,
+    "intensity": "moderate",
+    "equipment": ["medicine ball"],
+    "description": "Fun wall ball rounds at a comfortable pace."
+  },
+  {
+    "id": "hyrox-style-006",
+    "name": "Sandbag lunge steady",
+    "focus": "hyrox-style",
+    "moods": ["stressed", "calm"],
+    "duration_minutes": 25,
+    "intensity": "moderate",
+    "equipment": ["sandbag"],
+    "description": "Controlled lunges with a relaxed pace."
+  },
+  {
+    "id": "hyrox-style-007",
+    "name": "Burpee broad jump set",
+    "focus": "hyrox-style",
+    "moods": ["want-to-sweat"],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": ["none"],
+    "description": "Short sets of burpee broad jumps with rest between sets.",
+    "caution": "Jumping and floor drops load the joints. Stop if you feel sharp pain."
+  },
+  {
+    "id": "hyrox-style-008",
+    "name": "Easy row and carry",
+    "focus": "hyrox-style",
+    "moods": ["tired", "calm"],
+    "duration_minutes": 20,
+    "intensity": "low",
+    "equipment": ["rowing machine", "dumbbells"],
+    "description": "A light row followed by an easy carry."
+  },
+  {
+    "id": "hyrox-style-009",
+    "name": "Rowing sprints",
+    "focus": "hyrox-style",
+    "moods": ["focused", "energized"],
+    "duration_minutes": 15,
+    "intensity": "moderate",
+    "equipment": ["rowing machine"],
+    "description": "Short sprint pulls with full recovery."
+  },
+  {
+    "id": "hyrox-style-010",
+    "name": "Race-day pacing",
+    "focus": "hyrox-style",
+    "moods": ["unmotivated", "focused"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Practice a steady pace over a few rounds."
+  },
+  {
+    "id": "hyrox-style-011",
+    "name": "Mixed station circuit",
+    "focus": "hyrox-style",
+    "moods": ["playful"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["sled", "rowing machine", "dumbbells"],
+    "description": "Rotate through a few stations for variety."
+  },
+  {
+    "id": "hyrox-style-012",
+    "name": "Sled drag reset",
+    "focus": "hyrox-style",
+    "moods": ["stressed"],
+    "duration_minutes": 20,
+    "intensity": "low",
+    "equipment": ["sled"],
+    "description": "Easy sled drags for an active break."
+  },
+  {
+    "id": "hyrox-style-013",
+    "name": "Lunge and carry finisher",
+    "focus": "hyrox-style",
+    "moods": ["want-to-sweat", "unmotivated"],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": ["dumbbells"],
+    "description": "Quick lunge and carry rounds.",
+    "caution": "Keep your back neutral when carrying. Stop if you feel sharp pain."
+  }
+]

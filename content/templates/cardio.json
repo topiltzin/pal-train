@@ -1,0 +1,136 @@
+[
+  {
+    "id": "cardio-001",
+    "name": "Easy jog intervals",
+    "focus": "cardio",
+    "moods": ["tired", "calm"],
+    "duration_minutes": 25,
+    "intensity": "low",
+    "equipment": ["none"],
+    "description": "Light jogging with walking breaks."
+  },
+  {
+    "id": "cardio-002",
+    "name": "Steady bike ride",
+    "focus": "cardio",
+    "moods": ["focused", "calm"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["stationary bike"],
+    "description": "A steady pace, breathing in rhythm."
+  },
+  {
+    "id": "cardio-003",
+    "name": "Stair climb challenge",
+    "focus": "cardio",
+    "moods": ["energized"],
+    "duration_minutes": 20,
+    "intensity": "high",
+    "equipment": ["stairs"],
+    "description": "Climb steadily with short recovery breaks.",
+    "caution": "Stairs load the knees. Take breaks and stop if you feel sharp joint pain."
+  },
+  {
+    "id": "cardio-004",
+    "name": "Dance cardio party",
+    "focus": "cardio",
+    "moods": ["playful", "energized"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Put on a song and move to it."
+  },
+  {
+    "id": "cardio-005",
+    "name": "Brisk walk reset",
+    "focus": "cardio",
+    "moods": ["stressed", "calm"],
+    "duration_minutes": 25,
+    "intensity": "low",
+    "equipment": ["none"],
+    "description": "A fresh-air walk at a brisk, relaxed pace."
+  },
+  {
+    "id": "cardio-006",
+    "name": "Jump rope bursts",
+    "focus": "cardio",
+    "moods": ["want-to-sweat"],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": ["jump rope"],
+    "description": "Short bursts of skipping with rest.",
+    "caution": "Jumping loads the ankles and calves. Land softly and stop if you feel sharp pain."
+  },
+  {
+    "id": "cardio-007",
+    "name": "Rowing machine steady",
+    "focus": "cardio",
+    "moods": ["focused"],
+    "duration_minutes": 25,
+    "intensity": "moderate",
+    "equipment": ["rowing machine"],
+    "description": "Steady pulls at a consistent stroke rate."
+  },
+  {
+    "id": "cardio-008",
+    "name": "Low-impact step cardio",
+    "focus": "cardio",
+    "moods": ["unmotivated", "tired"],
+    "duration_minutes": 15,
+    "intensity": "low",
+    "equipment": ["step bench"],
+    "description": "Easy step-ups with a gentle arm swing."
+  },
+  {
+    "id": "cardio-009",
+    "name": "Fartlek run",
+    "focus": "cardio",
+    "moods": ["playful", "energized"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Alternate faster and slower running as you feel like it."
+  },
+  {
+    "id": "cardio-010",
+    "name": "Elliptical intervals",
+    "focus": "cardio",
+    "moods": ["want-to-sweat"],
+    "duration_minutes": 20,
+    "intensity": "high",
+    "equipment": ["elliptical"],
+    "description": "Push hard for short bursts, then ease off.",
+    "caution": "Keep an eye on your breathing. Stop if you feel chest pain or dizziness."
+  },
+  {
+    "id": "cardio-011",
+    "name": "Swim-style easy laps",
+    "focus": "cardio",
+    "moods": ["calm"],
+    "duration_minutes": 25,
+    "intensity": "low",
+    "equipment": ["pool"],
+    "description": "Relaxed laps at a comfortable pace."
+  },
+  {
+    "id": "cardio-012",
+    "name": "Air bike sprints",
+    "focus": "cardio",
+    "moods": ["energized", "want-to-sweat"],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": ["air bike"],
+    "description": "Short hard efforts with full recovery.",
+    "caution": "Sprint efforts are demanding. Warm up first and stop if you feel dizzy or sharp pain."
+  },
+  {
+    "id": "cardio-013",
+    "name": "Lazy cardio circuit",
+    "focus": "cardio",
+    "moods": ["unmotivated"],
+    "duration_minutes": 15,
+    "intensity": "low",
+    "equipment": ["none"],
+    "description": "A small circuit of easy moves to get your heart beating."
+  }
+]

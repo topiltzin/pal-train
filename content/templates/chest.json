@@ -1,0 +1,135 @@
+[
+  {
+    "id": "chest-001",
+    "name": "Push-up ladder",
+    "focus": "chest",
+    "moods": ["energized", "playful"],
+    "duration_minutes": 15,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Climb a ladder of push-up variations, dropping to easier ones whenever your form slips."
+  },
+  {
+    "id": "chest-002",
+    "name": "Slow tempo bench press",
+    "focus": "chest",
+    "moods": ["focused", "calm"],
+    "duration_minutes": 35,
+    "intensity": "moderate",
+    "equipment": ["barbell", "bench"],
+    "description": "Lower for three counts, pause, then press with control. Keep the bar path steady."
+  },
+  {
+    "id": "chest-003",
+    "name": "Heavy dumbbell press",
+    "focus": "chest",
+    "moods": ["energized"],
+    "duration_minutes": 40,
+    "intensity": "high",
+    "equipment": ["dumbbells", "bench"],
+    "description": "Work up to a challenging working set of a few reps.",
+    "caution": "Heavy pressing: warm up well, use safety pins or a spotter, and stop if you feel sharp shoulder pain."
+  },
+  {
+    "id": "chest-004",
+    "name": "Gentle floor press",
+    "focus": "chest",
+    "moods": ["tired", "calm"],
+    "duration_minutes": 20,
+    "intensity": "low",
+    "equipment": ["dumbbells"],
+    "description": "Lie on the floor and press lightly, moving only inside a comfortable range."
+  },
+  {
+    "id": "chest-005",
+    "name": "Cable fly flow",
+    "focus": "chest",
+    "moods": ["playful", "calm"],
+    "duration_minutes": 25,
+    "intensity": "low",
+    "equipment": ["cable machine"],
+    "description": "Smooth arcs with light weight. Focus on the stretch and the squeeze."
+  },
+  {
+    "id": "chest-006",
+    "name": "Incline dumbbell press",
+    "focus": "chest",
+    "moods": ["focused"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["dumbbells", "incline bench"],
+    "description": "Steady sets with a two-second lower and a clean finish."
+  },
+  {
+    "id": "chest-007",
+    "name": "Tempo push-up circuit",
+    "focus": "chest",
+    "moods": ["stressed", "calm"],
+    "duration_minutes": 20,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Slow four-count lowering push-ups in short sets, with rest between sets."
+  },
+  {
+    "id": "chest-008",
+    "name": "Explosive clap push-ups",
+    "focus": "chest",
+    "moods": ["want-to-sweat", "energized"],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": ["none"],
+    "description": "Short, fast sets of power push-ups. Build speed before adding reps.",
+    "caution": "Explosive moves load the wrists and shoulders. Stop if you feel joint pain."
+  },
+  {
+    "id": "chest-009",
+    "name": "Band chest press",
+    "focus": "chest",
+    "moods": ["unmotivated"],
+    "duration_minutes": 15,
+    "intensity": "low",
+    "equipment": ["resistance band"],
+    "description": "Quick, easy presses with a band. Short is perfect."
+  },
+  {
+    "id": "chest-010",
+    "name": "Dumbbell pullover and press",
+    "focus": "chest",
+    "moods": ["focused", "playful"],
+    "duration_minutes": 30,
+    "intensity": "moderate",
+    "equipment": ["dumbbells", "bench"],
+    "description": "Alternate the pullover and the press to stretch and load the chest."
+  },
+  {
+    "id": "chest-011",
+    "name": "Wall push-ups",
+    "focus": "chest",
+    "moods": ["tired"],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": ["none"],
+    "description": "Gentle wall presses. A zero-pressure way to warm up the chest."
+  },
+  {
+    "id": "chest-012",
+    "name": "Pressing superset",
+    "focus": "chest",
+    "moods": ["want-to-sweat"],
+    "duration_minutes": 35,
+    "intensity": "high",
+    "equipment": ["dumbbells", "bench"],
+    "description": "Pair a press with a row for quick back-and-forth sets.",
+    "caution": "Keep the pace controlled. Stop if your chest or shoulder feels sharp pain."
+  },
+  {
+    "id": "chest-013",
+    "name": "Stress-release push-ups",
+    "focus": "chest",
+    "moods": ["stressed", "unmotivated"],
+    "duration_minutes": 20,
+    "intensity": "moderate",
+    "equipment": ["none"],
+    "description": "Sets of push-ups with a long breath between each one. Keep it steady."
+  }
+]
