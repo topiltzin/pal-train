@@ -33,7 +33,8 @@ const FOCUS_ICONS: Record<FocusId, Icon> = {
 
 const PRESS_SCALE = 0.97;
 const PRESS_TRANSITION = { duration: 0.16, ease: [0.23, 1, 0.32, 1] as const };
-const PILL_TRANSITION = { type: "spring" as const, duration: 0.35, bounce: 0.15 };
+// No bounce: a settled, adult motion. The highlight moves in 220ms, faster than the eye tracks.
+const PILL_TRANSITION = { duration: 0.22, ease: [0.23, 1, 0.32, 1] as const };
 
 export function FocusPicker({ focusAreas, selectedFocus, onSelect }: FocusPickerProps) {
   const reduce = useReducedMotion();

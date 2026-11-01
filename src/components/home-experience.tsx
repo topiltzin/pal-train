@@ -110,14 +110,10 @@ export function HomeExperience({
         <h1 className="sr-only">Plan your session with Pip</h1>
         <section className="flex items-center gap-4">
           <div className="relative shrink-0">
-            <motion.span
+            <span
               aria-hidden
-              className="absolute inset-2 rounded-full blur-2xl"
+              className="absolute inset-2 rounded-full opacity-50 blur-2xl transition-colors duration-500 ease-out"
               style={{ backgroundColor: pipAccent }}
-              animate={
-                reduce ? undefined : { scale: [0.92, 1.08, 0.92], opacity: [0.45, 0.7, 0.45] }
-              }
-              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
             />
             <div className="relative md:scale-125">
               <Pip

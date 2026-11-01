@@ -13,7 +13,7 @@ const BLUSH = "#ff7a95";
 const SWEAT = "#7dd3fc";
 const BLINK_TIMES = [0, 0.94, 0.97, 1];
 const BLINK_DURATION_SECONDS = 4.2;
-const BOB_DURATION_SECONDS = 2.8;
+const BOB_DURATION_SECONDS = 3.6;
 
 type PipProps = {
   expression: PalExpression;
@@ -203,7 +203,7 @@ function Dumbbell() {
 export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
   const reduce = useReducedMotion();
   const gradientId = useId().replace(/:/g, "");
-  const bob = reduce ? undefined : { y: [0, -6, 0] };
+  const bob = reduce ? undefined : { y: [0, -4, 0] };
   const bobTransition = {
     duration: BOB_DURATION_SECONDS,
     repeat: Infinity,
@@ -245,7 +245,7 @@ export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
           key={expression}
           initial={reduce ? false : { scaleY: 0.88, scaleX: 1.06 }}
           animate={{ scaleY: 1, scaleX: 1 }}
-          transition={{ type: "spring", stiffness: 380, damping: 14 }}
+          transition={{ type: "spring", stiffness: 420, damping: 40 }}
           style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
         >
           {/* Sprout on top */}
@@ -317,8 +317,8 @@ export function Pip({ expression, accent, label, sizePx = 176 }: PipProps) {
             opacity={0.35}
           />
 
-          <circle cx={62} cy={126} r={9} fill={BLUSH} opacity={0.35} />
-          <circle cx={138} cy={126} r={9} fill={BLUSH} opacity={0.35} />
+          <circle cx={62} cy={126} r={9} fill={BLUSH} opacity={0.22} />
+          <circle cx={138} cy={126} r={9} fill={BLUSH} opacity={0.22} />
           <motion.g
             key={`eyes-${expression}`}
             animate={blink}

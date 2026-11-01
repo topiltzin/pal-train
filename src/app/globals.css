@@ -5,15 +5,19 @@
   --background: #f4f6fb;
   --foreground: #14161f;
 
-  /* Mood accents from src/features/moods/moods.ts. Dark text sits on every one. */
-  --color-accent-sunrise: #ffd166;
-  --color-accent-lilac: #c9b6ff;
-  --color-accent-coral: #ff8a80;
-  --color-accent-mint: #9ef0c8;
-  --color-accent-pink: #ffb3d1;
-  --color-accent-sky: #9ad7ff;
-  --color-accent-tangerine: #ffb463;
-  --color-accent-seafoam: #8fe3d8;
+  /* Mood accents from src/features/moods/moods.ts. Muted for a calmer, adult palette.
+     Dark ink text sits on every one. */
+  --color-accent-sunrise: #f1cf82;
+  --color-accent-lilac: #c9bfe9;
+  --color-accent-coral: #eba39a;
+  --color-accent-mint: #a6d9c1;
+  --color-accent-pink: #e9b9cc;
+  --color-accent-sky: #aacfe9;
+  --color-accent-tangerine: #ecc0a0;
+  --color-accent-seafoam: #9fd6cd;
+
+  /* One easing family for every UI transition (Emil: ease-out, never ease-in for UI). */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @theme inline {
