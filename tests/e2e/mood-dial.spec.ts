@@ -1,12 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { hasE2eCredentials, SKIP_REASON, signIn } from "./helpers/sign-in";
 
-const DIAL_NAME = "How are you feeling?";
-const DIAL_RADIUS_RATIO = 0.4;
-const DRAG_STEPS = 20;
-const QUARTER_TURN_RAD = Math.PI / 2;
-
-test.describe("mood dial", () => {
+test.describe("mood cards", () => {
   test.skip(!hasE2eCredentials, SKIP_REASON);
 
   test.beforeEach(async ({ page }) => {
@@ -27,26 +22,23 @@ test.describe("mood dial", () => {
     );
   });
 
-  test("dragging a finger a quarter turn selects the mood it lands on", async ({ page }) => {
+  test("clicking a mood card selects that mood", async ({ page }) => {
     // Arrange
-    const box = (await page.getByRole("group", { name: DIAL_NAME }).boundingBox())!;
-    const centreX = box.x + box.width / 2;
-    const centreY = box.y + box.height / 2;
-    const radius = box.width * DIAL_RADIUS_RATIO;
+    const stressed = page.getByRole("button", { name: "Stressed" });
 
     // Act
-    await page.mouse.move(centreX, centreY - radius);
-    await page.mouse.down();
-    for (let step = 1; step <= DRAG_STEPS; step += 1) {
-      const angle = (step / DRAG_STEPS) * QUARTER_TURN_RAD;
-      await page.mouse.move(centreX + radius * Math.sin(angle), centreY - radius * Math.cos(angle));
-    }
-    await page.mouse.up();
+    await stressed.click();
 
     // Assert
-    await expect(page.getByRole("button", { name: "Stressed" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    await expect(stressed).toHaveAttribute("aria-pressed", "true");
+  });
+
+  test("every mood card shows Pip in that mood", async ({ page }) => {
+    // Arrange / Act
+    const cards = page.getByRole("group", { name: "How are you feeling?" }).getByRole("button");
+
+    // Assert
+    await expect(cards).toHaveCount(8);
+    await expect(page.getByRole("img", { name: "Pip, looking tired" })).toHaveCount(1);
   });
 });
