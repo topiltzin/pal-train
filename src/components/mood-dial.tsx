@@ -158,87 +158,84 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
   const rovingIndex = selectedIndex >= 0 ? selectedIndex : 0;
 
   return (
-    <>
+    <div
+      ref={dialRef}
+      role="group"
+      aria-label="How are you feeling?"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
+      className="relative mx-auto aspect-square w-[min(20rem,88vw)] touch-none select-none"
+    >
       <div
-        ref={dialRef}
-        role="group"
-        aria-label="How are you feeling?"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerEnd}
-        onPointerCancel={handlePointerEnd}
-        className="relative mx-auto aspect-square w-[min(20rem,88vw)] touch-none select-none"
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute rounded-full border-2 border-black/10"
-          style={{ inset: `${50 - TRACK_RING_PCT}%` }}
-        />
+        aria-hidden
+        className="pointer-events-none absolute rounded-full border-2 border-black/10"
+        style={{ inset: `${50 - TRACK_RING_PCT}%` }}
+      />
 
-        {moods.map((mood, index) => {
-          const radians = toRadians(moodAngle(index, count));
-          const x = Math.sin(radians) * CHIP_RING_PCT;
-          const y = -Math.cos(radians) * CHIP_RING_PCT;
-          const isSelected = index === selectedIndex;
-          const isPreview = index === previewIndex && !isSelected;
-          const ChipIcon = MOOD_ICONS[mood.id];
-          return (
-            <button
-              key={mood.id}
-              ref={(element) => {
-                chipRefs.current[index] = element;
-              }}
-              type="button"
-              aria-label={mood.label}
-              aria-pressed={isSelected}
-              tabIndex={index === rovingIndex ? 0 : -1}
-              onClick={() => onSelect(mood.id)}
-              onKeyDown={(event) => handleChipKey(event, index)}
-              style={{
-                left: `calc(50% + ${x}% - ${CHIP_PX / 2}px)`,
-                top: `calc(50% + ${y}% - ${CHIP_PX / 2}px)`,
-                ...(isSelected ? { backgroundColor: `var(--color-${mood.accent})` } : {}),
-              }}
-              className={`absolute flex size-14 items-center justify-center rounded-full border-2 bg-white transition-colors duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97] ${
-                isSelected ? "border-black" : isPreview ? "border-black/50" : "border-black/15"
-              }`}
-            >
-              <ChipIcon size={22} weight="duotone" aria-hidden className="text-black/80" />
-            </button>
-          );
-        })}
-
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{ rotate: angle }}
-        >
-          <span
-            className="absolute left-1/2 -translate-x-1/2 rounded-full bg-[#14161f] ring-2 ring-white"
-            style={{
-              width: THUMB_PX,
-              height: THUMB_PX,
-              top: `calc(50% - ${TRACK_RING_PCT}% - ${THUMB_PX / 2}px)`,
+      {moods.map((mood, index) => {
+        const radians = toRadians(moodAngle(index, count));
+        const x = Math.sin(radians) * CHIP_RING_PCT;
+        const y = -Math.cos(radians) * CHIP_RING_PCT;
+        const isSelected = index === selectedIndex;
+        const isPreview = index === previewIndex && !isSelected;
+        const ChipIcon = MOOD_ICONS[mood.id];
+        return (
+          <button
+            key={mood.id}
+            ref={(element) => {
+              chipRefs.current[index] = element;
             }}
-          />
-        </motion.div>
+            type="button"
+            aria-label={mood.label}
+            aria-pressed={isSelected}
+            tabIndex={index === rovingIndex ? 0 : -1}
+            onClick={() => onSelect(mood.id)}
+            onKeyDown={(event) => handleChipKey(event, index)}
+            style={{
+              left: `calc(50% + ${x}% - ${CHIP_PX / 2}px)`,
+              top: `calc(50% + ${y}% - ${CHIP_PX / 2}px)`,
+              ...(isSelected ? { backgroundColor: `var(--color-${mood.accent})` } : {}),
+            }}
+            className={`absolute flex size-14 items-center justify-center rounded-full border-2 bg-white transition-colors duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97] ${
+              isSelected ? "border-black" : isPreview ? "border-black/50" : "border-black/15"
+            }`}
+          >
+            <ChipIcon size={22} weight="duotone" aria-hidden className="text-black/80" />
+          </button>
+        );
+      })}
 
-        <div
-          className="pointer-events-none absolute flex flex-col items-center justify-center gap-1 text-center"
-          style={{ inset: "26%" }}
-        >
-          <Pip
-            expression={pipExpression}
-            accent={pipAccent}
-            label={shownMood ? shownMood.label.toLowerCase() : "ready"}
-            sizePx={PIP_PX}
-          />
-          <p className="text-xs font-bold leading-tight">
-            {shownMood ? shownMood.label : "Pick a mood"}
-          </p>
-        </div>
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ rotate: angle }}
+      >
+        <span
+          className="absolute left-1/2 -translate-x-1/2 rounded-full bg-[#14161f] ring-2 ring-white"
+          style={{
+            width: THUMB_PX,
+            height: THUMB_PX,
+            top: `calc(50% - ${TRACK_RING_PCT}% - ${THUMB_PX / 2}px)`,
+          }}
+        />
+      </motion.div>
+
+      <div
+        className="pointer-events-none absolute flex flex-col items-center justify-center gap-1 text-center"
+        style={{ inset: "26%" }}
+      >
+        <Pip
+          expression={pipExpression}
+          accent={pipAccent}
+          label={shownMood ? shownMood.label.toLowerCase() : "ready"}
+          sizePx={PIP_PX}
+        />
+        <p className="text-xs font-bold leading-tight">
+          {shownMood ? shownMood.label : "Pick a mood"}
+        </p>
       </div>
-      <p className="text-center text-sm text-black/70">Drag the ring or tap an icon</p>
-    </>
+    </div>
   );
 }

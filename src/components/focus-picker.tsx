@@ -70,7 +70,7 @@ export function FocusPicker({ focusAreas, selectedFocus, onSelect }: FocusPicker
               size={22}
               weight="duotone"
               aria-hidden
-              className={isSelected ? "text-white" : "text-black/70"}
+              className={`shrink-0 ${isSelected ? "text-white" : "text-black/70"}`}
             />
             <span className={isSelected ? "text-white" : "text-black"}>{area.label}</span>
           </motion.button>
