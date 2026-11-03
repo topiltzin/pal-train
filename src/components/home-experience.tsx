@@ -1,13 +1,12 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { FocusPicker } from "@/components/focus-picker";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
 import { MoodCheckIn } from "@/components/mood-check-in";
-import { MoodPicker } from "@/components/mood-picker";
+import { MoodDial } from "@/components/mood-dial";
 import { Pip } from "@/components/pal/pip";
 import { SuggestionList } from "@/components/suggestion-list";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
@@ -27,7 +26,7 @@ type SuggestionsResponse = {
 type Selection = { mood: MoodId | null; focus: FocusId | null };
 
 const GENERIC_ERROR = "I couldn't fetch ideas just now. Give it another try in a moment.";
-const INTRO_COPY = "Hey, I'm Pip. Tell me how you feel, or tap a mood below.";
+const INTRO_COPY = "Hi, I'm Pip. Pick how you feel, then a muscle group for ideas.";
 const LIBRARY_UNAVAILABLE = "LIBRARY_UNAVAILABLE";
 const DEFAULT_ACCENT = "var(--color-accent-sky)";
 const DEFAULT_EXPRESSION: PalExpression = "happy";
@@ -52,7 +51,6 @@ export function HomeExperience({
   moods: readonly Mood[];
   focusAreas: readonly FocusArea[];
 }) {
-  const reduce = useReducedMotion();
   const [selection, setSelection] = useState<Selection>({ mood: null, focus: null });
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<SuggestionsResponse["data"]>(null);
@@ -128,15 +126,14 @@ export function HomeExperience({
           </div>
         </section>
 
-        <MoodCheckIn moods={moods} onMood={(mood) => runSelection({ ...selection, mood })} />
-
-        <section className="flex flex-col gap-3">
-          <h2 className="text-base font-semibold">Your mood</h2>
-          <MoodPicker
+        <section className="flex flex-col gap-5">
+          <h2 className="text-base font-semibold">How are you feeling?</h2>
+          <MoodDial
             moods={moods}
             selectedMood={selection.mood}
             onSelect={(mood) => runSelection({ ...selection, mood })}
           />
+          <MoodCheckIn moods={moods} onMood={(mood) => runSelection({ ...selection, mood })} />
         </section>
 
         <section className="flex flex-col gap-3">

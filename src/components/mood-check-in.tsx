@@ -45,7 +45,7 @@ export function MoodCheckIn({ moods, onMood }: MoodCheckInProps) {
     <div className="flex flex-col gap-3">
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <label htmlFor={inputId} className="text-sm font-semibold">
-          How do you feel?
+          Or describe it in your own words
         </label>
         <div className="flex items-center gap-2 rounded-full border-2 border-black/15 bg-white p-1.5 pl-4 focus-within:border-black">
           <input
