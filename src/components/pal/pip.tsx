@@ -10,14 +10,14 @@ import { PalFace } from "@/components/pal/pal-face";
  * Pip is the Pal Buddy character. The artwork in public/pal/buddy.png is the base; each mood
  * tints the character with its own colour and swaps the face drawn over the printed one.
  */
-const PAL_IMAGE_SRC = "/pal/buddy.png";
+export const PAL_IMAGE_SRC = "/pal/buddy.png";
 const GLOW_INSET_PX = 16;
 /** Fade the colour out above the "PalBuddy" wordmark so the logo keeps its own colours. */
-const WORDMARK_FADE_START = "76%";
-const WORDMARK_FADE_END = "79%";
-const TINT_OPACITY = 0.6;
+export const WORDMARK_FADE_START = "76%";
+export const WORDMARK_FADE_END = "79%";
+export const TINT_OPACITY = 0.6;
 
-const TINT_BY_EXPRESSION: Record<PalExpression, string> = {
+export const TINT_BY_EXPRESSION: Record<PalExpression, string> = {
   happy: "#4aa8e0",
   excited: "#f5a623",
   sleepy: "#8f7cf0",
