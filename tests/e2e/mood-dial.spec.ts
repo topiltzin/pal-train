@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { hasE2eCredentials, SKIP_REASON, signIn } from "./helpers/sign-in";
 
 const DIAL_NAME = "How are you feeling?";
-const DIAL_RADIUS_RATIO = 0.466;
+const DIAL_RADIUS_RATIO = 0.4;
 const DRAG_STEPS = 20;
 const QUARTER_TURN_RAD = Math.PI / 2;
 
