@@ -88,3 +88,16 @@ body {
   -webkit-appearance: none;
   background: transparent;
 }
+
+/* Mood-tinted surface: the selected mood colour lightly tints each card, so the whole page carries it.
+   --mood is set on the home screen root; the fallback keeps the default sky tint. */
+.mood-card {
+  background-color: color-mix(in srgb, var(--surface) 80%, var(--mood, var(--color-accent-sky)) 20%);
+  transition: background-color 500ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-card {
+    transition: none;
+  }
+}

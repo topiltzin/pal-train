@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { FocusPicker } from "@/components/focus-picker";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
@@ -94,10 +94,13 @@ export function HomeExperience({
   }
 
   return (
-    <div className="relative overflow-hidden">
+    <div
+      className="relative min-h-[100dvh] overflow-hidden"
+      style={{ "--mood": pipAccent } as CSSProperties}
+    >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-80 opacity-30 transition-colors duration-500 ease-out [mask-image:linear-gradient(black,transparent)]"
+        className="pointer-events-none absolute inset-0 opacity-20 transition-colors duration-500 ease-out [mask-image:linear-gradient(black,black_80%,rgb(0_0_0_/_0.6))]"
         style={{ backgroundColor: pipAccent }}
       />
       <main className="relative mx-auto flex w-full max-w-md flex-col gap-8 px-4 py-6 md:max-w-3xl md:py-10">
@@ -106,7 +109,7 @@ export function HomeExperience({
           {selectedMood ? selectedMood.buddyLine : INTRO_COPY}
         </p>
 
-        <section className="flex flex-col gap-5 rounded-3xl bg-surface p-5 ring-1 ring-line">
+        <section className="flex flex-col gap-5 mood-card rounded-3xl p-5 ring-1 ring-line">
           <h2 className="text-base font-semibold">How are you feeling?</h2>
           <MoodDial
             moods={moods}
@@ -115,7 +118,7 @@ export function HomeExperience({
           />
         </section>
 
-        <section className="flex flex-col gap-4 rounded-3xl bg-surface p-5 ring-1 ring-line">
+        <section className="flex flex-col gap-4 mood-card rounded-3xl p-5 ring-1 ring-line">
           <h2 className="text-base font-semibold">Muscle group</h2>
           <FocusPicker
             focusAreas={focusAreas}
