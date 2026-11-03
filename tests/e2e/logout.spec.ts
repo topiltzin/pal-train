@@ -10,7 +10,8 @@ test.describe("log out", () => {
     // Arrange
     await signIn(page);
 
-    // Act
+    // Act: Log out lives on the account card, inside the header menu
+    await page.getByRole("button", { name: "Menu" }).click();
     await page.getByRole("link", { name: "Log out" }).click();
 
     // Assert
