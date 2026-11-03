@@ -2,10 +2,12 @@
  * Session length limits and the exercise count rule. Shared by the planner, the API, the bar,
  * and the template query so the range cannot drift between them.
  */
+// The bar runs from 0. MIN_MINUTES is the floor of the exercise-count rule, not of the bar.
+export const SLIDER_MIN_MINUTES = 0;
 export const MIN_MINUTES = 10;
 export const MAX_MINUTES = 90;
 export const STEP_MINUTES = 5;
-export const DEFAULT_MIN_MINUTES = 30;
+export const DEFAULT_MIN_MINUTES = SLIDER_MIN_MINUTES;
 export const DEFAULT_MAX_MINUTES = 60;
 export const MIN_EXERCISES = 3;
 export const MAX_EXERCISES = 10;

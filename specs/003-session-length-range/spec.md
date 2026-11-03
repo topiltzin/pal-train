@@ -71,11 +71,11 @@ A user can see each exercise in the session with its duration, so they know how 
 
 ### Functional Requirements
 
-- **FR-001**: The home screen MUST show a session length control with a minimum handle and a maximum handle on one bar.
-- **FR-002**: Both handles MUST move in whole steps of 5 minutes, between 10 and 90 minutes inclusive.
-- **FR-003**: The default range MUST be 30 to 60 minutes.
-- **FR-004**: The minimum MUST never be set above the maximum. Moving one handle past the other MUST move the other handle with it.
-- **FR-005**: The current minimum and maximum MUST be shown as text in minutes, and the text MUST update as the handles move.
+- **FR-001**: The home screen MUST show a session length control with one handle that sets the longest session. The minimum is fixed at 0.
+- **FR-002**: The handle MUST move in whole steps of 5 minutes, from 0 to 90 minutes inclusive.
+- **FR-003**: The default longest session MUST be 60 minutes.
+- **FR-004**: The minimum is always 0. The meter MUST show its value as "Up to N minutes" and fill green to red as it grows.
+- **FR-005**: The current value MUST be shown as text in minutes, and the text MUST update as the handle moves.
 - **FR-006**: The session length control MUST be operable by touch, mouse, and keyboard, and each handle MUST be announced with its name and value to screen readers.
 - **FR-007**: The number of exercises in a session MUST scale with the range. The shortest allowed session (10 minutes) MUST include at least 3 exercises.
 - **FR-008**: At the longest allowed session (90 minutes), the session MUST include 10 exercises. Sessions between these lengths MUST include a count that does not decrease as the length increases.

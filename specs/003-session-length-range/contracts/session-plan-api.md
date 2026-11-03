@@ -21,7 +21,7 @@ Requires a signed-in user, as `POST /api/suggestions` does. Unauthenticated call
 
 | Field | Required | Rules |
 |---|---|---|
-| `minMinutes` | yes | Integer, 10 to 90, multiple of 5, at most `maxMinutes`. |
+| `minMinutes` | yes | Integer, 0 to 90, multiple of 5, at most `maxMinutes`. The app sends 0. |
 | `maxMinutes` | yes | Integer, 10 to 90, multiple of 5, at least `minMinutes`. |
 | `mood` | no | One of the existing mood ids. |
 | `focus` | no | One of the existing focus ids. |

@@ -6,17 +6,19 @@ import {
   MAX_MINUTES,
   MIN_EXERCISES,
   MIN_MINUTES,
+  SLIDER_MIN_MINUTES,
   STEP_MINUTES,
   targetExerciseCount,
 } from "@/features/sessions/session-length";
 
 describe("session length constants", () => {
-  it("uses a 10 to 90 minute range in 5-minute steps with a 30 to 60 default", () => {
+  it("uses a 0 to 90 minute bar in 5-minute steps with a 0 to 60 default", () => {
     // Arrange, Act, Assert against the exported values
     expect(MIN_MINUTES).toBe(10);
+    expect(SLIDER_MIN_MINUTES).toBe(0);
     expect(MAX_MINUTES).toBe(90);
     expect(STEP_MINUTES).toBe(5);
-    expect(DEFAULT_MIN_MINUTES).toBe(30);
+    expect(DEFAULT_MIN_MINUTES).toBe(0);
     expect(DEFAULT_MAX_MINUTES).toBe(60);
   });
 

@@ -34,7 +34,7 @@ describe("clampRange", () => {
     expect(clampRange("max", 120, BASE_RANGE).maxMinutes).toBe(90);
   });
 
-  it("clamps the minimum to 10 minutes", () => {
-    expect(clampRange("min", 0, BASE_RANGE).minMinutes).toBe(10);
+  it("clamps the minimum to 0 minutes", () => {
+    expect(clampRange("min", -20, BASE_RANGE).minMinutes).toBe(0);
   });
 });

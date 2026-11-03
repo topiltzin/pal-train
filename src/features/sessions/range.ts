@@ -1,4 +1,4 @@
-import { MAX_MINUTES, MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
+import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 
 export type SessionLengthRange = {
   minMinutes: number;
@@ -9,7 +9,7 @@ export type RangeHandle = "min" | "max";
 
 function snapToStep(value: number): number {
   const snapped = Math.round(value / STEP_MINUTES) * STEP_MINUTES;
-  return Math.min(MAX_MINUTES, Math.max(MIN_MINUTES, snapped));
+  return Math.min(MAX_MINUTES, Math.max(SLIDER_MIN_MINUTES, snapped));
 }
 
 /**

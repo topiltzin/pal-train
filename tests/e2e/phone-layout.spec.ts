@@ -35,6 +35,6 @@ test.describe("session length bar on a phone", () => {
 
     // Assert
     expect(overflow).toBeLessThanOrEqual(0);
-    await expect(page.getByRole("slider", { name: "Longest session" })).toBeVisible();
+    await expect(page.getByRole("slider", { name: "Session length" })).toBeVisible();
   });
 });

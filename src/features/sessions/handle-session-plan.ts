@@ -7,7 +7,7 @@ import {
   loadExerciseLibrary,
 } from "@/features/sessions/exercise-library";
 import { describePlanNotice, planSession, type SessionPlan } from "@/features/sessions/plan-session";
-import { MAX_MINUTES, MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
+import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 import { toExerciseView, type ExerciseView } from "@/features/sessions/session-view";
 import { ok } from "@/lib/api/envelope";
 import { ErrorCodes } from "@/lib/api/error-codes";
@@ -16,7 +16,7 @@ import { routeErrorResponse } from "@/lib/api/route-error";
 
 const ROUTE_LABEL = "POST /api/session-plan";
 const JSON_MESSAGE = "Send the request as JSON.";
-const LENGTH_MESSAGE = `Pick a length between ${MIN_MINUTES} and ${MAX_MINUTES} minutes.`;
+const LENGTH_MESSAGE = `Pick a length between ${SLIDER_MIN_MINUTES} and ${MAX_MINUTES} minutes.`;
 const STEP_MESSAGE = `Choose lengths in ${STEP_MINUTES}-minute steps.`;
 const ORDER_MESSAGE = "The shortest session cannot be longer than the longest.";
 const SOURCE_MESSAGE = "Pick a mood, a focus area, or both.";
@@ -25,7 +25,7 @@ const JSON_CONTENT_TYPE = "application/json";
 const lengthField = z
   .number()
   .int()
-  .min(MIN_MINUTES, { error: LENGTH_MESSAGE })
+  .min(SLIDER_MIN_MINUTES, { error: LENGTH_MESSAGE })
   .max(MAX_MINUTES, { error: LENGTH_MESSAGE })
   .refine((value) => value % STEP_MINUTES === 0, { error: STEP_MESSAGE });
 

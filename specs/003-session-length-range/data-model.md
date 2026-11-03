@@ -21,10 +21,10 @@ Validation runs at load time and in `scripts/validate-content.ts`. Invalid files
 
 | Field | Type | Rules |
 |---|---|---|
-| `minMinutes` | integer | 10 to 90, multiple of 5, at most `maxMinutes`. |
+| `minMinutes` | integer | 0 to 90, multiple of 5, at most `maxMinutes`. Always 0 from the bar. |
 | `maxMinutes` | integer | 10 to 90, multiple of 5, at least `minMinutes`. |
 
-Defaults: `minMinutes = 30`, `maxMinutes = 60`. Not persisted.
+Defaults: `minMinutes = 0`, `maxMinutes = 60`. Not persisted.
 
 ## SessionPlan (response value, not stored)
 
