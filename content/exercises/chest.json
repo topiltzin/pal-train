@@ -1,0 +1,145 @@
+[
+  {
+    "id": "chest-001",
+    "name": "Push-up",
+    "focus": "chest",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "chest-002",
+    "name": "Incline dumbbell press",
+    "focus": "chest",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ]
+  },
+  {
+    "id": "chest-003",
+    "name": "Doorway chest stretch",
+    "focus": "chest",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "chest-004",
+    "name": "Cable fly",
+    "focus": "chest",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 7,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "chest-005",
+    "name": "Barbell bench press",
+    "focus": "chest",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 12,
+    "intensity": "high",
+    "equipment": [
+      "barbell",
+      "bench"
+    ],
+    "caution": "Use a spotter for heavy sets. Keep feet planted and wrists stacked over elbows."
+  },
+  {
+    "id": "chest-006",
+    "name": "Dumbbell floor press",
+    "focus": "chest",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 8,
+    "intensity": "low",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "chest-007",
+    "name": "Wide-grip push-up",
+    "focus": "chest",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "chest-008",
+    "name": "Chest dip",
+    "focus": "chest",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "dip bars"
+    ],
+    "caution": "Shoulder strain risk. Stop if you feel pinching at the front of the shoulder."
+  },
+  {
+    "id": "chest-009",
+    "name": "Pec deck fly",
+    "focus": "chest",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "pec deck machine"
+    ]
+  },
+  {
+    "id": "chest-010",
+    "name": "Band chest press",
+    "focus": "chest",
+    "moods": [
+      "stressed",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  }
+]

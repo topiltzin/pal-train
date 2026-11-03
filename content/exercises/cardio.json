@@ -1,0 +1,141 @@
+[
+  {
+    "id": "cardio-001",
+    "name": "Jump rope",
+    "focus": "cardio",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "jump rope"
+    ]
+  },
+  {
+    "id": "cardio-002",
+    "name": "Brisk walk",
+    "focus": "cardio",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 12,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-003",
+    "name": "Bike sprint intervals",
+    "focus": "cardio",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 10,
+    "intensity": "high",
+    "equipment": [
+      "stationary bike"
+    ],
+    "caution": "Build up gradually. Stop if you feel chest pain, dizziness, or unusual breathlessness."
+  },
+  {
+    "id": "cardio-004",
+    "name": "Steady rowing",
+    "focus": "cardio",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "rowing machine"
+    ]
+  },
+  {
+    "id": "cardio-005",
+    "name": "Stair climb",
+    "focus": "cardio",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "stairs"
+    ]
+  },
+  {
+    "id": "cardio-006",
+    "name": "High knees",
+    "focus": "cardio",
+    "moods": [
+      "playful"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-007",
+    "name": "Shadow boxing",
+    "focus": "cardio",
+    "moods": [
+      "playful",
+      "stressed"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-008",
+    "name": "Jumping jacks",
+    "focus": "cardio",
+    "moods": [
+      "unmotivated",
+      "playful"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-009",
+    "name": "Easy cycling",
+    "focus": "cardio",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 12,
+    "intensity": "low",
+    "equipment": [
+      "stationary bike"
+    ]
+  },
+  {
+    "id": "cardio-010",
+    "name": "Elliptical intervals",
+    "focus": "cardio",
+    "moods": [
+      "focused",
+      "want-to-sweat"
+    ],
+    "minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "elliptical"
+    ]
+  }
+]

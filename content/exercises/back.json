@@ -1,0 +1,143 @@
+[
+  {
+    "id": "back-001",
+    "name": "Bent-over barbell row",
+    "focus": "back",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 10,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "caution": "Heavy rowing loads the lower back. Keep a neutral spine and brace before each rep."
+  },
+  {
+    "id": "back-002",
+    "name": "Lat pulldown",
+    "focus": "back",
+    "moods": [
+      "focused",
+      "stressed"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "back-003",
+    "name": "Seated cable row",
+    "focus": "back",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 7,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "back-004",
+    "name": "One-arm dumbbell row",
+    "focus": "back",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ]
+  },
+  {
+    "id": "back-005",
+    "name": "Band pull-apart",
+    "focus": "back",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "back-006",
+    "name": "Inverted row",
+    "focus": "back",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "sturdy table"
+    ]
+  },
+  {
+    "id": "back-007",
+    "name": "Face pull",
+    "focus": "back",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "back-008",
+    "name": "Superman hold",
+    "focus": "back",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "back-009",
+    "name": "Straight-arm pulldown",
+    "focus": "back",
+    "moods": [
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "back-010",
+    "name": "Renegade row",
+    "focus": "back",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  }
+]

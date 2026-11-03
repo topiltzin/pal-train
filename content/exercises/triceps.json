@@ -1,0 +1,143 @@
+[
+  {
+    "id": "triceps-001",
+    "name": "Close-grip push-up",
+    "focus": "triceps",
+    "moods": [
+      "focused",
+      "want-to-sweat"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "triceps-002",
+    "name": "Overhead dumbbell extension",
+    "focus": "triceps",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "triceps-003",
+    "name": "Bench dip",
+    "focus": "triceps",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "bench"
+    ]
+  },
+  {
+    "id": "triceps-004",
+    "name": "Rope pushdown",
+    "focus": "triceps",
+    "moods": [
+      "stressed",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "triceps-005",
+    "name": "Skull crusher",
+    "focus": "triceps",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "barbell",
+      "bench"
+    ]
+  },
+  {
+    "id": "triceps-006",
+    "name": "Diamond push-up",
+    "focus": "triceps",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "none"
+    ],
+    "caution": "Keep elbows close and wrists under shoulders to protect the wrists."
+  },
+  {
+    "id": "triceps-007",
+    "name": "Band pushdown",
+    "focus": "triceps",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "triceps-008",
+    "name": "Dumbbell kickback",
+    "focus": "triceps",
+    "moods": [
+      "calm",
+      "playful"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "triceps-009",
+    "name": "Tricep dip on parallel bars",
+    "focus": "triceps",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 7,
+    "intensity": "high",
+    "equipment": [
+      "dip bars"
+    ],
+    "caution": "Shoulder strain risk. Keep the descent shallow if you feel pain at the front of the shoulder."
+  },
+  {
+    "id": "triceps-010",
+    "name": "Overhead cable extension",
+    "focus": "triceps",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { hasE2eCredentials, SKIP_REASON, signIn } from "./helpers/sign-in";
 
 const PHONE_WIDTH_PX = 320;
 
@@ -16,5 +17,24 @@ test.describe("phone layout", () => {
     // Assert
     expect(overflow).toBeLessThanOrEqual(0);
     await expect(page.getByRole("link", { name: "Sign in to get started" })).toBeVisible();
+  });
+});
+
+test.describe("session length bar on a phone", () => {
+  test.skip(!hasE2eCredentials, SKIP_REASON);
+
+  test(`home screen has no horizontal scroll at ${PHONE_WIDTH_PX}px`, async ({ page }) => {
+    // Arrange
+    await page.setViewportSize({ width: PHONE_WIDTH_PX, height: 640 });
+    await signIn(page);
+
+    // Act
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+
+    // Assert
+    expect(overflow).toBeLessThanOrEqual(0);
+    await expect(page.getByRole("slider", { name: "Longest session" })).toBeVisible();
   });
 });

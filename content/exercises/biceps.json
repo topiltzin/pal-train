@@ -1,0 +1,141 @@
+[
+  {
+    "id": "biceps-001",
+    "name": "Dumbbell curl",
+    "focus": "biceps",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "biceps-002",
+    "name": "Hammer curl",
+    "focus": "biceps",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "biceps-003",
+    "name": "Concentration curl",
+    "focus": "biceps",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "biceps-004",
+    "name": "Barbell curl",
+    "focus": "biceps",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "barbell"
+    ]
+  },
+  {
+    "id": "biceps-005",
+    "name": "Incline dumbbell curl",
+    "focus": "biceps",
+    "moods": [
+      "focused"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ]
+  },
+  {
+    "id": "biceps-006",
+    "name": "Band curl",
+    "focus": "biceps",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "biceps-007",
+    "name": "Cable curl",
+    "focus": "biceps",
+    "moods": [
+      "stressed",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "biceps-008",
+    "name": "Chin-up",
+    "focus": "biceps",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "pull-up bar"
+    ],
+    "caution": "Lower under control. Avoid kipping if your elbows or shoulders are sore."
+  },
+  {
+    "id": "biceps-009",
+    "name": "Zottman curl",
+    "focus": "biceps",
+    "moods": [
+      "playful"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "biceps-010",
+    "name": "Isometric curl hold",
+    "focus": "biceps",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "dumbbell"
+    ]
+  }
+]

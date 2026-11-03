@@ -1,0 +1,142 @@
+[
+  {
+    "id": "legs-001",
+    "name": "Goblet squat",
+    "focus": "legs",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "legs-002",
+    "name": "Walking lunge",
+    "focus": "legs",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "legs-003",
+    "name": "Romanian deadlift",
+    "focus": "legs",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 9,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "caution": "Hinge at the hips with a flat back. Stop if you feel pain in the lower back."
+  },
+  {
+    "id": "legs-004",
+    "name": "Leg press",
+    "focus": "legs",
+    "moods": [
+      "focused",
+      "tired"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "leg press machine"
+    ]
+  },
+  {
+    "id": "legs-005",
+    "name": "Glute bridge",
+    "focus": "legs",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "legs-006",
+    "name": "Step-up",
+    "focus": "legs",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "bench"
+    ]
+  },
+  {
+    "id": "legs-007",
+    "name": "Seated leg curl",
+    "focus": "legs",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "leg curl machine"
+    ]
+  },
+  {
+    "id": "legs-008",
+    "name": "Standing calf raise",
+    "focus": "legs",
+    "moods": [
+      "unmotivated"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "legs-009",
+    "name": "Wall sit",
+    "focus": "legs",
+    "moods": [
+      "stressed",
+      "focused"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "legs-010",
+    "name": "Box jump",
+    "focus": "legs",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "plyo box"
+    ],
+    "caution": "Land softly with knees bent. Step down rather than jump down to protect the knees."
+  }
+]

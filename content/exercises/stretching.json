@@ -1,0 +1,140 @@
+[
+  {
+    "id": "stretching-001",
+    "name": "Standing hamstring stretch",
+    "focus": "stretching",
+    "moods": [
+      "tired",
+      "calm"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-002",
+    "name": "Hip flexor stretch",
+    "focus": "stretching",
+    "moods": [
+      "stressed",
+      "calm"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-003",
+    "name": "Child's pose",
+    "focus": "stretching",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-004",
+    "name": "Cat-cow",
+    "focus": "stretching",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-005",
+    "name": "Seated spinal twist",
+    "focus": "stretching",
+    "moods": [
+      "calm"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-006",
+    "name": "Doorway shoulder stretch",
+    "focus": "stretching",
+    "moods": [
+      "stressed",
+      "tired"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-007",
+    "name": "Figure-four glute stretch",
+    "focus": "stretching",
+    "moods": [
+      "tired",
+      "calm"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-008",
+    "name": "Thoracic rotation",
+    "focus": "stretching",
+    "moods": [
+      "unmotivated",
+      "calm"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-009",
+    "name": "Neck release",
+    "focus": "stretching",
+    "moods": [
+      "stressed"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "stretching-010",
+    "name": "Standing quad stretch",
+    "focus": "stretching",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  }
+]

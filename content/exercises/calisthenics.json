@@ -1,0 +1,144 @@
+[
+  {
+    "id": "calisthenics-001",
+    "name": "Pull-up",
+    "focus": "calisthenics",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "pull-up bar"
+    ],
+    "caution": "Use a band for assistance if you cannot control the lowering. Avoid kipping while learning."
+  },
+  {
+    "id": "calisthenics-002",
+    "name": "Archer push-up",
+    "focus": "calisthenics",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "calisthenics-003",
+    "name": "Pistol squat progression",
+    "focus": "calisthenics",
+    "moods": [
+      "focused"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "none"
+    ],
+    "caution": "Hold a support for balance and go only as low as you can control."
+  },
+  {
+    "id": "calisthenics-004",
+    "name": "Hollow body hold",
+    "focus": "calisthenics",
+    "moods": [
+      "focused",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "calisthenics-005",
+    "name": "L-sit progression",
+    "focus": "calisthenics",
+    "moods": [
+      "focused"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "parallel bars"
+    ]
+  },
+  {
+    "id": "calisthenics-006",
+    "name": "Wall handstand hold",
+    "focus": "calisthenics",
+    "moods": [
+      "energized",
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "high",
+    "equipment": [
+      "wall"
+    ],
+    "caution": "Practice with a spotter or against a wall. Stop if you feel neck pain."
+  },
+  {
+    "id": "calisthenics-007",
+    "name": "Parallel bar dip",
+    "focus": "calisthenics",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 7,
+    "intensity": "high",
+    "equipment": [
+      "parallel bars"
+    ],
+    "caution": "Shoulder strain risk. Keep the descent shallow if you feel pain at the front of the shoulder."
+  },
+  {
+    "id": "calisthenics-008",
+    "name": "Australian pull-up",
+    "focus": "calisthenics",
+    "moods": [
+      "playful",
+      "tired"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "sturdy table"
+    ]
+  },
+  {
+    "id": "calisthenics-009",
+    "name": "Bodyweight squat",
+    "focus": "calisthenics",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "calisthenics-010",
+    "name": "Forearm plank",
+    "focus": "calisthenics",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  }
+]

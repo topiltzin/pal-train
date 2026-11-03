@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hyrox-style-001",
+    "name": "Ski erg",
+    "focus": "hyrox-style",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "ski erg"
+    ],
+    "caution": "Pace the first 500 metres. Sprinting early leads to a fast fade."
+  },
+  {
+    "id": "hyrox-style-002",
+    "name": "Sled push",
+    "focus": "hyrox-style",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "sled"
+    ],
+    "caution": "Keep the trunk braced and the arms straight. Stop if your lower back rounds."
+  },
+  {
+    "id": "hyrox-style-003",
+    "name": "Sled pull",
+    "focus": "hyrox-style",
+    "moods": [
+      "focused",
+      "energized"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "sled",
+      "rope"
+    ]
+  },
+  {
+    "id": "hyrox-style-004",
+    "name": "Burpee broad jump",
+    "focus": "hyrox-style",
+    "moods": [
+      "want-to-sweat",
+      "playful"
+    ],
+    "minutes": 7,
+    "intensity": "high",
+    "equipment": [
+      "none"
+    ],
+    "caution": "High impact on the knees and wrists. Scale to step-backs if you feel joint pain."
+  },
+  {
+    "id": "hyrox-style-005",
+    "name": "Farmers carry",
+    "focus": "hyrox-style",
+    "moods": [
+      "focused",
+      "stressed"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "hyrox-style-006",
+    "name": "Wall ball",
+    "focus": "hyrox-style",
+    "moods": [
+      "energized",
+      "playful"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "medicine ball"
+    ],
+    "caution": "Squat deep and drive through the legs. Keep the throw overhead controlled."
+  },
+  {
+    "id": "hyrox-style-007",
+    "name": "Rowing 500 metres",
+    "focus": "hyrox-style",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "rowing machine"
+    ]
+  },
+  {
+    "id": "hyrox-style-008",
+    "name": "Sandbag lunge",
+    "focus": "hyrox-style",
+    "moods": [
+      "want-to-sweat",
+      "focused"
+    ],
+    "minutes": 7,
+    "intensity": "moderate",
+    "equipment": [
+      "sandbag"
+    ]
+  },
+  {
+    "id": "hyrox-style-009",
+    "name": "Easy run 1 km",
+    "focus": "hyrox-style",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "hyrox-style-010",
+    "name": "Rowing intervals",
+    "focus": "hyrox-style",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "rowing machine"
+    ]
+  }
+]

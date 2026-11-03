@@ -1,0 +1,142 @@
+[
+  {
+    "id": "conditioning-001",
+    "name": "Kettlebell swing",
+    "focus": "conditioning",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "kettlebell"
+    ],
+    "caution": "Hinge from the hips, not the lower back. Keep the arms loose and the core tight."
+  },
+  {
+    "id": "conditioning-002",
+    "name": "Thruster",
+    "focus": "conditioning",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "minutes": 8,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "conditioning-003",
+    "name": "Mountain climber",
+    "focus": "conditioning",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "conditioning-004",
+    "name": "Battle rope waves",
+    "focus": "conditioning",
+    "moods": [
+      "energized",
+      "stressed"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "battle ropes"
+    ]
+  },
+  {
+    "id": "conditioning-005",
+    "name": "Bear crawl",
+    "focus": "conditioning",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "conditioning-006",
+    "name": "Sprint intervals",
+    "focus": "conditioning",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "none"
+    ],
+    "caution": "Warm up for ten minutes first. Stop if you feel chest pain or dizziness."
+  },
+  {
+    "id": "conditioning-007",
+    "name": "Medicine ball slam",
+    "focus": "conditioning",
+    "moods": [
+      "stressed",
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "medicine ball"
+    ]
+  },
+  {
+    "id": "conditioning-008",
+    "name": "Burpee",
+    "focus": "conditioning",
+    "moods": [
+      "want-to-sweat"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "conditioning-009",
+    "name": "Box step-over",
+    "focus": "conditioning",
+    "moods": [
+      "focused",
+      "unmotivated"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "plyo box"
+    ]
+  },
+  {
+    "id": "conditioning-010",
+    "name": "Plank to push-up",
+    "focus": "conditioning",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  }
+]

@@ -7,6 +7,7 @@ import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
 import { MoodDial } from "@/components/mood-dial";
 import { SuggestionList } from "@/components/suggestion-list";
+import { SessionPlanner } from "@/components/session-planner";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
 import type { FocusArea, FocusId } from "@/features/library/focus-areas";
 import type { Mood, MoodId } from "@/features/moods/moods";
@@ -138,6 +139,8 @@ export function HomeExperience({
             </a>
           ) : null}
         </section>
+
+        <SessionPlanner mood={selection.mood ?? undefined} focus={selection.focus ?? undefined} />
 
         {status === "loading" ? <SuggestionSkeleton /> : null}
         {status === "error" && errorCode === LIBRARY_UNAVAILABLE ? <LibraryError /> : null}

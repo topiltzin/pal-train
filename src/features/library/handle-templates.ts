@@ -5,6 +5,7 @@ import { focusIds, type FocusId } from "@/features/library/focus-areas";
 import { loadLibrary } from "@/features/library/library-repository";
 import { intensityLevels } from "@/features/moods/moods";
 import { toSuggestionView } from "@/features/suggestions/suggestion-view";
+import { MAX_MINUTES, MIN_MINUTES } from "@/features/sessions/session-length";
 import { ok } from "@/lib/api/envelope";
 import { ErrorCodes } from "@/lib/api/error-codes";
 import { errorResponse } from "@/lib/api/errors";
@@ -12,8 +13,6 @@ import { routeErrorResponse } from "@/lib/api/route-error";
 
 const MIN_LIMIT = 1;
 const MAX_LIMIT = MAX_BROWSE_LIMIT;
-const MIN_MINUTES = 10;
-const MAX_MINUTES = 90;
 const DIGITS_ONLY = /^\d+$/;
 
 const digitsToNumber = (min: number, max: number) =>
