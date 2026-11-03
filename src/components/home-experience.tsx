@@ -5,7 +5,6 @@ import { useState } from "react";
 import { FocusPicker } from "@/components/focus-picker";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
-import { MoodCheckIn } from "@/components/mood-check-in";
 import { MoodDial } from "@/components/mood-dial";
 import { SuggestionList } from "@/components/suggestion-list";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
@@ -113,7 +112,6 @@ export function HomeExperience({
             selectedMood={selection.mood}
             onSelect={(mood) => runSelection({ ...selection, mood })}
           />
-          <MoodCheckIn moods={moods} onMood={(mood) => runSelection({ ...selection, mood })} />
         </section>
 
         <section className="flex flex-col gap-3">
