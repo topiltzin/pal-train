@@ -57,11 +57,11 @@ export function MoodCheckIn({ moods, onMood }: MoodCheckInProps) {
             placeholder="So tired after work"
             autoComplete="off"
             aria-describedby={replyId}
-            className="min-w-0 flex-1 bg-transparent py-2 text-base outline-none placeholder:text-black/40"
+            className="min-w-0 flex-1 bg-transparent py-2 text-base outline-none placeholder:text-black/60"
           />
           <button
             type="submit"
-            className="flex items-center gap-1 rounded-full bg-[#14161f] px-4 py-2 text-sm font-semibold text-white transition-transform duration-150 ease-out hover:bg-black active:scale-[0.97]"
+            className="flex min-h-11 items-center gap-1 rounded-full bg-[#14161f] px-4 py-2 text-sm font-semibold text-white transition-transform duration-150 ease-out hover:bg-black active:scale-[0.97]"
           >
             Ask Pip
             <ArrowRight size={16} weight="bold" aria-hidden />

@@ -86,13 +86,17 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
   const dialRef = useRef<HTMLDivElement>(null);
   const chipRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const dragRef = useRef<DragState | null>(null);
+  // Keyboard moves snap instantly: the user is repeating a key, so motion would only lag behind it.
+  const keyboardMoveRef = useRef(false);
 
   // Move the thumb when the selection changes from outside the dial (tap, keyboard or typed mood).
   useEffect(() => {
+    const instant = keyboardMoveRef.current;
+    keyboardMoveRef.current = false;
     if (selectedIndex < 0 || dragRef.current?.dragging) return;
     const target = settleAngle(angle.get(), selectedIndex, count);
     const controls = animate(angle, target, {
-      duration: reduce ? 0 : SNAP_SECONDS,
+      duration: reduce || instant ? 0 : SNAP_SECONDS,
       ease: SNAP_EASE,
     });
     return () => controls.stop();
@@ -151,6 +155,7 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
     if (step === undefined) return;
     event.preventDefault();
     const next = (index + step + count) % count;
+    keyboardMoveRef.current = true;
     onSelect(moods[next].id);
     chipRefs.current[next]?.focus();
   }

@@ -126,10 +126,18 @@ export function HomeExperience({
           {selectedFocusArea ? (
             <Link
               href={`/library/${selectedFocusArea.id}`}
-              className="text-sm font-semibold underline"
+              className="inline-flex min-h-11 items-center text-sm font-semibold underline"
             >
               Browse all {selectedFocusArea.label} ideas
             </Link>
+          ) : null}
+          {status === "ready" && result ? (
+            <a
+              href="#ideas"
+              className="inline-flex min-h-11 items-center text-sm font-semibold underline"
+            >
+              See the ideas
+            </a>
           ) : null}
         </section>
 
@@ -139,11 +147,13 @@ export function HomeExperience({
           <p role="alert">{errorMessage}</p>
         ) : null}
         {status === "ready" && result ? (
-          <SuggestionList
-            suggestions={result.suggestions}
-            partial={result.partial}
-            onAnotherIdea={showAnotherIdea}
-          />
+          <div id="ideas" className="scroll-mt-4">
+            <SuggestionList
+              suggestions={result.suggestions}
+              partial={result.partial}
+              onAnotherIdea={showAnotherIdea}
+            />
+          </div>
         ) : null}
         <MedicalNotice />
       </main>

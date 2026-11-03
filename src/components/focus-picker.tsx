@@ -56,7 +56,7 @@ export function FocusPicker({ focusAreas, selectedFocus, onSelect }: FocusPicker
             onClick={() => onSelect(isSelected ? null : area.id)}
             whileTap={reduce ? undefined : { scale: PRESS_SCALE }}
             transition={PRESS_TRANSITION}
-            className="relative isolate flex items-center gap-3 overflow-hidden rounded-2xl border-2 border-black/15 bg-white px-3 py-3 text-left font-semibold"
+            className="relative isolate flex flex-col items-start gap-2 overflow-hidden rounded-2xl border-2 border-black/15 bg-white px-3 py-3 text-left font-semibold"
           >
             {isSelected ? (
               <motion.span
