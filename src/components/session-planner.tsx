@@ -83,7 +83,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
   }
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 rounded-3xl bg-surface p-5 ring-1 ring-line">
       <h2 className="text-base font-semibold">Session plan</h2>
       <SessionLengthControl value={liveRange} onChange={setLiveRange} onCommit={commitRange} />
       <SessionPlanList

@@ -15,7 +15,7 @@ import {
 } from "@/features/sessions/session-length";
 
 const METER_LABEL = "Session length";
-const UNLIT_SEGMENT = "rgb(0 0 0 / 0.08)";
+const UNLIT_SEGMENT = "rgb(255 255 255 / 0.08)";
 const SEGMENT_INDEXES = Array.from({ length: SEGMENT_COUNT }, (_, index) => index);
 
 type SessionLengthControlProps = {
@@ -42,7 +42,7 @@ export function SessionLengthControl({ value, onChange, onCommit }: SessionLengt
       <p className="text-base font-semibold" aria-live="polite">
         Up to {value.maxMinutes} minutes
       </p>
-      <div className="relative h-16 rounded-full focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-black">
+      <div className="relative h-16 rounded-full focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-foreground">
         <div aria-hidden className="flex h-full items-end gap-1 px-1">
           {SEGMENT_INDEXES.map((index) => (
             <span
@@ -70,7 +70,7 @@ export function SessionLengthControl({ value, onChange, onCommit }: SessionLengt
           className="session-meter"
         />
       </div>
-      <div aria-hidden className="flex justify-between text-xs text-black/60">
+      <div aria-hidden className="flex justify-between text-xs text-muted">
         <span>{SLIDER_MIN_MINUTES}</span>
         <span>{MAX_MINUTES} min</span>
       </div>

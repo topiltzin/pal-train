@@ -4,7 +4,7 @@ export default function SignInPage() {
   return (
     <main
       className="relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 overflow-hidden px-4 py-10 text-center"
-      style={{ background: "linear-gradient(180deg, #dff1ff 0%, var(--background) 60%)" }}
+      style={{ background: "linear-gradient(180deg, var(--surface-raised) 0%, var(--background) 60%)" }}
     >
       <Pip expression="happy" accent="var(--color-accent-sky)" label="happy" sizePx={176} />
       <h1 className="text-3xl font-bold">Hey, I&apos;m your gym buddy</h1>
@@ -14,7 +14,7 @@ export default function SignInPage() {
       </p>
       <a
         href="/auth/login?returnTo=/"
-        className="rounded-full bg-[#14161f] px-6 py-3 text-base font-semibold text-white transition-transform duration-150 ease-out active:scale-[0.97]"
+        className="rounded-full bg-accent px-6 py-3 text-base font-semibold text-on-accent transition-transform duration-150 ease-out active:scale-[0.97]"
       >
         Sign in to get started
       </a>

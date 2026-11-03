@@ -106,7 +106,7 @@ export function HomeExperience({
           {selectedMood ? selectedMood.buddyLine : INTRO_COPY}
         </p>
 
-        <section className="flex flex-col gap-5">
+        <section className="flex flex-col gap-5 rounded-3xl bg-surface p-5 ring-1 ring-line">
           <h2 className="text-base font-semibold">How are you feeling?</h2>
           <MoodDial
             moods={moods}
@@ -115,7 +115,7 @@ export function HomeExperience({
           />
         </section>
 
-        <section className="flex flex-col gap-3">
+        <section className="flex flex-col gap-4 rounded-3xl bg-surface p-5 ring-1 ring-line">
           <h2 className="text-base font-semibold">Muscle group</h2>
           <FocusPicker
             focusAreas={focusAreas}

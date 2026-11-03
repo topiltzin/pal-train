@@ -31,7 +31,7 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
       <Link href={`/library/${template.focus}`} className="text-sm font-semibold underline">
         Back to {area?.label ?? template.focus} ideas
       </Link>
-      <article className="flex flex-col gap-3 rounded-2xl border-2 border-black/20 bg-white p-5">
+      <article className="flex flex-col gap-3 rounded-2xl border-2 border-line bg-surface p-5">
         <h1 className="text-2xl font-bold">{template.name}</h1>
         <dl className="grid grid-cols-2 gap-2 text-sm">
           <dt className="font-semibold">Focus</dt>
@@ -41,7 +41,7 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
           <dt className="font-semibold">Intensity</dt>
           <dd>
             <span className="font-semibold">{intensityLabel(template.intensity)}</span>
-            <span className="block text-sm text-black/70">{intensityMeaning(template.intensity)}</span>
+            <span className="block text-sm text-muted">{intensityMeaning(template.intensity)}</span>
           </dd>
           <dt className="font-semibold">Equipment</dt>
           <dd>{template.equipment.join(", ")}</dd>

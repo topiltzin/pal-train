@@ -189,7 +189,7 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute rounded-full border-2 border-black/10"
+          className="pointer-events-none absolute rounded-full border-2 border-line"
           style={{ inset: `${50 - TRACK_RING_PCT}%` }}
         />
 
@@ -217,11 +217,11 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
                 top: `calc(50% + ${y}% - ${CHIP_PX / 2}px)`,
                 ...(isSelected ? { backgroundColor: `var(--color-${mood.accent})` } : {}),
               }}
-              className={`absolute flex size-14 touch-none items-center justify-center rounded-full border-2 bg-white transition-colors duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97] ${
-                isSelected ? "border-black" : isPreview ? "border-black/50" : "border-black/15"
+              className={`absolute flex size-14 touch-none items-center justify-center rounded-full border-2 bg-surface transition-colors duration-150 ease-out hover:border-muted motion-safe:active:scale-[0.97] ${
+                isSelected ? "border-foreground" : isPreview ? "border-line" : "border-line"
               }`}
             >
-              <ChipIcon size={22} weight="duotone" aria-hidden className="text-black/80" />
+              <ChipIcon size={22} weight="duotone" aria-hidden className="text-muted" />
             </button>
           );
         })}
@@ -232,7 +232,7 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
           style={{ rotate: angle }}
         >
           <span
-            className="absolute left-1/2 -translate-x-1/2 rounded-full bg-[#14161f] ring-2 ring-white"
+            className="absolute left-1/2 -translate-x-1/2 rounded-full bg-accent ring-2 ring-surface"
             style={{
               width: THUMB_PX,
               height: THUMB_PX,

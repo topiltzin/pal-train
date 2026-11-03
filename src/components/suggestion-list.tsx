@@ -34,7 +34,7 @@ export function SuggestionList({ suggestions, partial, onAnotherIdea }: Suggesti
           onClick={onAnotherIdea}
           whileTap={reduce ? undefined : { scale: 0.97 }}
           transition={{ duration: 0.16, ease: ENTER_EASE }}
-          className="flex items-center gap-2 self-start rounded-full border-2 border-black px-4 py-2 text-sm font-semibold"
+          className="flex items-center gap-2 self-start rounded-full border-2 border-foreground px-4 py-2 text-sm font-semibold"
         >
           <Shuffle size={16} weight="bold" aria-hidden />
           Another idea
@@ -58,7 +58,7 @@ export function SuggestionList({ suggestions, partial, onAnotherIdea }: Suggesti
               ease: ENTER_EASE,
               delay: reduce ? 0 : index * STAGGER_SECONDS,
             }}
-            className="rounded-2xl border-2 border-black/15 bg-white p-4"
+            className="rounded-2xl border-2 border-line bg-surface p-4"
           >
             <h3 className="text-lg font-bold">
               <Link
@@ -73,7 +73,7 @@ export function SuggestionList({ suggestions, partial, onAnotherIdea }: Suggesti
               <span aria-hidden>·</span>
               <span>{item.durationMinutes} min</span>
               <span
-                className="rounded-full px-2 py-0.5 text-xs font-semibold text-black"
+                className="rounded-full px-2 py-0.5 text-xs font-semibold text-foreground"
                 style={{ backgroundColor: INTENSITY_COLOR[item.intensity] }}
               >
                 {item.intensity} intensity

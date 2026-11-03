@@ -19,10 +19,10 @@ async function AuthenticatedShell({ children }: { children: ReactNode }) {
   const user = await upsertUser(claims);
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="border-b border-black/10">
+      <header className="border-b border-line">
         <div className="mx-auto flex w-full max-w-md items-center justify-between gap-3 px-4 py-3 md:max-w-3xl">
           <div className="flex min-w-0 items-center gap-3">
-            <span className="relative size-11 shrink-0 overflow-hidden rounded-full bg-white ring-1 ring-black/10">
+            <span className="relative size-11 shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-line">
               <Image
                 src={PIP_AVATAR_SRC}
                 alt=""
@@ -36,12 +36,12 @@ async function AuthenticatedShell({ children }: { children: ReactNode }) {
               <p className="truncate text-base font-semibold leading-tight">
                 Hi, {user.displayName}!
               </p>
-              <p className="text-sm leading-tight text-black/60">Pal Buddy</p>
+              <p className="text-sm leading-tight text-muted">Pal Buddy</p>
             </div>
           </div>
           <a
             href={LOGOUT_HREF}
-            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border-2 border-black/15 bg-white px-4 text-sm font-semibold text-black transition-[border-color,transform] duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97]"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border-2 border-line bg-surface px-4 text-sm font-semibold text-foreground transition-[border-color,transform] duration-150 ease-out hover:border-muted motion-safe:active:scale-[0.97]"
           >
             <SignOut size={16} weight="bold" aria-hidden className="shrink-0" />
             Log out

@@ -36,7 +36,7 @@ export function TemplateFilters({ focus, intensity, maxMinutes }: TemplateFilter
       </label>
       <button
         type="submit"
-        className="rounded-full bg-black px-4 py-2 text-sm font-semibold text-white"
+        className="rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-on-accent"
       >
         Apply
       </button>

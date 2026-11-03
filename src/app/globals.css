@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* One light theme for the whole app. Cool off-white keeps the mood accents readable. */
-  --background: #f4f6fb;
-  --foreground: #14161f;
+  /* One dark theme for the whole app: graphite surfaces, one emerald accent, mood colours as glow only. */
+  color-scheme: dark;
+  --background: #0e1116;
+  --foreground: #eef1f5;
+  --surface: #171b22;
+  --surface-raised: #1f242d;
+  --line: rgb(255 255 255 / 0.1);
+  --muted: #9aa4b2;
+  --accent: #3ddc97;
+  --on-accent: #0b1411;
 
   /* Mood accents from src/features/moods/moods.ts. Muted for a calmer, adult palette.
      Dark ink text sits on every one. */
@@ -23,6 +30,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -41,7 +54,7 @@ body {
 
 /* Loading shimmer for skeleton cards. Still under reduced motion: the bar stays solid. */
 .skeleton-shimmer {
-  background: linear-gradient(90deg, #e6eaf2 0%, #f7f9fc 50%, #e6eaf2 100%);
+  background: linear-gradient(90deg, #1f242d 0%, #2a313c 50%, #1f242d 100%);
   background-size: 200% 100%;
 }
 

@@ -41,15 +41,15 @@ const FOCUS_ICONS: Record<FocusId, Icon> = {
   core: Crosshair,
 };
 
-const PRESS_SCALE = 0.97;
-const PRESS_TRANSITION = { duration: 0.16, ease: [0.23, 1, 0.32, 1] as const };
-// No bounce: a settled, adult motion. The highlight moves in 220ms, faster than the eye tracks.
-const PILL_TRANSITION = { duration: 0.22, ease: [0.23, 1, 0.32, 1] as const };
+const PRESS_SCALE = 0.96;
+// Quick-action feedback: ease-out, under 200ms, colour and press only (no layout motion).
+const PRESS_TRANSITION = { duration: 0.14, ease: [0.23, 1, 0.32, 1] as const };
 
+/** Quick-action row: circular icon buttons with a short label, the selected one filled with the accent. */
 export function FocusPicker({ focusAreas, selectedFocus, onSelect }: FocusPickerProps) {
   const reduce = useReducedMotion();
   return (
-    <div role="group" aria-label="Muscle group" className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div role="group" aria-label="Muscle group" className="grid grid-cols-4 gap-x-2 gap-y-5">
       {focusAreas.map((area) => {
         const isSelected = area.id === selectedFocus;
         const TileIcon = FOCUS_ICONS[area.id];
@@ -62,23 +62,22 @@ export function FocusPicker({ focusAreas, selectedFocus, onSelect }: FocusPicker
             onClick={() => onSelect(isSelected ? null : area.id)}
             whileTap={reduce ? undefined : { scale: PRESS_SCALE }}
             transition={PRESS_TRANSITION}
-            className="relative isolate flex flex-col items-start gap-2 overflow-hidden rounded-2xl border-2 border-black/15 bg-white px-3 py-3 text-left font-semibold"
+            className="flex min-w-0 flex-col items-center gap-2 text-center"
           >
-            {isSelected ? (
-              <motion.span
-                layoutId="focus-pill"
-                aria-hidden
-                className="absolute inset-0 -z-10 rounded-2xl bg-[#14161f]"
-                transition={reduce ? { duration: 0 } : PILL_TRANSITION}
-              />
-            ) : null}
-            <TileIcon
-              size={22}
-              weight="duotone"
-              aria-hidden
-              className={`shrink-0 ${isSelected ? "text-white" : "text-black/70"}`}
-            />
-            <span className={isSelected ? "text-white" : "text-black"}>{area.label}</span>
+            <span
+              className={`flex size-14 items-center justify-center rounded-full ring-1 transition-colors duration-200 ease-out ${
+                isSelected ? "bg-accent text-on-accent ring-accent" : "bg-surface-raised text-muted ring-line"
+              }`}
+            >
+              <TileIcon size={24} weight="duotone" aria-hidden />
+            </span>
+            <span
+              className={`w-full text-balance text-[11px] font-semibold leading-tight ${
+                isSelected ? "text-foreground" : "text-muted"
+              }`}
+            >
+              {area.label}
+            </span>
           </motion.button>
         );
       })}

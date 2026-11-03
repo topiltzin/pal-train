@@ -7,7 +7,7 @@ export function SuggestionSkeleton() {
       {Array.from({ length: SKELETON_COUNT }, (_, index) => (
         <div
           key={index}
-          className="flex flex-col gap-3 rounded-2xl border-2 border-black/10 bg-white p-4"
+          className="flex flex-col gap-3 rounded-2xl border-2 border-line bg-surface p-4"
         >
           <div className="skeleton-shimmer h-5 w-2/3 rounded-full" />
           <div className="skeleton-shimmer h-3 w-1/3 rounded-full" />
