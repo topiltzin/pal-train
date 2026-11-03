@@ -13,7 +13,12 @@ async function AuthenticatedShell({ children }: { children: ReactNode }) {
   const user = await upsertUser(claims);
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="px-4 py-4 text-lg font-semibold">Hi, {user.displayName}!</header>
+      <header className="flex items-center justify-between gap-4 px-4 py-4">
+        <p className="text-lg font-semibold">Hi, {user.displayName}!</p>
+        <a href="/auth/logout" className="text-sm font-semibold underline">
+          Log out
+        </a>
+      </header>
       {children}
     </div>
   );
