@@ -1,0 +1,143 @@
+[
+  {
+    "id": "shoulders-001",
+    "name": "Band external rotation",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "shoulders-002",
+    "name": "Wall slide",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "wall"
+    ]
+  },
+  {
+    "id": "shoulders-003",
+    "name": "Prone Y raise",
+    "focus": "shoulders",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "shoulders-004",
+    "name": "Dumbbell lateral raise",
+    "focus": "shoulders",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "shoulders-005",
+    "name": "Cable lateral raise",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "cable machine"
+    ]
+  },
+  {
+    "id": "shoulders-006",
+    "name": "Rear delt fly",
+    "focus": "shoulders",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "shoulders-007",
+    "name": "Dumbbell shoulder press",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "shoulders-008",
+    "name": "Pike push-up",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "shoulders-009",
+    "name": "Arnold press",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "dumbbell"
+    ],
+    "caution": "Shoulder impingement risk. Stop if you feel pinching or pain at the top."
+  },
+  {
+    "id": "shoulders-010",
+    "name": "Barbell overhead press",
+    "focus": "shoulders",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 7,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "caution": "Brace the core and use a rack and spotter for heavy sets."
+  }
+]

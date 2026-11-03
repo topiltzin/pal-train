@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
 import { focusAreas } from "@/features/library/focus-areas";
+import { intensityLabel, intensityMeaning } from "@/features/library/intensity-label";
 import { LibraryUnavailableError, loadLibrary } from "@/features/library/library-repository";
 
 type TemplateDetailPageProps = {
@@ -38,7 +39,10 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
           <dt className="font-semibold">Duration</dt>
           <dd>{template.duration_minutes} min</dd>
           <dt className="font-semibold">Intensity</dt>
-          <dd>{template.intensity}</dd>
+          <dd>
+            <span className="font-semibold">{intensityLabel(template.intensity)}</span>
+            <span className="block text-sm text-black/70">{intensityMeaning(template.intensity)}</span>
+          </dd>
           <dt className="font-semibold">Equipment</dt>
           <dd>{template.equipment.join(", ")}</dd>
           <dt className="font-semibold">Good for</dt>

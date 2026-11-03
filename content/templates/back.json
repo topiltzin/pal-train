@@ -3,30 +3,43 @@
     "id": "back-001",
     "name": "Band pull-apart flow",
     "focus": "back",
-    "moods": ["calm", "tired"],
+    "moods": [
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["resistance band"],
+    "equipment": [
+      "resistance band"
+    ],
     "description": "Gentle pull-aparts with a relaxed breath."
   },
   {
     "id": "back-002",
     "name": "Bent-over row focus",
     "focus": "back",
-    "moods": ["focused"],
+    "moods": [
+      "focused"
+    ],
     "duration_minutes": 30,
     "intensity": "moderate",
-    "equipment": ["barbell"],
+    "equipment": [
+      "barbell"
+    ],
     "description": "Row to the lower ribs with a neutral spine."
   },
   {
     "id": "back-003",
     "name": "Heavy deadlift pulls",
     "focus": "back",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 40,
     "intensity": "high",
-    "equipment": ["barbell"],
+    "equipment": [
+      "barbell"
+    ],
     "description": "Work up to a challenging set of heavy pulls.",
     "caution": "Heavy pulling loads the lower back. Warm up thoroughly, keep a neutral spine, and stop if you feel sharp back pain."
   },
@@ -34,30 +47,44 @@
     "id": "back-004",
     "name": "Doorway row",
     "focus": "back",
-    "moods": ["tired", "unmotivated"],
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["resistance band", "door anchor"],
+    "equipment": [
+      "resistance band",
+      "door anchor"
+    ],
     "description": "Easy band rows at a steady pace."
   },
   {
     "id": "back-005",
     "name": "Lat pulldown rhythm",
     "focus": "back",
-    "moods": ["playful"],
+    "moods": [
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Find a rhythm with smooth pulldowns."
   },
   {
     "id": "back-006",
     "name": "Pull-up attempts",
     "focus": "back",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 20,
-    "intensity": "high",
-    "equipment": ["pull-up bar"],
+    "intensity": "moderate",
+    "equipment": [
+      "pull-up bar"
+    ],
     "description": "Short sets of pull-ups or assisted pull-ups.",
     "caution": "Pull-ups load the shoulders and elbows. Stop if you feel sharp joint pain."
   },
@@ -65,40 +92,61 @@
     "id": "back-007",
     "name": "Chest-supported row",
     "focus": "back",
-    "moods": ["stressed", "calm"],
+    "moods": [
+      "stressed",
+      "calm"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["dumbbells", "incline bench"],
+    "equipment": [
+      "dumbbells",
+      "incline bench"
+    ],
     "description": "Row with your chest supported for a steady, relaxed focus."
   },
   {
     "id": "back-008",
     "name": "Superman hold",
     "focus": "back",
-    "moods": ["calm", "unmotivated"],
+    "moods": [
+      "calm",
+      "unmotivated"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Gentle lifts with a long hold at the top."
   },
   {
     "id": "back-009",
     "name": "Single-arm dumbbell row",
     "focus": "back",
-    "moods": ["focused", "energized"],
+    "moods": [
+      "focused",
+      "energized"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["dumbbells", "bench"],
+    "equipment": [
+      "dumbbells",
+      "bench"
+    ],
     "description": "Alternate sides with a strong, flat back."
   },
   {
     "id": "back-010",
     "name": "Rowing machine pull",
     "focus": "back",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 20,
     "intensity": "high",
-    "equipment": ["rowing machine"],
+    "equipment": [
+      "rowing machine"
+    ],
     "description": "Hard pulls in short intervals.",
     "caution": "Keep the pace controlled and stop if you feel sharp lower-back pain."
   },
@@ -106,30 +154,42 @@
     "id": "back-011",
     "name": "Face pull reset",
     "focus": "back",
-    "moods": ["stressed"],
+    "moods": [
+      "stressed"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Light face pulls to open up the upper back."
   },
   {
     "id": "back-012",
     "name": "Band pull-down playful",
     "focus": "back",
-    "moods": ["playful"],
+    "moods": [
+      "playful"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["resistance band"],
+    "equipment": [
+      "resistance band"
+    ],
     "description": "Silly-fun band pulls with a playful tempo."
   },
   {
     "id": "back-013",
     "name": "Gentle back extension",
     "focus": "back",
-    "moods": ["tired"],
+    "moods": [
+      "tired"
+    ],
     "duration_minutes": 12,
     "intensity": "low",
-    "equipment": ["back extension bench"],
+    "equipment": [
+      "back extension bench"
+    ],
     "description": "Easy extensions with a slow lowering phase."
   }
 ]

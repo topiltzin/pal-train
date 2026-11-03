@@ -3,30 +3,44 @@
     "id": "triceps-001",
     "name": "Close-grip push-up sprints",
     "focus": "triceps",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Hands close together. Keep the sets short and crisp."
   },
   {
     "id": "triceps-002",
     "name": "Overhead dumbbell extension",
     "focus": "triceps",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Slow extensions overhead. Keep the elbows pointed up."
   },
   {
     "id": "triceps-003",
     "name": "Heavy skull crushers",
     "focus": "triceps",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 30,
     "intensity": "high",
-    "equipment": ["barbell", "bench"],
+    "equipment": [
+      "barbell",
+      "bench"
+    ],
     "description": "Lower the bar toward the forehead with control.",
     "caution": "Heavy skull crushers can stress the elbows. Start light and stop if you feel sharp elbow pain."
   },
@@ -34,30 +48,43 @@
     "id": "triceps-004",
     "name": "Rope pushdown easy",
     "focus": "triceps",
-    "moods": ["tired"],
+    "moods": [
+      "tired"
+    ],
     "duration_minutes": 12,
     "intensity": "low",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Light rope pushdowns. Focus on smooth extension."
   },
   {
     "id": "triceps-005",
     "name": "Bench dip shuffle",
     "focus": "triceps",
-    "moods": ["playful", "energized"],
+    "moods": [
+      "playful",
+      "energized"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["bench"],
+    "equipment": [
+      "bench"
+    ],
     "description": "Short dips with a relaxed rhythm."
   },
   {
     "id": "triceps-006",
     "name": "Band pushdown blast",
     "focus": "triceps",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 15,
     "intensity": "high",
-    "equipment": ["resistance band"],
+    "equipment": [
+      "resistance band"
+    ],
     "description": "Fast band pushdowns in short sets.",
     "caution": "Keep the elbows tucked. Stop if you feel elbow or wrist pain."
   },
@@ -65,70 +92,104 @@
     "id": "triceps-007",
     "name": "Diamond push-up pulse",
     "focus": "triceps",
-    "moods": ["focused"],
+    "moods": [
+      "focused"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Diamond push-ups with a short pulse at the bottom."
   },
   {
     "id": "triceps-008",
     "name": "Gentle towel extensions",
     "focus": "triceps",
-    "moods": ["unmotivated", "calm"],
+    "moods": [
+      "unmotivated",
+      "calm"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["towel"],
+    "equipment": [
+      "towel"
+    ],
     "description": "Use a towel for light, comfortable extensions."
   },
   {
     "id": "triceps-009",
     "name": "Kickback flow",
     "focus": "triceps",
-    "moods": ["calm", "playful"],
+    "moods": [
+      "calm",
+      "playful"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Slow kickbacks with a pause at the top."
   },
   {
     "id": "triceps-010",
     "name": "Tempo close-grip press",
     "focus": "triceps",
-    "moods": ["stressed"],
+    "moods": [
+      "stressed"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["barbell", "bench"],
+    "equipment": [
+      "barbell",
+      "bench"
+    ],
     "description": "Lower slowly, pause, and press. Keep the elbows in."
   },
   {
     "id": "triceps-011",
     "name": "Cable overhead extension",
     "focus": "triceps",
-    "moods": ["focused", "energized"],
+    "moods": [
+      "focused",
+      "energized"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Overhead cable extensions with a steady tempo."
   },
   {
     "id": "triceps-012",
     "name": "Bodyweight dip hold",
     "focus": "triceps",
-    "moods": ["unmotivated", "tired"],
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["bench"],
+    "equipment": [
+      "bench"
+    ],
     "description": "Short holds in a supported dip position."
   },
   {
     "id": "triceps-013",
     "name": "Pushdown ladder",
     "focus": "triceps",
-    "moods": ["want-to-sweat", "playful"],
+    "moods": [
+      "want-to-sweat",
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Climb from light to heavier pushdown sets."
   }
 ]

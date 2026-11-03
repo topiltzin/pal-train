@@ -1,0 +1,171 @@
+[
+  {
+    "id": "upper-body-001",
+    "name": "Arm circles and shoulder rolls",
+    "focus": "upper-body",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ],
+    "description": "Gentle arm circles and shoulder rolls to warm up the upper body."
+  },
+  {
+    "id": "upper-body-002",
+    "name": "Band row hold",
+    "focus": "upper-body",
+    "moods": [
+      "tired",
+      "calm"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ],
+    "description": "Light band rows with a pause at the end, staying tall through the torso."
+  },
+  {
+    "id": "upper-body-003",
+    "name": "Wall push-up",
+    "focus": "upper-body",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "wall"
+    ],
+    "description": "Push-ups against a wall at a slow, controlled pace."
+  },
+  {
+    "id": "upper-body-004",
+    "name": "Push-up to row",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "duration_minutes": 12,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Alternate a push-up with a single-arm row from the plank position."
+  },
+  {
+    "id": "upper-body-005",
+    "name": "Seated dumbbell press",
+    "focus": "upper-body",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "duration_minutes": 12,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "description": "Press both dumbbells overhead from a seated position with a braced back."
+  },
+  {
+    "id": "upper-body-006",
+    "name": "Plank row",
+    "focus": "upper-body",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "duration_minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "From a plank, row each dumbbell while keeping the hips level."
+  },
+  {
+    "id": "upper-body-007",
+    "name": "Kettlebell halo",
+    "focus": "upper-body",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "duration_minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "kettlebell"
+    ],
+    "description": "Circle the kettlebell around the head while keeping the ribs down."
+  },
+  {
+    "id": "upper-body-008",
+    "name": "Single-arm dumbbell press",
+    "focus": "upper-body",
+    "moods": [
+      "playful",
+      "energized"
+    ],
+    "duration_minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Press one dumbbell at a time to build control through the trunk."
+  },
+  {
+    "id": "upper-body-009",
+    "name": "Weighted pull-up",
+    "focus": "upper-body",
+    "moods": [
+      "energized"
+    ],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": [
+      "pull-up bar",
+      "weight belt"
+    ],
+    "description": "Pull-ups with added load, lowered slowly on each rep.",
+    "caution": "Lower slowly and keep the shoulders packed. Stop if you feel elbow pain."
+  },
+  {
+    "id": "upper-body-010",
+    "name": "Heavy push press",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "duration_minutes": 12,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "description": "Drive a heavy bar overhead using the legs, then lock out the arms.",
+    "caution": "Use a squat rack and safety bars. Keep the bar close and the trunk braced."
+  },
+  {
+    "id": "upper-body-011",
+    "name": "Clean and press",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "playful"
+    ],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "description": "Complex lift from the floor to overhead, with a press at the top.",
+    "caution": "Complex lift with real injury risk. Learn the movement with light weight first."
+  }
+]

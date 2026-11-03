@@ -2,12 +2,15 @@
 
 import {
   Barbell,
+  Crosshair,
   Flame,
   PersonArmsSpread,
   PersonSimpleTaiChi,
+  PersonSimpleThrow,
   Heartbeat,
   Lightning,
   PersonSimpleRun,
+  Shield,
   Target,
   Timer,
   Waves,
@@ -33,6 +36,9 @@ const FOCUS_ICONS: Record<FocusId, Icon> = {
   conditioning: Flame,
   calisthenics: PersonArmsSpread,
   stretching: PersonSimpleTaiChi,
+  "upper-body": PersonSimpleThrow,
+  shoulders: Shield,
+  core: Crosshair,
 };
 
 const PRESS_SCALE = 0.97;

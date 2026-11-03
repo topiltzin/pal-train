@@ -38,3 +38,23 @@ test.describe("session length bar on a phone", () => {
     await expect(page.getByRole("slider", { name: "Session length" })).toBeVisible();
   });
 });
+
+test.describe("muscle group menu on a phone", () => {
+  test.skip(!hasE2eCredentials, SKIP_REASON);
+
+  test(`all 13 options fit at ${PHONE_WIDTH_PX}px without horizontal scroll`, async ({ page }) => {
+    // Arrange
+    await page.setViewportSize({ width: PHONE_WIDTH_PX, height: 640 });
+    await signIn(page);
+
+    // Act
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    const options = page.getByRole("group", { name: "Muscle group" }).getByRole("button");
+
+    // Assert
+    expect(overflow).toBeLessThanOrEqual(0);
+    await expect(options).toHaveCount(13);
+  });
+});

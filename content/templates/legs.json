@@ -3,30 +3,45 @@
     "id": "legs-001",
     "name": "Bodyweight squat ladder",
     "focus": "legs",
-    "moods": ["energized", "playful"],
+    "moods": [
+      "energized",
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Climb from easy squats to tempo squats."
   },
   {
     "id": "legs-002",
     "name": "Goblet squat tempo",
     "focus": "legs",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Slow squats with a pause at the bottom."
   },
   {
     "id": "legs-003",
     "name": "Heavy back squat",
     "focus": "legs",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 45,
     "intensity": "high",
-    "equipment": ["barbell", "squat rack"],
+    "equipment": [
+      "barbell",
+      "squat rack"
+    ],
     "description": "Work up to a challenging set of squats.",
     "caution": "Heavy squats load the knees and lower back. Use safety bars, warm up well, and stop if you feel sharp pain."
   },
@@ -34,10 +49,15 @@
     "id": "legs-004",
     "name": "Tempo squats and lunges",
     "focus": "legs",
-    "moods": ["energized", "focused"],
+    "moods": [
+      "energized",
+      "focused"
+    ],
     "duration_minutes": 30,
-    "intensity": "high",
-    "equipment": ["dumbbells"],
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "A steady, controlled set to wake your legs up.",
     "caution": "Keep your knees tracking over your toes. Stop if you feel sharp knee pain."
   },
@@ -45,40 +65,57 @@
     "id": "legs-005",
     "name": "Gentle glute bridges",
     "focus": "legs",
-    "moods": ["tired", "calm"],
+    "moods": [
+      "tired",
+      "calm"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Easy bridges with a steady squeeze at the top."
   },
   {
     "id": "legs-006",
     "name": "Walking lunges",
     "focus": "legs",
-    "moods": ["playful"],
+    "moods": [
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Walk forward through lunges at a relaxed pace."
   },
   {
     "id": "legs-007",
     "name": "Romanian deadlift control",
     "focus": "legs",
-    "moods": ["focused"],
+    "moods": [
+      "focused"
+    ],
     "duration_minutes": 30,
     "intensity": "moderate",
-    "equipment": ["barbell"],
+    "equipment": [
+      "barbell"
+    ],
     "description": "Slow hinges with a flat back and a soft knee."
   },
   {
     "id": "legs-008",
     "name": "Jump squat burst",
     "focus": "legs",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 15,
     "intensity": "high",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Short, explosive jump squats with rest between sets.",
     "caution": "Jumping loads the knees and ankles. Land softly and stop if you feel joint pain."
   },
@@ -86,50 +123,74 @@
     "id": "legs-009",
     "name": "Wall sit hold",
     "focus": "legs",
-    "moods": ["stressed", "unmotivated"],
+    "moods": [
+      "stressed",
+      "unmotivated"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Hold a wall sit for short intervals, breathing slowly."
   },
   {
     "id": "legs-010",
     "name": "Step-up flow",
     "focus": "legs",
-    "moods": ["calm"],
+    "moods": [
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "low",
-    "equipment": ["bench"],
+    "equipment": [
+      "bench"
+    ],
     "description": "Smooth step-ups at an easy, steady pace."
   },
   {
     "id": "legs-011",
     "name": "Bulgarian split squat",
     "focus": "legs",
-    "moods": ["focused", "energized"],
+    "moods": [
+      "focused",
+      "energized"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["dumbbells", "bench"],
+    "equipment": [
+      "dumbbells",
+      "bench"
+    ],
     "description": "Balanced, controlled split squats on each side."
   },
   {
     "id": "legs-012",
     "name": "Leg press easy",
     "focus": "legs",
-    "moods": ["tired"],
+    "moods": [
+      "tired"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["leg press machine"],
+    "equipment": [
+      "leg press machine"
+    ],
     "description": "Light presses in a comfortable range."
   },
   {
     "id": "legs-013",
     "name": "Sprint-and-squat circuit",
     "focus": "legs",
-    "moods": ["want-to-sweat", "unmotivated"],
+    "moods": [
+      "want-to-sweat",
+      "unmotivated"
+    ],
     "duration_minutes": 20,
     "intensity": "high",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Short sprints with squat intervals.",
     "caution": "Sprints stress the legs. Warm up and stop if you feel sharp muscle or joint pain."
   }

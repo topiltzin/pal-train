@@ -3,90 +3,136 @@
     "id": "stretching-001",
     "name": "Morning hip opener",
     "focus": "stretching",
-    "moods": ["calm", "tired"],
+    "moods": [
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["mat"],
+    "equipment": [
+      "mat"
+    ],
     "description": "Gentle hip flexor and glute holds, breathing slowly into each side for thirty seconds."
   },
   {
     "id": "stretching-002",
     "name": "Shoulder and chest release",
     "focus": "stretching",
-    "moods": ["calm", "stressed"],
+    "moods": [
+      "calm",
+      "stressed"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Open the chest with clasped hands behind your back, and let the shoulders drop away from your ears."
   },
   {
     "id": "stretching-003",
     "name": "Hamstring reach flow",
     "focus": "stretching",
-    "moods": ["tired", "calm"],
+    "moods": [
+      "tired",
+      "calm"
+    ],
     "duration_minutes": 12,
     "intensity": "low",
-    "equipment": ["mat"],
+    "equipment": [
+      "mat"
+    ],
     "description": "Fold forward from the hips with a soft bend in the knees, holding each reach without bouncing."
   },
   {
     "id": "stretching-004",
     "name": "Seated spinal twist",
     "focus": "stretching",
-    "moods": ["calm", "unmotivated"],
+    "moods": [
+      "calm",
+      "unmotivated"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["chair"],
+    "equipment": [
+      "chair"
+    ],
     "description": "Sit tall, rotate gently to one side with the chest leading, and hold, then switch sides."
   },
   {
     "id": "stretching-005",
     "name": "Deep hip and groin stretch",
     "focus": "stretching",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 15,
-    "intensity": "moderate",
-    "equipment": ["mat"],
+    "intensity": "low",
+    "equipment": [
+      "mat"
+    ],
     "description": "Ease into a wide stance and hold each side for about thirty seconds, keeping the spine long."
   },
   {
     "id": "stretching-006",
     "name": "Pigeon pose hold",
     "focus": "stretching",
-    "moods": ["stressed", "calm"],
+    "moods": [
+      "stressed",
+      "calm"
+    ],
     "duration_minutes": 15,
-    "intensity": "moderate",
-    "equipment": ["mat"],
+    "intensity": "low",
+    "equipment": [
+      "mat"
+    ],
     "description": "Rest the front shin across the mat and fold forward over the leg, breathing into the outer hip."
   },
   {
     "id": "stretching-007",
     "name": "Full-body recovery stretch",
     "focus": "stretching",
-    "moods": ["tired", "stressed", "calm"],
+    "moods": [
+      "tired",
+      "stressed",
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "low",
-    "equipment": ["mat"],
+    "equipment": [
+      "mat"
+    ],
     "description": "A slow sequence through neck, shoulders, back, hips, and legs, with a long breath in each hold."
   },
   {
     "id": "stretching-008",
     "name": "Side body reach",
     "focus": "stretching",
-    "moods": ["playful", "unmotivated"],
+    "moods": [
+      "playful",
+      "unmotivated"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Reach one arm overhead and lean gently to the opposite side, stretching the ribs and waist."
   },
   {
     "id": "stretching-009",
     "name": "Standing forward fold",
     "focus": "stretching",
-    "moods": ["calm", "tired"],
+    "moods": [
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Let your head and arms hang forward with knees soft, then roll up one vertebra at a time."
   }
 ]

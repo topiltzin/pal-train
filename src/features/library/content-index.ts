@@ -8,6 +8,9 @@ import conditioning from "../../../content/templates/conditioning.json";
 import hyroxStyle from "../../../content/templates/hyrox-style.json";
 import legs from "../../../content/templates/legs.json";
 import triceps from "../../../content/templates/triceps.json";
+import core from "../../../content/templates/core.json";
+import shoulders from "../../../content/templates/shoulders.json";
+import upperBody from "../../../content/templates/upper-body.json";
 
 export const rawTemplateFiles: readonly unknown[] = [
   chest,
@@ -20,4 +23,7 @@ export const rawTemplateFiles: readonly unknown[] = [
   conditioning,
   calisthenics,
   stretching,
+  upperBody,
+  shoulders,
+  core,
 ];

@@ -3,30 +3,44 @@
     "id": "conditioning-001",
     "name": "Full-body circuit lite",
     "focus": "conditioning",
-    "moods": ["tired", "calm"],
+    "moods": [
+      "tired",
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "A gentle circuit of simple full-body moves."
   },
   {
     "id": "conditioning-002",
     "name": "Kettlebell swing set",
     "focus": "conditioning",
-    "moods": ["energized", "focused"],
+    "moods": [
+      "energized",
+      "focused"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["kettlebell"],
+    "equipment": [
+      "kettlebell"
+    ],
     "description": "Hinge-driven swings in steady sets."
   },
   {
     "id": "conditioning-003",
     "name": "Heavy kettlebell complex",
     "focus": "conditioning",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 30,
     "intensity": "high",
-    "equipment": ["kettlebell"],
+    "equipment": [
+      "kettlebell"
+    ],
     "description": "Heavier kettlebell combinations with short rests.",
     "caution": "Heavy kettlebell work loads the back. Keep a neutral spine and stop if you feel sharp pain."
   },
@@ -34,30 +48,42 @@
     "id": "conditioning-004",
     "name": "Bodyweight EMOM",
     "focus": "conditioning",
-    "moods": ["focused"],
+    "moods": [
+      "focused"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Every minute on the minute, a small set of moves."
   },
   {
     "id": "conditioning-005",
     "name": "Playful move circuit",
     "focus": "conditioning",
-    "moods": ["playful"],
+    "moods": [
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Mix fun moves into a short circuit."
   },
   {
     "id": "conditioning-006",
     "name": "Tabata burst",
     "focus": "conditioning",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 15,
     "intensity": "high",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Four-minute Tabata blocks with rest between them.",
     "caution": "Tabata intervals are very intense. Stop if you feel dizzy or chest pain."
   },
@@ -65,60 +91,87 @@
     "id": "conditioning-007",
     "name": "Core and carry flow",
     "focus": "conditioning",
-    "moods": ["stressed", "calm"],
+    "moods": [
+      "stressed",
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "low",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Gentle carries and core holds at a steady pace."
   },
   {
     "id": "conditioning-008",
     "name": "Ladder of reps",
     "focus": "conditioning",
-    "moods": ["unmotivated", "focused"],
+    "moods": [
+      "unmotivated",
+      "focused"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Climb a ladder of reps, one round at a time."
   },
   {
     "id": "conditioning-009",
     "name": "Walk and squat easy",
     "focus": "conditioning",
-    "moods": ["tired"],
+    "moods": [
+      "tired"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Walk, squat, rest. Short and simple."
   },
   {
     "id": "conditioning-010",
     "name": "Circuit of three",
     "focus": "conditioning",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 25,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Three moves on repeat with short rests."
   },
   {
     "id": "conditioning-011",
     "name": "Mobility and move",
     "focus": "conditioning",
-    "moods": ["calm", "tired"],
+    "moods": [
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 20,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Easy mobility work blended into light moves."
   },
   {
     "id": "conditioning-012",
     "name": "Burpee and sprint mix",
     "focus": "conditioning",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 20,
     "intensity": "high",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Burpees and short sprints in intervals.",
     "caution": "Burpees load the joints. Stop if you feel sharp pain."
   },
@@ -126,10 +179,15 @@
     "id": "conditioning-013",
     "name": "Fun finisher",
     "focus": "conditioning",
-    "moods": ["playful", "unmotivated"],
+    "moods": [
+      "playful",
+      "unmotivated"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "A quick round of your favorite moves to finish."
   }
 ]

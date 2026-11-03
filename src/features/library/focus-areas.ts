@@ -9,6 +9,9 @@ export const focusIds = [
   "conditioning",
   "calisthenics",
   "stretching",
+  "upper-body",
+  "shoulders",
+  "core",
 ] as const;
 
 export type FocusId = (typeof focusIds)[number];
@@ -38,4 +41,12 @@ export const focusAreas: readonly FocusArea[] = [
     label: "Stretching",
     description: "Mobility holds and recovery for the whole body.",
   },
+  {
+    id: "upper-body",
+    label: "Upper body",
+    description:
+      "Pressing and pulling work for the arms and torso that is not chest or back specific.",
+  },
+  { id: "shoulders", label: "Shoulders", description: "Deltoid and rotator-cuff work." },
+  { id: "core", label: "Core", description: "Trunk stability, bracing, and rotation." },
 ];

@@ -3,30 +3,44 @@
     "id": "biceps-001",
     "name": "Dumbbell curl ladder",
     "focus": "biceps",
-    "moods": ["energized", "playful"],
+    "moods": [
+      "energized",
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Climb from light to moderate curls, one set at each weight."
   },
   {
     "id": "biceps-002",
     "name": "Slow eccentric curls",
     "focus": "biceps",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Lower each curl over four counts. Keep the elbows still."
   },
   {
     "id": "biceps-003",
     "name": "Heavy barbell curls",
     "focus": "biceps",
-    "moods": ["energized"],
+    "moods": [
+      "energized"
+    ],
     "duration_minutes": 30,
     "intensity": "high",
-    "equipment": ["barbell"],
+    "equipment": [
+      "barbell"
+    ],
     "description": "Work up to a challenging set of moderate reps.",
     "caution": "Heavy curls can strain the elbows and lower back. Keep your back neutral and stop if you feel sharp elbow pain."
   },
@@ -34,30 +48,43 @@
     "id": "biceps-004",
     "name": "Chair-supported curls",
     "focus": "biceps",
-    "moods": ["tired", "calm"],
+    "moods": [
+      "tired",
+      "calm"
+    ],
     "duration_minutes": 12,
     "intensity": "low",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Seated curls with light weight. Easy and steady."
   },
   {
     "id": "biceps-005",
     "name": "Hammer curl flow",
     "focus": "biceps",
-    "moods": ["playful"],
+    "moods": [
+      "playful"
+    ],
     "duration_minutes": 18,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Hammer curls alternating arms in a relaxed rhythm."
   },
   {
     "id": "biceps-006",
     "name": "Band curl burnout",
     "focus": "biceps",
-    "moods": ["want-to-sweat"],
+    "moods": [
+      "want-to-sweat"
+    ],
     "duration_minutes": 15,
     "intensity": "high",
-    "equipment": ["resistance band"],
+    "equipment": [
+      "resistance band"
+    ],
     "description": "Fast band curls in short sets with minimal rest.",
     "caution": "Keep the reps controlled. Stop if you feel elbow pain."
   },
@@ -65,70 +92,105 @@
     "id": "biceps-007",
     "name": "Concentration curl pause",
     "focus": "biceps",
-    "moods": ["focused"],
+    "moods": [
+      "focused"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "One arm at a time, with a one-second pause at the top of each curl."
   },
   {
     "id": "biceps-008",
     "name": "Towel isometric holds",
     "focus": "biceps",
-    "moods": ["stressed", "unmotivated"],
+    "moods": [
+      "stressed",
+      "unmotivated"
+    ],
     "duration_minutes": 10,
     "intensity": "low",
-    "equipment": ["towel"],
+    "equipment": [
+      "towel"
+    ],
     "description": "Hold a towel curl position to build tension without moving much."
   },
   {
     "id": "biceps-009",
     "name": "Incline curl stretch",
     "focus": "biceps",
-    "moods": ["calm", "tired"],
+    "moods": [
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["dumbbells", "incline bench"],
+    "equipment": [
+      "dumbbells",
+      "incline bench"
+    ],
     "description": "Lie on an incline bench and curl slowly to feel a deep stretch."
   },
   {
     "id": "biceps-010",
     "name": "Drag curls",
     "focus": "biceps",
-    "moods": ["focused", "playful"],
+    "moods": [
+      "focused",
+      "playful"
+    ],
     "duration_minutes": 18,
     "intensity": "moderate",
-    "equipment": ["barbell"],
+    "equipment": [
+      "barbell"
+    ],
     "description": "Keep the bar close and pull the elbows back as you curl."
   },
   {
     "id": "biceps-011",
     "name": "Zottman curls",
     "focus": "biceps",
-    "moods": ["energized", "want-to-sweat"],
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["dumbbells"],
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Curl up with palms facing up, rotate at the top, and lower with palms facing down."
   },
   {
     "id": "biceps-012",
     "name": "Quick cable curls",
     "focus": "biceps",
-    "moods": ["unmotivated", "playful"],
+    "moods": [
+      "unmotivated",
+      "playful"
+    ],
     "duration_minutes": 12,
     "intensity": "low",
-    "equipment": ["cable machine"],
+    "equipment": [
+      "cable machine"
+    ],
     "description": "Easy cable curls with light weight. Just get moving."
   },
   {
     "id": "biceps-013",
     "name": "Pump set finisher",
     "focus": "biceps",
-    "moods": ["stressed", "want-to-sweat"],
+    "moods": [
+      "stressed",
+      "want-to-sweat"
+    ],
     "duration_minutes": 25,
-    "intensity": "high",
-    "equipment": ["dumbbells"],
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbells"
+    ],
     "description": "Many light-to-moderate reps with short rests.",
     "caution": "High-rep pump work can build fatigue. Pause and shake out your arms if you feel sharp pain."
   }

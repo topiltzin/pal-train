@@ -31,6 +31,29 @@ function templateProblems(): string[] {
   return problems;
 }
 
+const NEW_FOCUS_IDS = ["upper-body", "shoulders", "core"];
+const MIN_ROUTINES_PER_LEVEL = 2;
+const INTENSITY_LEVELS = ["low", "moderate", "high"] as const;
+
+// Applies to the three areas added by feature 004 (spec FR-002). Stretching is mobility work and has no
+// high-intensity routines by design, so it is not held to the per-level minimum.
+function levelProblems(): string[] {
+  const library = loadLibrary();
+  const problems: string[] = [];
+  for (const focus of focusAreas.filter((area) => NEW_FOCUS_IDS.includes(area.id))) {
+    const templates = library.byFocus(focus.id);
+    for (const level of INTENSITY_LEVELS) {
+      const count = templates.filter((template) => template.intensity === level).length;
+      if (count < MIN_ROUTINES_PER_LEVEL) {
+        problems.push(
+          `Focus "${focus.id}" has ${count} ${level} routines; at least ${MIN_ROUTINES_PER_LEVEL} required.`,
+        );
+      }
+    }
+  }
+  return problems;
+}
+
 function exerciseProblems(): string[] {
   const exercises = loadExerciseLibrary().list();
   const problems: string[] = [];
@@ -61,7 +84,7 @@ function printExerciseCounts(): void {
 }
 
 function main(): void {
-  const problems = [...templateProblems(), ...exerciseProblems()];
+  const problems = [...templateProblems(), ...exerciseProblems(), ...levelProblems()];
   if (problems.length > 0) {
     console.error("Content validation failed:");
     for (const problem of problems) {

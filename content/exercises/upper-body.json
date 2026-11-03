@@ -1,0 +1,146 @@
+[
+  {
+    "id": "upper-body-001",
+    "name": "Arm circles",
+    "focus": "upper-body",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "upper-body-002",
+    "name": "Band row",
+    "focus": "upper-body",
+    "moods": [
+      "tired",
+      "calm"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "upper-body-003",
+    "name": "Wall push-up",
+    "focus": "upper-body",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "wall"
+    ]
+  },
+  {
+    "id": "upper-body-004",
+    "name": "Push-up to row",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "upper-body-005",
+    "name": "Seated dumbbell press",
+    "focus": "upper-body",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 6,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ]
+  },
+  {
+    "id": "upper-body-006",
+    "name": "Plank row",
+    "focus": "upper-body",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "upper-body-007",
+    "name": "Single-arm dumbbell press",
+    "focus": "upper-body",
+    "moods": [
+      "playful",
+      "energized"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
+  },
+  {
+    "id": "upper-body-008",
+    "name": "Weighted pull-up",
+    "focus": "upper-body",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 7,
+    "intensity": "high",
+    "equipment": [
+      "pull-up bar",
+      "weight belt"
+    ],
+    "caution": "Lower slowly and keep the shoulders packed. Stop if you feel elbow pain."
+  },
+  {
+    "id": "upper-body-009",
+    "name": "Clean and press",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "playful"
+    ],
+    "minutes": 8,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "caution": "Learn the movement with light weight first. Keep the trunk braced."
+  },
+  {
+    "id": "upper-body-010",
+    "name": "Heavy push press",
+    "focus": "upper-body",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 6,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "caution": "Use a squat rack and safety bars. Keep the bar close."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "shoulders-001",
+    "name": "Band external rotation",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ],
+    "description": "Slow external rotations with the elbow pinned to the side."
+  },
+  {
+    "id": "shoulders-002",
+    "name": "Wall slide",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "stressed"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "wall"
+    ],
+    "description": "Slide the forearms up a wall while keeping the lower back still."
+  },
+  {
+    "id": "shoulders-003",
+    "name": "Prone Y raise",
+    "focus": "shoulders",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "duration_minutes": 10,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ],
+    "description": "Lying face down, lift the arms into a Y with the thumbs up."
+  },
+  {
+    "id": "shoulders-004",
+    "name": "Dumbbell overhead press",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "duration_minutes": 15,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Press from shoulder height to lockout, controlling the descent."
+  },
+  {
+    "id": "shoulders-005",
+    "name": "Lateral raise",
+    "focus": "shoulders",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "duration_minutes": 12,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Raise the arms to shoulder height with a soft bend at the elbow."
+  },
+  {
+    "id": "shoulders-006",
+    "name": "Cable lateral raise",
+    "focus": "shoulders",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "duration_minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "cable machine"
+    ],
+    "description": "Steady raises on one side at a time to keep tension through the range."
+  },
+  {
+    "id": "shoulders-007",
+    "name": "Rear delt fly",
+    "focus": "shoulders",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "duration_minutes": 10,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Hinge forward and raise the arms wide, squeezing the back of the shoulders."
+  },
+  {
+    "id": "shoulders-008",
+    "name": "Arnold press",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "duration_minutes": 15,
+    "intensity": "high",
+    "equipment": [
+      "dumbbell"
+    ],
+    "description": "Rotate the palms through the press to load the shoulder through a full range.",
+    "caution": "Shoulder impingement risk. Stop if you feel pinching or pain at the top."
+  },
+  {
+    "id": "shoulders-009",
+    "name": "Barbell overhead press",
+    "focus": "shoulders",
+    "moods": [
+      "energized"
+    ],
+    "duration_minutes": 18,
+    "intensity": "high",
+    "equipment": [
+      "barbell"
+    ],
+    "description": "Standing strict press with a full lockout overhead.",
+    "caution": "Brace the core and keep the bar path close. Use a rack and spotter for heavy sets."
+  },
+  {
+    "id": "shoulders-010",
+    "name": "Handstand push-up negative",
+    "focus": "shoulders",
+    "moods": [
+      "energized",
+      "playful"
+    ],
+    "duration_minutes": 10,
+    "intensity": "high",
+    "equipment": [
+      "wall"
+    ],
+    "description": "Lower slowly from a handstand against a wall.",
+    "caution": "Heavy load on the shoulders and neck. Stop if you feel neck pain or dizziness."
+  }
+]

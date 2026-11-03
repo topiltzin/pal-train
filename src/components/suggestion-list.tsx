@@ -44,6 +44,8 @@ export function SuggestionList({ suggestions, partial, onAnotherIdea }: Suggesti
         {suggestions.map((item, index) => (
           <motion.article
             key={item.id}
+            data-testid="routine-card"
+            data-intensity={item.intensity}
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={

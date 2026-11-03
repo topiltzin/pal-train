@@ -3,40 +3,62 @@
     "id": "calisthenics-001",
     "name": "Wall push-up flow",
     "focus": "calisthenics",
-    "moods": ["calm", "tired", "unmotivated"],
+    "moods": [
+      "calm",
+      "tired",
+      "unmotivated"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["wall"],
+    "equipment": [
+      "wall"
+    ],
     "description": "Slow wall push-ups with a two-second pause at the bottom, to build control without strain."
   },
   {
     "id": "calisthenics-002",
     "name": "Bodyweight squat ladder",
     "focus": "calisthenics",
-    "moods": ["focused", "calm", "tired"],
+    "moods": [
+      "focused",
+      "calm",
+      "tired"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Hold a squat for three breaths, stand, and repeat, adding one more rep each round."
   },
   {
     "id": "calisthenics-003",
     "name": "Hollow body holds",
     "focus": "calisthenics",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 12,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Press your lower back into the floor and hold the hollow shape in short, steady intervals."
   },
   {
     "id": "calisthenics-004",
     "name": "Negative pull-ups",
     "focus": "calisthenics",
-    "moods": ["energized", "want-to-sweat"],
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
     "duration_minutes": 20,
     "intensity": "high",
-    "equipment": ["pull-up bar"],
+    "equipment": [
+      "pull-up bar"
+    ],
     "description": "Jump or step to the top of the bar, then lower yourself slowly for five seconds on each rep.",
     "caution": "Use a sturdy bar with a safe landing. Stop if your shoulders or elbows ache."
   },
@@ -44,10 +66,15 @@
     "id": "calisthenics-005",
     "name": "Dip bar tempo sets",
     "focus": "calisthenics",
-    "moods": ["energized", "want-to-sweat"],
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
     "duration_minutes": 25,
     "intensity": "high",
-    "equipment": ["dip bars"],
+    "equipment": [
+      "dip bars"
+    ],
     "description": "Controlled dips with a three-second descent. Keep your elbows close and stop before the shoulders feel pinched.",
     "caution": "Keep the descent controlled and avoid going deeper than your shoulders allow. Skip this if you have shoulder pain."
   },
@@ -55,50 +82,75 @@
     "id": "calisthenics-006",
     "name": "Australian row circuit",
     "focus": "calisthenics",
-    "moods": ["focused", "playful"],
+    "moods": [
+      "focused",
+      "playful"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["sturdy table"],
+    "equipment": [
+      "sturdy table"
+    ],
     "description": "Hang under a sturdy table or low bar, pull your chest toward it, and lower with control."
   },
   {
     "id": "calisthenics-007",
     "name": "Pike push-up builds",
     "focus": "calisthenics",
-    "moods": ["energized", "focused"],
+    "moods": [
+      "energized",
+      "focused"
+    ],
     "duration_minutes": 20,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Hips high in a pike position, lowering the top of your head toward the floor between your hands."
   },
   {
     "id": "calisthenics-008",
     "name": "Lunge and reach flow",
     "focus": "calisthenics",
-    "moods": ["playful", "calm"],
+    "moods": [
+      "playful",
+      "calm"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Step into a lunge, reach overhead, and return to standing. Move slowly and breathe with each change."
   },
   {
     "id": "calisthenics-009",
     "name": "Ring row sets",
     "focus": "calisthenics",
-    "moods": ["focused", "unmotivated"],
+    "moods": [
+      "focused",
+      "unmotivated"
+    ],
     "duration_minutes": 18,
     "intensity": "moderate",
-    "equipment": ["gymnastic rings"],
+    "equipment": [
+      "gymnastic rings"
+    ],
     "description": "Lean back on the rings and row your chest toward them, keeping your body in one straight line."
   },
   {
     "id": "calisthenics-010",
     "name": "Burpee ladder",
     "focus": "calisthenics",
-    "moods": ["want-to-sweat", "energized"],
+    "moods": [
+      "want-to-sweat",
+      "energized"
+    ],
     "duration_minutes": 20,
     "intensity": "high",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Climb a ladder of full burpees, counting up to five and back down, with a minute of rest between rounds.",
     "caution": "High impact on knees and lower back. Remove the jump if you feel joint pain, and rest whenever form slips."
   },
@@ -106,40 +158,61 @@
     "id": "calisthenics-011",
     "name": "Wall handstand hold",
     "focus": "calisthenics",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["wall"],
+    "equipment": [
+      "wall"
+    ],
     "description": "Kick up to a handstand against a wall, hold briefly with a neutral neck, and come down slowly."
   },
   {
     "id": "calisthenics-012",
     "name": "Tuck L-sit holds",
     "focus": "calisthenics",
-    "moods": ["focused", "calm"],
+    "moods": [
+      "focused",
+      "calm"
+    ],
     "duration_minutes": 12,
     "intensity": "moderate",
-    "equipment": ["two chairs"],
+    "equipment": [
+      "two chairs"
+    ],
     "description": "Hold a tuck L-sit between two chairs in short intervals to build hip flexor and core strength."
   },
   {
     "id": "calisthenics-013",
     "name": "Bear crawl and plank combo",
     "focus": "calisthenics",
-    "moods": ["playful", "want-to-sweat"],
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
     "duration_minutes": 15,
     "intensity": "moderate",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Crawl forward and back on hands and toes, then hold a plank for ten seconds between rounds."
   },
   {
     "id": "calisthenics-014",
     "name": "Warm-up and stretch flow",
     "focus": "calisthenics",
-    "moods": ["calm", "stressed", "tired"],
+    "moods": [
+      "calm",
+      "stressed",
+      "tired"
+    ],
     "duration_minutes": 15,
     "intensity": "low",
-    "equipment": ["none"],
+    "equipment": [
+      "none"
+    ],
     "description": "Slow bodyweight warm-up and cool-down for shoulders, hips, and back, breathing into each hold."
   }
 ]

@@ -1,0 +1,143 @@
+[
+  {
+    "id": "core-001",
+    "name": "Dead bug",
+    "focus": "core",
+    "moods": [
+      "calm",
+      "tired"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "core-002",
+    "name": "Bird dog",
+    "focus": "core",
+    "moods": [
+      "calm",
+      "focused"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "core-003",
+    "name": "Pelvic tilt",
+    "focus": "core",
+    "moods": [
+      "tired",
+      "unmotivated"
+    ],
+    "minutes": 2,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "core-004",
+    "name": "Plank",
+    "focus": "core",
+    "moods": [
+      "focused",
+      "calm"
+    ],
+    "minutes": 3,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "core-005",
+    "name": "Side plank",
+    "focus": "core",
+    "moods": [
+      "focused",
+      "playful"
+    ],
+    "minutes": 3,
+    "intensity": "moderate",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "core-006",
+    "name": "Pallof press",
+    "focus": "core",
+    "moods": [
+      "focused",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "core-007",
+    "name": "Hanging knee raise",
+    "focus": "core",
+    "moods": [
+      "energized"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "pull-up bar"
+    ]
+  },
+  {
+    "id": "core-008",
+    "name": "Russian twist",
+    "focus": "core",
+    "moods": [
+      "playful",
+      "want-to-sweat"
+    ],
+    "minutes": 4,
+    "intensity": "moderate",
+    "equipment": [
+      "medicine ball"
+    ]
+  },
+  {
+    "id": "core-009",
+    "name": "Ab wheel rollout",
+    "focus": "core",
+    "moods": [
+      "energized",
+      "want-to-sweat"
+    ],
+    "minutes": 4,
+    "intensity": "high",
+    "equipment": [
+      "ab wheel"
+    ],
+    "caution": "Stop before the lower back arches. Keep the hips in line with the shoulders."
+  },
+  {
+    "id": "core-010",
+    "name": "Hanging leg raise",
+    "focus": "core",
+    "moods": [
+      "energized",
+      "focused"
+    ],
+    "minutes": 5,
+    "intensity": "high",
+    "equipment": [
+      "pull-up bar"
+    ],
+    "caution": "Control the lowering. Stop if you feel low back strain or grip pain."
+  }
+]

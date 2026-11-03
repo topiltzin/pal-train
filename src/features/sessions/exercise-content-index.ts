@@ -7,6 +7,9 @@ import conditioning from "../../../content/exercises/conditioning.json";
 import hyroxStyle from "../../../content/exercises/hyrox-style.json";
 import legs from "../../../content/exercises/legs.json";
 import stretching from "../../../content/exercises/stretching.json";
+import core from "../../../content/exercises/core.json";
+import shoulders from "../../../content/exercises/shoulders.json";
+import upperBody from "../../../content/exercises/upper-body.json";
 import triceps from "../../../content/exercises/triceps.json";
 
 export const rawExerciseFiles: readonly unknown[] = [
@@ -20,4 +23,7 @@ export const rawExerciseFiles: readonly unknown[] = [
   conditioning,
   calisthenics,
   stretching,
+  upperBody,
+  shoulders,
+  core,
 ];
