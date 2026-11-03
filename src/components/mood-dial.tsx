@@ -48,8 +48,13 @@ const CHIP_PX = 56;
 const CHIP_RING_PCT = 35;
 const TRACK_RING_PCT = 48;
 const THUMB_PX = 12;
+/**
+ * The centre hole is where the page can still scroll on touch. It sits inside the chip ring,
+ * so Pip and the empty space around it never block a finger from scrolling the page.
+ */
+const HOLE_INSET_PCT = 26;
 /** A press closer to the centre than this fraction of the dial's width does not start a drag. */
-const CENTRE_HOLE_RATIO = 0.2;
+const CENTRE_HOLE_RATIO = 0.24;
 /** A finger must move this far before a press counts as a drag rather than a tap. */
 const DRAG_THRESHOLD_PX = 6;
 const KEY_STEP: Partial<Record<string, number>> = {
@@ -172,8 +177,16 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerEnd}
         onPointerCancel={handlePointerEnd}
-        className="relative mx-auto aspect-square w-[min(20rem,88vw)] touch-none select-none"
+        className="relative mx-auto aspect-square w-[min(20rem,88vw)] select-none"
       >
+        {/* Ring: a finger that starts here drags the thumb, so the browser must not scroll. */}
+        <div aria-hidden className="absolute inset-0 touch-none rounded-full" />
+        {/* Centre: a finger that starts here scrolls the page, as it would anywhere else. */}
+        <div
+          aria-hidden
+          className="absolute rounded-full touch-pan-y"
+          style={{ inset: `${HOLE_INSET_PCT}%` }}
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute rounded-full border-2 border-black/10"
@@ -204,7 +217,7 @@ export function MoodDial({ moods, selectedMood, onSelect }: MoodDialProps) {
                 top: `calc(50% + ${y}% - ${CHIP_PX / 2}px)`,
                 ...(isSelected ? { backgroundColor: `var(--color-${mood.accent})` } : {}),
               }}
-              className={`absolute flex size-14 items-center justify-center rounded-full border-2 bg-white transition-colors duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97] ${
+              className={`absolute flex size-14 touch-none items-center justify-center rounded-full border-2 bg-white transition-colors duration-150 ease-out hover:border-black/40 motion-safe:active:scale-[0.97] ${
                 isSelected ? "border-black" : isPreview ? "border-black/50" : "border-black/15"
               }`}
             >
