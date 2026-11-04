@@ -118,4 +118,15 @@ describe("POST /api/session-plan count scaling", () => {
     expect(body.error.code).toBe("INVALID_INPUT");
     expect(body.error.message).toBe("Sessions for this mood stay at 45 minutes or less.");
   });
+
+  it("returns INVALID_INPUT when the longest session is under 10 minutes", async () => {
+    const response = await handlePostSessionPlan(
+      planRequest({ minMinutes: 0, maxMinutes: 5, mood: "energized" }),
+      SIGNED_IN,
+    );
+    const body = await response.json();
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("INVALID_INPUT");
+    expect(body.error.message).toBe("Plan at least 10 minutes.");
+  });
 });

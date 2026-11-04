@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { capRange, GENTLE_MAX_MINUTES, maxMinutesFor } from "@/features/sessions/session-cap";
+import {
+  capRange,
+  GENTLE_MAX_MINUTES,
+  isTooShort,
+  maxMinutesFor,
+  SHORTEST_MINUTES,
+} from "@/features/sessions/session-cap";
 import { MAX_MINUTES } from "@/features/sessions/session-length";
 
 describe("maxMinutesFor", () => {
@@ -40,5 +46,21 @@ describe("capRange", () => {
 
     // Act / Assert
     expect(capRange(range, 45)).toEqual(range);
+  });
+});
+
+describe("isTooShort", () => {
+  it("treats anything under the 10 minute minimum as too short", () => {
+    // Act / Assert
+    expect(isTooShort(0)).toBe(true);
+    expect(isTooShort(5)).toBe(true);
+    expect(isTooShort(SHORTEST_MINUTES - 5)).toBe(true);
+  });
+
+  it("accepts the 10 minute minimum and anything longer", () => {
+    // Act / Assert
+    expect(isTooShort(SHORTEST_MINUTES)).toBe(false);
+    expect(isTooShort(30)).toBe(false);
+    expect(SHORTEST_MINUTES).toBe(10);
   });
 });

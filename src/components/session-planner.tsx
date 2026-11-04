@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { MoodLimitPopup } from "@/components/mood-limit-popup";
+import { SessionNoticePopup, type SessionNotice } from "@/components/session-notice-popup";
 import { SessionLengthControl } from "@/components/session-length-range";
 import { SessionPlanList } from "@/components/session-plan-list";
 import type { FocusId } from "@/features/library/focus-areas";
@@ -52,15 +52,16 @@ async function fetchPlan(
 export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
   const [liveRange, setLiveRange] = useState(DEFAULT_RANGE);
   const [committedRange, setCommittedRange] = useState(DEFAULT_RANGE);
-  const [limitOpen, setLimitOpen] = useState(false);
+  const [sessionNotice, setSessionNotice] = useState<SessionNotice | null>(null);
   // Gentle moods cap the longest session. The shown and planned ranges follow the cap, so a
   // longer value chosen earlier does not leak into a session for a gentle mood.
   const cap = maxMinutesFor(mood);
   const shownRange = capRange(liveRange, cap);
   const planMin = capRange(committedRange, cap).minMinutes;
   const planMax = capRange(committedRange, cap).maxMinutes;
-  const openLimit = useCallback(() => setLimitOpen(true), []);
-  const closeLimit = useCallback(() => setLimitOpen(false), []);
+  const openLimit = useCallback(() => setSessionNotice("limit"), []);
+  const openShort = useCallback(() => setSessionNotice("short"), []);
+  const closeNotice = useCallback(() => setSessionNotice(null), []);
   const [plan, setPlan] = useState<SessionPlanView | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const hasSource = mood !== undefined || focus !== undefined;
@@ -103,8 +104,9 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         onCommit={commitRange}
         limit={cap}
         onLimitReached={openLimit}
+        onShortReached={openShort}
       />
-      <MoodLimitPopup open={limitOpen} mood={mood ?? null} onClose={closeLimit} />
+      <SessionNoticePopup notice={sessionNotice} mood={mood ?? null} onClose={closeNotice} />
       <SessionPlanList
         plan={hasSource ? plan : null}
         notice={hasSource ? notice : PICK_SOURCE_NOTICE}

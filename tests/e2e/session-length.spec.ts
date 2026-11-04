@@ -83,4 +83,17 @@ test.describe("session length meter", () => {
     await expect(page.getByText("Up to 45 minutes")).toBeVisible();
     await expect(page.getByRole("alertdialog")).toContainText("Buddy, let's take it easy");
   });
+
+  test("dragging below 10 minutes raises the length to 10 and says so", async ({ page }) => {
+    // Arrange
+    const meter = page.getByRole("slider", { name: METER_NAME });
+
+    // Act: 60 minutes down to 5 is 11 steps; the 11th step goes below the minimum
+    await meter.focus();
+    for (let step = 0; step < 11; step += 1) await meter.press("ArrowLeft");
+
+    // Assert
+    await expect(page.getByText("Up to 10 minutes")).toBeVisible();
+    await expect(page.getByRole("alertdialog")).toContainText("Buddy, better let's go home");
+  });
 });

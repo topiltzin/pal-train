@@ -1,10 +1,16 @@
 import type { MoodId } from "@/features/moods/moods";
 import type { SessionLengthRange } from "@/features/sessions/range";
-import { MAX_MINUTES } from "@/features/sessions/session-length";
+import { MAX_MINUTES, MIN_MINUTES } from "@/features/sessions/session-length";
 
 /** On these days the plan stays short: tired, stressed, and unmotivated moods. */
 const GENTLE_MOODS: readonly MoodId[] = ["tired", "stressed", "unmotivated"];
 export const GENTLE_MAX_MINUTES = 45;
+/** The shortest plan worth making. Anything below it is raised to this, with a friendly nudge. */
+export const SHORTEST_MINUTES = MIN_MINUTES;
+
+export function isTooShort(minutes: number): boolean {
+  return minutes < SHORTEST_MINUTES;
+}
 
 /** The longest session allowed for a mood. With no mood chosen, the full slider range applies. */
 export function maxMinutesFor(mood: MoodId | null | undefined): number {

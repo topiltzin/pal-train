@@ -2,6 +2,7 @@
 
 import WakeSlider from "@/components/wake-slider";
 import { clampRange, type SessionLengthRange } from "@/features/sessions/range";
+import { isTooShort, SHORTEST_MINUTES } from "@/features/sessions/session-cap";
 import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 
 const METER_LABEL = "Session length";
@@ -18,6 +19,8 @@ type SessionLengthControlProps = {
   limit?: number;
   /** Fires when the user tries to go past `limit`, so the planner can explain why. */
   onLimitReached?: () => void;
+  /** Fires when the user drags below the shortest plan. The value is raised to that minimum. */
+  onShortReached?: () => void;
 };
 
 /**
@@ -31,10 +34,13 @@ export function SessionLengthControl({
   onCommit,
   limit = MAX_MINUTES,
   onLimitReached,
+  onShortReached,
 }: SessionLengthControlProps) {
   function handleMove(next: number) {
     if (next > limit) onLimitReached?.();
-    onChange(clampRange("max", Math.min(next, limit), value));
+    if (isTooShort(next)) onShortReached?.();
+    const bounded = Math.min(Math.max(next, SHORTEST_MINUTES), limit);
+    onChange(clampRange("max", bounded, value));
   }
 
   return (
@@ -62,7 +68,7 @@ export function SessionLengthControl({
       </div>
       <p className="text-sm text-muted">
         Drag the bars, or use the arrow keys, to set the longest session. Each step is{" "}
-        {STEP_MINUTES} minutes.
+        {STEP_MINUTES} minutes. Plans run from {SHORTEST_MINUTES} minutes up to the longest you set.
         {limit < MAX_MINUTES ? ` This mood keeps sessions to ${limit} minutes or less.` : null}
       </p>
     </div>

@@ -7,7 +7,7 @@ import {
   loadExerciseLibrary,
 } from "@/features/sessions/exercise-library";
 import { describePlanNotice, planSession, type SessionPlan } from "@/features/sessions/plan-session";
-import { GENTLE_MAX_MINUTES, maxMinutesFor } from "@/features/sessions/session-cap";
+import { GENTLE_MAX_MINUTES, isTooShort, maxMinutesFor, SHORTEST_MINUTES } from "@/features/sessions/session-cap";
 import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 import { toExerciseView, type ExerciseView } from "@/features/sessions/session-view";
 import { ok } from "@/lib/api/envelope";
@@ -21,6 +21,7 @@ const LENGTH_MESSAGE = `Pick a length between ${SLIDER_MIN_MINUTES} and ${MAX_MI
 const STEP_MESSAGE = `Choose lengths in ${STEP_MINUTES}-minute steps.`;
 const ORDER_MESSAGE = "The shortest session cannot be longer than the longest.";
 const SOURCE_MESSAGE = "Pick a mood, a focus area, or both.";
+const SHORT_MESSAGE = `Plan at least ${SHORTEST_MINUTES} minutes.`;
 const GENTLE_LIMIT_MESSAGE = `Sessions for this mood stay at ${GENTLE_MAX_MINUTES} minutes or less.`;
 const JSON_CONTENT_TYPE = "application/json";
 
@@ -39,6 +40,7 @@ const sessionPlanRequestSchema = z
     focus: z.enum(focusIds).optional(),
   })
   .refine((body) => body.minMinutes <= body.maxMinutes, { error: ORDER_MESSAGE })
+  .refine((body) => !isTooShort(body.maxMinutes), { error: SHORT_MESSAGE })
   .refine((body) => body.mood === undefined || body.maxMinutes <= maxMinutesFor(body.mood), {
     error: GENTLE_LIMIT_MESSAGE,
   })
