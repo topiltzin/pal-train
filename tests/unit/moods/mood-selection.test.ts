@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isUserChange, moodIndexFor } from "@/features/moods/carousel-selection";
+import { isUserChange, moodIndexFor } from "@/features/moods/mood-selection";
 import { moods } from "@/features/moods/moods";
 
 describe("moodIndexFor", () => {

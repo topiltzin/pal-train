@@ -1,28 +1,32 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import FlexCarousel, { type FlexCarouselItem } from "@/components/flex-carousel";
+import AccordionGallery, { type AccordionGalleryItem } from "@/components/accordion-gallery";
 import { moodCardArt } from "@/components/mood-card-art";
-import { isUserChange, moodIndexFor } from "@/features/moods/carousel-selection";
+import { isUserChange, moodIndexFor } from "@/features/moods/mood-selection";
 import type { Mood, MoodId } from "@/features/moods/moods";
 import { moodExpression } from "@/features/pal/expressions";
 
-type MoodCarouselProps = {
+type MoodGalleryProps = {
   moods: readonly Mood[];
   selectedMood: MoodId | null;
   onSelect: (mood: MoodId) => void;
 };
 
-/** One height for the carousel and its placeholder, so the page does not jump when the cards arrive. */
-const STAGE_CLASS = "h-[300px] w-full md:h-[360px]";
+const GALLERY_HEIGHT_PX = 340;
+/**
+ * Phones stack the panels. Eight collapsed panels take about 730px (84px minimum each plus gaps),
+ * so this leaves room for the active panel to open.
+ */
+const PHONE_HEIGHT_CLASS = "max-[520px]:!h-[880px]";
 const LOAD_FAILED_MESSAGE = "Could not draw the mood cards. Reload the page to try again.";
 
 function markInteracted(ref: { current: boolean }) {
   ref.current = true;
 }
 
-export function MoodCarousel({ moods, selectedMood, onSelect }: MoodCarouselProps) {
-  const [items, setItems] = useState<FlexCarouselItem[] | null>(null);
+export function MoodGallery({ moods, selectedMood, onSelect }: MoodGalleryProps) {
+  const [items, setItems] = useState<AccordionGalleryItem[] | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
   const interactedRef = useRef(false);
   const selectedIndex = moods.findIndex((mood) => mood.id === selectedMood);
@@ -32,13 +36,13 @@ export function MoodCarousel({ moods, selectedMood, onSelect }: MoodCarouselProp
     let cancelled = false;
     Promise.all(
       moods.map(async (mood) => ({
-        src: await moodCardArt(moodExpression[mood.id]),
+        image: await moodCardArt(moodExpression[mood.id]),
+        label: mood.label,
         alt: `Pip, looking ${mood.label.toLowerCase()}`,
-        title: mood.label,
       })),
     )
-      .then((cards) => {
-        if (!cancelled) setItems(cards);
+      .then((panels) => {
+        if (!cancelled) setItems(panels);
       })
       .catch(() => {
         if (!cancelled) setLoadFailed(true);
@@ -57,25 +61,29 @@ export function MoodCarousel({ moods, selectedMood, onSelect }: MoodCarouselProp
   return (
     <div className="flex w-full flex-col items-center gap-3">
       <div
-        className={STAGE_CLASS}
-        onPointerDown={() => markInteracted(interactedRef)}
-        onKeyDown={() => markInteracted(interactedRef)}
-        onWheel={() => markInteracted(interactedRef)}
+        className="min-h-[340px] w-full"
+        // Capture phase: the user's input is recorded before any panel handles it.
+        onPointerDownCapture={() => markInteracted(interactedRef)}
+        onKeyDownCapture={() => markInteracted(interactedRef)}
+        onWheelCapture={() => markInteracted(interactedRef)}
       >
         {items ? (
-          <FlexCarousel
+          <AccordionGallery
             items={items}
             index={moodIndexFor(moods, selectedMood)}
             onChange={handleChange}
-            fit="square"
-            captions={false}
-            radius={20}
-            cardHeight={0.62}
-            className="h-full"
+            trigger="click"
+            height={GALLERY_HEIGHT_PX}
+            gap={8}
+            radius={18}
+            accentColor="#3ddc97"
+            overlayColor="#171b22"
+            textColor="#eef1f5"
+            className={`w-full ${PHONE_HEIGHT_CLASS}`}
           />
         ) : null}
         {!items && loadFailed ? (
-          <p role="alert" className="flex h-full items-center justify-center text-center">
+          <p role="alert" className="flex h-[340px] items-center justify-center text-center">
             {LOAD_FAILED_MESSAGE}
           </p>
         ) : null}
