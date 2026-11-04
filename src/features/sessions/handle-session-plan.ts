@@ -2,6 +2,7 @@ import { z } from "zod";
 import { requireUser, type SessionGetter } from "@/features/auth/session";
 import { attachDemos } from "@/features/demos/attach-demos";
 import type { DemoLinkRepository } from "@/features/demos/demo-link-repository";
+import { withLinkCache } from "@/features/demos/cached-demo-link-repository";
 import { createDrizzleDemoLinkRepository } from "@/features/demos/drizzle-demo-link-repository";
 import { focusIds } from "@/features/library/focus-areas";
 import { moodIds } from "@/features/moods/moods";
@@ -83,7 +84,7 @@ async function readJsonBody(request: Request): Promise<unknown> {
   }
 }
 
-const defaultDemoLinks: DemoLinkRepository = createDrizzleDemoLinkRepository();
+const defaultDemoLinks: DemoLinkRepository = withLinkCache(createDrizzleDemoLinkRepository());
 
 /**
  * Attaches each exercise's active demo. Demos are an enhancement, so a failed lookup is logged
@@ -92,9 +93,12 @@ const defaultDemoLinks: DemoLinkRepository = createDrizzleDemoLinkRepository();
 async function attachActiveDemos(
   exercises: ExerciseView[],
   demoLinks: DemoLinkRepository,
+  libraryIds: string[],
 ): Promise<ExerciseView[]> {
   try {
-    const links = await demoLinks.listActiveByExerciseIds(exercises.map((exercise) => exercise.id));
+    // Every library id is looked up, not only the picked ones: plans are random, so one lookup for
+    // the whole library fills the cache once instead of a little more on every request.
+    const links = await demoLinks.listActiveByExerciseIds(libraryIds);
     return attachDemos(exercises, links);
   } catch (error) {
     console.error(`${ROUTE_LABEL} demo lookup failed`, error);
@@ -141,7 +145,14 @@ export async function handlePostSessionPlan(
       mood: body.mood,
       focus: body.focus,
     });
-    const exercises = await attachActiveDemos(plan.exercises.map(toExerciseView), demoLinks);
+    const libraryIds = loadExerciseLibrary()
+      .list()
+      .map((exercise) => exercise.id);
+    const exercises = await attachActiveDemos(
+      plan.exercises.map(toExerciseView),
+      demoLinks,
+      libraryIds,
+    );
     return Response.json(ok(toPlanView(plan, body, exercises)));
   } catch (error) {
     if (error instanceof ExerciseLibraryUnavailableError) {

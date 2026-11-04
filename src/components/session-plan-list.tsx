@@ -4,9 +4,11 @@ import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
 type SessionPlanListProps = {
   plan: SessionPlanView | null;
   notice: string | null;
+  /** A new plan is loading. The current one stays visible, dimmed. */
+  busy?: boolean;
 };
 
-export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
+export function SessionPlanList({ plan, notice, busy = false }: SessionPlanListProps) {
   const hasExercises = plan !== null && plan.exercises.length > 0;
   return (
     <div className="flex flex-col gap-4">
@@ -16,7 +18,10 @@ export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
         </p>
       ) : null}
       {plan && hasExercises ? (
-        <>
+        <div
+          aria-busy={busy}
+          className={`flex flex-col gap-4 transition-opacity duration-200 ${busy ? "opacity-60" : "opacity-100"}`}
+        >
           <p data-testid="session-total" className="flex items-baseline gap-2">
             <span className="text-4xl font-semibold tabular-nums">{plan.totalMinutes}</span>
             <span className="text-sm text-muted">minutes</span>
@@ -52,7 +57,7 @@ export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : null}
     </div>
   );

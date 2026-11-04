@@ -65,6 +65,11 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
   const [plan, setPlan] = useState<SessionPlanView | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const hasSource = mood !== undefined || focus !== undefined;
+  // The request the shown plan belongs to. While it differs from the request now wanted, a new
+  // plan is on its way: the previous plan stays on screen, dimmed, so the page never looks frozen.
+  const wantedKey = `${planMin}-${planMax}-${mood ?? ""}-${focus ?? ""}`;
+  const [settledKey, setSettledKey] = useState<string | null>(null);
+  const pending = hasSource && settledKey !== wantedKey;
 
   useEffect(() => {
     if (!hasSource) {
@@ -74,6 +79,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
     fetchPlan({ minMinutes: planMin, maxMinutes: planMax }, mood, focus, controller.signal)
       .then((response) => {
         if (controller.signal.aborted) return;
+        setSettledKey(wantedKey);
         if (response.success && response.data) {
           setPlan(response.data);
           setNotice(response.data.shortfallMessage);
@@ -84,11 +90,12 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
       })
       .catch(() => {
         if (controller.signal.aborted) return;
+        setSettledKey(wantedKey);
         setPlan(null);
         setNotice(GENERIC_ERROR);
       });
     return () => controller.abort();
-  }, [planMin, planMax, mood, focus, hasSource]);
+  }, [planMin, planMax, mood, focus, hasSource, wantedKey]);
 
   function commitRange() {
     const next = capRange(liveRange, cap);
@@ -110,6 +117,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
       <SessionPlanList
         plan={hasSource ? plan : null}
         notice={hasSource ? notice : PICK_SOURCE_NOTICE}
+        busy={pending}
       />
     </section>
   );
