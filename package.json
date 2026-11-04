@@ -12,6 +12,7 @@
     "test:e2e": "playwright test",
     "test:coverage": "vitest run --coverage",
     "validate:content": "tsx scripts/validate-content.ts",
+    "import:demos": "tsx scripts/import-exercise-demos.ts",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"

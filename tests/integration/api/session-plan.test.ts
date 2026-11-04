@@ -1,5 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { handlePostSessionPlan } from "@/features/sessions/handle-session-plan";
+import { createInMemoryDemoLinkRepository, type DemoLinkRepository } from "@/features/demos/demo-link-repository";
+import { loadExerciseLibrary } from "@/features/sessions/exercise-library";
 
 const SIGNED_IN = async () => ({
   user: { sub: "auth0|plan-test", email: "plan.test@example.com" },
@@ -128,5 +130,67 @@ describe("POST /api/session-plan count scaling", () => {
     expect(response.status).toBe(400);
     expect(body.error.code).toBe("INVALID_INPUT");
     expect(body.error.message).toBe("Plan at least 10 minutes.");
+  });
+
+  it("returns each planned exercise with its active demo", async () => {
+    // Arrange: a link for every exercise in the library
+    const demoLinks = createInMemoryDemoLinkRepository();
+    for (const exercise of loadExerciseLibrary().list()) {
+      await demoLinks.upsertActive({ exerciseId: exercise.id, videoId: "IFzYdoNYJkY", sourceTitle: "Demo" });
+    }
+
+    // Act
+    const response = await handlePostSessionPlan(planRequest(VALID_BODY), SIGNED_IN, demoLinks);
+    const body = await response.json();
+
+    // Assert
+    expect(response.status).toBe(200);
+    expect(body.data.exercises.length).toBeGreaterThan(0);
+    for (const exercise of body.data.exercises) {
+      expect(exercise.demo).toEqual({ videoId: "IFzYdoNYJkY", title: "Demo" });
+    }
+  });
+
+  it("still returns the plan, with no demos, when the demo lookup fails", async () => {
+    // Arrange
+    const failingDemoLinks: DemoLinkRepository = {
+      listActiveByExerciseIds: async () => {
+        throw new Error("database unavailable");
+      },
+      upsertActive: async () => {
+        throw new Error("database unavailable");
+      },
+      deactivate: async () => undefined,
+    };
+    const errorLog = vi.spyOn(console, "error").mockImplementation(() => undefined);
+
+    // Act
+    const response = await handlePostSessionPlan(planRequest(VALID_BODY), SIGNED_IN, failingDemoLinks);
+    const body = await response.json();
+    const failureWasLogged = errorLog.mock.calls.length > 0;
+    errorLog.mockRestore();
+
+    // Assert
+    expect(response.status).toBe(200);
+    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(true);
+    expect(failureWasLogged).toBe(true);
+  });
+
+  it("returns no demo for an exercise once its link is deactivated", async () => {
+    // Arrange: a link for every exercise, then deactivate them all
+    const demoLinks = createInMemoryDemoLinkRepository();
+    const exerciseIds = loadExerciseLibrary().list().map((exercise) => exercise.id);
+    for (const exerciseId of exerciseIds) {
+      await demoLinks.upsertActive({ exerciseId, videoId: "IFzYdoNYJkY", sourceTitle: "Demo" });
+      await demoLinks.deactivate(exerciseId);
+    }
+
+    // Act
+    const response = await handlePostSessionPlan(planRequest(VALID_BODY), SIGNED_IN, demoLinks);
+    const body = await response.json();
+
+    // Assert
+    expect(body.data.exercises.length).toBeGreaterThan(0);
+    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(true);
   });
 });

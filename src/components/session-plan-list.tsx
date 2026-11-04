@@ -1,3 +1,4 @@
+import { ExerciseDemoButton } from "@/components/exercise-demo-button";
 import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
 
 type SessionPlanListProps = {
@@ -22,7 +23,10 @@ export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
           </p>
           <ul className="flex flex-col gap-2">
             {plan.exercises.map((exercise) => (
-              <li key={exercise.id} className="flex flex-col gap-1 rounded-2xl bg-surface px-4 py-3">
+              <li
+                key={exercise.id}
+                className="flex flex-col gap-1 rounded-2xl bg-surface px-4 py-3"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <span className="min-w-0 font-medium">{exercise.name}</span>
                   <span data-testid="exercise-minutes" className="shrink-0 text-sm text-muted">
@@ -36,6 +40,9 @@ export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
                   <p data-testid="exercise-caution" className="text-sm text-muted">
                     {exercise.caution}
                   </p>
+                ) : null}
+                {exercise.demo ? (
+                  <ExerciseDemoButton exerciseName={exercise.name} demo={exercise.demo} />
                 ) : null}
               </li>
             ))}

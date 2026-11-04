@@ -1,13 +1,25 @@
 import { z } from "zod";
 import { requireUser, type SessionGetter } from "@/features/auth/session";
+import { attachDemos } from "@/features/demos/attach-demos";
+import type { DemoLinkRepository } from "@/features/demos/demo-link-repository";
+import { createDrizzleDemoLinkRepository } from "@/features/demos/drizzle-demo-link-repository";
 import { focusIds } from "@/features/library/focus-areas";
 import { moodIds } from "@/features/moods/moods";
 import {
   ExerciseLibraryUnavailableError,
   loadExerciseLibrary,
 } from "@/features/sessions/exercise-library";
-import { describePlanNotice, planSession, type SessionPlan } from "@/features/sessions/plan-session";
-import { GENTLE_MAX_MINUTES, isTooShort, maxMinutesFor, SHORTEST_MINUTES } from "@/features/sessions/session-cap";
+import {
+  describePlanNotice,
+  planSession,
+  type SessionPlan,
+} from "@/features/sessions/plan-session";
+import {
+  GENTLE_MAX_MINUTES,
+  isTooShort,
+  maxMinutesFor,
+  SHORTEST_MINUTES,
+} from "@/features/sessions/session-cap";
 import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 import { toExerciseView, type ExerciseView } from "@/features/sessions/session-view";
 import { ok } from "@/lib/api/envelope";
@@ -71,9 +83,32 @@ async function readJsonBody(request: Request): Promise<unknown> {
   }
 }
 
-function toPlanView(plan: SessionPlan, request: SessionPlanRequest): SessionPlanView {
+const defaultDemoLinks: DemoLinkRepository = createDrizzleDemoLinkRepository();
+
+/**
+ * Attaches each exercise's active demo. Demos are an enhancement, so a failed lookup is logged
+ * and the plan still returns, with every demo set to null.
+ */
+async function attachActiveDemos(
+  exercises: ExerciseView[],
+  demoLinks: DemoLinkRepository,
+): Promise<ExerciseView[]> {
+  try {
+    const links = await demoLinks.listActiveByExerciseIds(exercises.map((exercise) => exercise.id));
+    return attachDemos(exercises, links);
+  } catch (error) {
+    console.error(`${ROUTE_LABEL} demo lookup failed`, error);
+    return exercises.map((exercise) => ({ ...exercise, demo: null }));
+  }
+}
+
+function toPlanView(
+  plan: SessionPlan,
+  request: SessionPlanRequest,
+  exercises: ExerciseView[],
+): SessionPlanView {
   return {
-    exercises: plan.exercises.map(toExerciseView),
+    exercises,
     totalMinutes: plan.totalMinutes,
     targetCount: plan.targetCount,
     partial: plan.partial,
@@ -84,6 +119,7 @@ function toPlanView(plan: SessionPlan, request: SessionPlanRequest): SessionPlan
 export async function handlePostSessionPlan(
   request: Request,
   getSession?: SessionGetter,
+  demoLinks: DemoLinkRepository = defaultDemoLinks,
 ): Promise<Response> {
   try {
     await requireUser(getSession);
@@ -105,7 +141,8 @@ export async function handlePostSessionPlan(
       mood: body.mood,
       focus: body.focus,
     });
-    return Response.json(ok(toPlanView(plan, body)));
+    const exercises = await attachActiveDemos(plan.exercises.map(toExerciseView), demoLinks);
+    return Response.json(ok(toPlanView(plan, body, exercises)));
   } catch (error) {
     if (error instanceof ExerciseLibraryUnavailableError) {
       return errorResponse(ErrorCodes.LIBRARY_UNAVAILABLE, error.message);
