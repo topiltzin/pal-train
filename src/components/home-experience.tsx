@@ -5,7 +5,7 @@ import { useState, type CSSProperties } from "react";
 import { FocusPicker } from "@/components/focus-picker";
 import { LibraryError } from "@/components/library-error";
 import { MedicalNotice } from "@/components/medical-notice";
-import { MoodGallery } from "@/components/mood-gallery";
+import { MoodCarousel } from "@/components/mood-carousel";
 import { SuggestionList } from "@/components/suggestion-list";
 import { SessionPlanner } from "@/components/session-planner";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
@@ -111,7 +111,7 @@ export function HomeExperience({
 
         <section className="flex flex-col gap-5 mood-card rounded-3xl p-5 ring-1 ring-line">
           <h2 className="text-base font-semibold">How are you feeling?</h2>
-          <MoodGallery
+          <MoodCarousel
             moods={moods}
             selectedMood={selection.mood}
             onSelect={(mood) => runSelection({ ...selection, mood })}
