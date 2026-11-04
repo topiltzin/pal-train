@@ -2,6 +2,7 @@
   {
     "id": "hyrox-style-001",
     "name": "Ski erg",
+    "description": "Pull the ski erg handles down with your arms and hips in a steady rhythm.",
     "focus": "hyrox-style",
     "moods": [
       "energized"
@@ -16,6 +17,7 @@
   {
     "id": "hyrox-style-002",
     "name": "Sled push",
+    "description": "Push a loaded sled across the floor with a low, driving stance.",
     "focus": "hyrox-style",
     "moods": [
       "energized",
@@ -31,6 +33,7 @@
   {
     "id": "hyrox-style-003",
     "name": "Sled pull",
+    "description": "Pull a sled toward you hand over hand, walking backward at a steady pace.",
     "focus": "hyrox-style",
     "moods": [
       "focused",
@@ -46,6 +49,7 @@
   {
     "id": "hyrox-style-004",
     "name": "Burpee broad jump",
+    "description": "Do a burpee, then broad jump forward instead of standing up.",
     "focus": "hyrox-style",
     "moods": [
       "want-to-sweat"
@@ -60,6 +64,7 @@
   {
     "id": "hyrox-style-005",
     "name": "Farmers carry",
+    "description": "Walk while holding heavy weights at your sides with a tall posture.",
     "focus": "hyrox-style",
     "moods": [
       "focused",
@@ -74,6 +79,7 @@
   {
     "id": "hyrox-style-006",
     "name": "Wall ball",
+    "description": "Squat, then throw a medicine ball to a target on the wall as you stand.",
     "focus": "hyrox-style",
     "moods": [
       "energized"
@@ -88,6 +94,7 @@
   {
     "id": "hyrox-style-007",
     "name": "Rowing 500 metres",
+    "description": "Row 500 metres at a hard but controlled pace.",
     "focus": "hyrox-style",
     "moods": [
       "energized"
@@ -101,6 +108,7 @@
   {
     "id": "hyrox-style-008",
     "name": "Sandbag lunge",
+    "description": "Hold a sandbag on your shoulders and lunge forward, alternating legs.",
     "focus": "hyrox-style",
     "moods": [
       "want-to-sweat",
@@ -115,6 +123,7 @@
   {
     "id": "hyrox-style-009",
     "name": "Easy run 1 km",
+    "description": "Run one kilometre at a comfortable pace you could hold a conversation at.",
     "focus": "hyrox-style",
     "moods": [
       "calm",
@@ -129,6 +138,7 @@
   {
     "id": "hyrox-style-010",
     "name": "Rowing intervals",
+    "description": "Alternate hard rowing efforts with easy recovery strokes.",
     "focus": "hyrox-style",
     "moods": [
       "energized",

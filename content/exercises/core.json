@@ -2,6 +2,7 @@
   {
     "id": "core-001",
     "name": "Dead bug",
+    "description": "Lie on your back and lower your opposite arm and leg slowly while your lower back stays down.",
     "focus": "core",
     "moods": [
       "calm",
@@ -16,6 +17,7 @@
   {
     "id": "core-002",
     "name": "Bird dog",
+    "description": "On hands and knees, extend your opposite arm and leg while keeping your hips level.",
     "focus": "core",
     "moods": [
       "calm",
@@ -30,6 +32,7 @@
   {
     "id": "core-003",
     "name": "Pelvic tilt",
+    "description": "Lie with your knees bent and gently tilt your pelvis to flatten your lower back.",
     "focus": "core",
     "moods": [
       "tired",
@@ -44,6 +47,7 @@
   {
     "id": "core-004",
     "name": "Plank",
+    "description": "Hold a straight line from head to heels on your forearms and toes, breathing steadily.",
     "focus": "core",
     "moods": [
       "focused"
@@ -57,6 +61,7 @@
   {
     "id": "core-005",
     "name": "Side plank",
+    "description": "Balance on one forearm with your body in a straight line, then hold.",
     "focus": "core",
     "moods": [
       "focused",
@@ -71,6 +76,7 @@
   {
     "id": "core-006",
     "name": "Pallof press",
+    "description": "Stand sideways to a cable, press the handle out, and resist the pull that tries to rotate you.",
     "focus": "core",
     "moods": [
       "focused",
@@ -85,6 +91,7 @@
   {
     "id": "core-007",
     "name": "Hanging knee raise",
+    "description": "Hang from a bar and raise your knees toward your chest with control.",
     "focus": "core",
     "moods": [
       "energized"
@@ -98,6 +105,7 @@
   {
     "id": "core-008",
     "name": "Russian twist",
+    "description": "Sit with your knees bent, lean back slightly, and rotate your torso from side to side.",
     "focus": "core",
     "moods": [
       "playful",
@@ -112,6 +120,7 @@
   {
     "id": "core-009",
     "name": "Ab wheel rollout",
+    "description": "Kneel and roll the wheel forward as far as you can control, then pull back.",
     "focus": "core",
     "moods": [
       "energized",
@@ -127,6 +136,7 @@
   {
     "id": "core-010",
     "name": "Hanging leg raise",
+    "description": "Hang from a bar and raise straight legs forward, keeping the movement slow.",
     "focus": "core",
     "moods": [
       "energized"

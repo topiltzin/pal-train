@@ -2,6 +2,7 @@
   {
     "id": "conditioning-001",
     "name": "Kettlebell swing",
+    "description": "Hinge at the hips and snap the kettlebell up to chest height using your hips.",
     "focus": "conditioning",
     "moods": [
       "energized",
@@ -17,6 +18,7 @@
   {
     "id": "conditioning-002",
     "name": "Thruster",
+    "description": "Squat with dumbbells at your shoulders, then drive up and press them overhead in one motion.",
     "focus": "conditioning",
     "moods": [
       "energized",
@@ -31,6 +33,7 @@
   {
     "id": "conditioning-003",
     "name": "Mountain climber",
+    "description": "From a plank, drive your knees toward your chest in quick alternation.",
     "focus": "conditioning",
     "moods": [
       "playful",
@@ -45,6 +48,7 @@
   {
     "id": "conditioning-004",
     "name": "Battle rope waves",
+    "description": "Alternate arm waves with the ropes, keeping your core braced.",
     "focus": "conditioning",
     "moods": [
       "energized",
@@ -59,6 +63,7 @@
   {
     "id": "conditioning-005",
     "name": "Bear crawl",
+    "description": "Move forward on hands and feet with knees just off the floor and your back flat.",
     "focus": "conditioning",
     "moods": [
       "focused",
@@ -73,6 +78,7 @@
   {
     "id": "conditioning-006",
     "name": "Sprint intervals",
+    "description": "Run hard for a short distance, then walk or jog to recover before repeating.",
     "focus": "conditioning",
     "moods": [
       "want-to-sweat"
@@ -87,6 +93,7 @@
   {
     "id": "conditioning-007",
     "name": "Medicine ball slam",
+    "description": "Raise the ball overhead and slam it to the floor with force.",
     "focus": "conditioning",
     "moods": [
       "stressed",
@@ -101,6 +108,7 @@
   {
     "id": "conditioning-008",
     "name": "Burpee",
+    "description": "Drop to a push-up, jump your feet in, then jump up with your arms overhead.",
     "focus": "conditioning",
     "moods": [
       "want-to-sweat"
@@ -114,6 +122,7 @@
   {
     "id": "conditioning-009",
     "name": "Box step-over",
+    "description": "Step up onto a box one leg at a time, then step down, keeping a steady rhythm.",
     "focus": "conditioning",
     "moods": [
       "focused",
@@ -128,6 +137,7 @@
   {
     "id": "conditioning-010",
     "name": "Plank to push-up",
+    "description": "Move from forearms to hands in a plank, then return to forearms.",
     "focus": "conditioning",
     "moods": [
       "focused"

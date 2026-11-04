@@ -33,6 +33,11 @@ export function SessionPlanList({ plan, notice }: SessionPlanListProps) {
                     {exercise.minutes}
                   </span>
                 </div>
+                {exercise.description ? (
+                  <p data-testid="exercise-description" className="text-sm text-foreground/80">
+                    {exercise.description}
+                  </p>
+                ) : null}
                 <p data-testid="exercise-equipment" className="text-sm text-muted">
                   {exercise.equipment.join(", ")}
                 </p>

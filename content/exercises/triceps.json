@@ -2,6 +2,7 @@
   {
     "id": "triceps-001",
     "name": "Close-grip push-up",
+    "description": "Place your hands shoulder-width or narrower and lower with your elbows close to your body.",
     "focus": "triceps",
     "moods": [
       "focused"
@@ -15,6 +16,7 @@
   {
     "id": "triceps-002",
     "name": "Overhead dumbbell extension",
+    "description": "Hold one dumbbell overhead with both hands, lower it behind your head, then extend.",
     "focus": "triceps",
     "moods": [
       "focused",
@@ -29,6 +31,7 @@
   {
     "id": "triceps-003",
     "name": "Bench dip",
+    "description": "With your hands on a bench behind you, lower your body and press back up.",
     "focus": "triceps",
     "moods": [
       "playful",
@@ -43,6 +46,7 @@
   {
     "id": "triceps-004",
     "name": "Rope pushdown",
+    "description": "Push a cable rope down by straightening your elbows, keeping your upper arms still.",
     "focus": "triceps",
     "moods": [
       "stressed",
@@ -57,6 +61,7 @@
   {
     "id": "triceps-005",
     "name": "Skull crusher",
+    "description": "Lying on a bench, lower the bar toward your forehead by bending your elbows, then extend.",
     "focus": "triceps",
     "moods": [
       "energized"
@@ -71,6 +76,7 @@
   {
     "id": "triceps-006",
     "name": "Diamond push-up",
+    "description": "Form a diamond with your index fingers and thumbs under your chest, then push up.",
     "focus": "triceps",
     "moods": [
       "focused"
@@ -85,6 +91,7 @@
   {
     "id": "triceps-007",
     "name": "Band pushdown",
+    "description": "Anchor a band overhead and push down by extending your elbows.",
     "focus": "triceps",
     "moods": [
       "tired",
@@ -99,6 +106,7 @@
   {
     "id": "triceps-008",
     "name": "Dumbbell kickback",
+    "description": "Hinge forward and extend one arm back, keeping your upper arm still.",
     "focus": "triceps",
     "moods": [
       "calm",
@@ -113,6 +121,7 @@
   {
     "id": "triceps-009",
     "name": "Tricep dip on parallel bars",
+    "description": "Support yourself on the bars and lower with your elbows pointing back, then press up.",
     "focus": "triceps",
     "moods": [
       "energized"
@@ -127,6 +136,7 @@
   {
     "id": "triceps-010",
     "name": "Overhead cable extension",
+    "description": "Face away from the cable, hold the rope overhead, and extend your arms.",
     "focus": "triceps",
     "moods": [
       "focused",

@@ -2,6 +2,7 @@
   {
     "id": "back-001",
     "name": "Bent-over barbell row",
+    "description": "Hinge forward at the hips, pull the bar to your lower ribs, and lower it with control.",
     "focus": "back",
     "moods": [
       "energized"
@@ -16,6 +17,7 @@
   {
     "id": "back-002",
     "name": "Lat pulldown",
+    "description": "Pull the bar to your upper chest while keeping your chest tall and elbows driving down.",
     "focus": "back",
     "moods": [
       "focused",
@@ -30,6 +32,7 @@
   {
     "id": "back-003",
     "name": "Seated cable row",
+    "description": "Sit tall, pull the handle to your waist, and squeeze your shoulder blades together.",
     "focus": "back",
     "moods": [
       "calm",
@@ -44,6 +47,7 @@
   {
     "id": "back-004",
     "name": "One-arm dumbbell row",
+    "description": "Brace one hand on a bench, pull the dumbbell toward your hip, and keep your torso still.",
     "focus": "back",
     "moods": [
       "focused",
@@ -59,6 +63,7 @@
   {
     "id": "back-005",
     "name": "Band pull-apart",
+    "description": "Hold a band at shoulder height and pull your hands apart, squeezing your upper back.",
     "focus": "back",
     "moods": [
       "calm",
@@ -73,6 +78,7 @@
   {
     "id": "back-006",
     "name": "Inverted row",
+    "description": "Hang under a bar with a straight body and pull your chest up to the bar.",
     "focus": "back",
     "moods": [
       "playful",
@@ -87,6 +93,7 @@
   {
     "id": "back-007",
     "name": "Face pull",
+    "description": "Pull a rope to face height, separating the ends and keeping your elbows high.",
     "focus": "back",
     "moods": [
       "focused",
@@ -101,6 +108,7 @@
   {
     "id": "back-008",
     "name": "Superman hold",
+    "description": "Lie face down, lift your arms, chest, and legs off the floor, then hold briefly.",
     "focus": "back",
     "moods": [
       "tired",
@@ -115,6 +123,7 @@
   {
     "id": "back-009",
     "name": "Straight-arm pulldown",
+    "description": "With straight arms, pull a bar down to your thighs using your lats.",
     "focus": "back",
     "moods": [
       "focused"
@@ -128,6 +137,7 @@
   {
     "id": "back-010",
     "name": "Renegade row",
+    "description": "From a plank on dumbbells, row one weight up while keeping your hips square.",
     "focus": "back",
     "moods": [
       "energized",

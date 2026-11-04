@@ -2,6 +2,7 @@
   {
     "id": "biceps-001",
     "name": "Dumbbell curl",
+    "description": "Curl a dumbbell up with your elbow fixed at your side, then lower it slowly.",
     "focus": "biceps",
     "moods": [
       "focused",
@@ -16,6 +17,7 @@
   {
     "id": "biceps-002",
     "name": "Hammer curl",
+    "description": "Curl with palms facing each other to work the biceps and forearms.",
     "focus": "biceps",
     "moods": [
       "playful",
@@ -30,6 +32,7 @@
   {
     "id": "biceps-003",
     "name": "Concentration curl",
+    "description": "Sit with your elbow resting on your inner thigh and curl the dumbbell slowly.",
     "focus": "biceps",
     "moods": [
       "calm",
@@ -44,6 +47,7 @@
   {
     "id": "biceps-004",
     "name": "Barbell curl",
+    "description": "Curl a barbell from thigh height to shoulder height, keeping your elbows still.",
     "focus": "biceps",
     "moods": [
       "energized"
@@ -57,6 +61,7 @@
   {
     "id": "biceps-005",
     "name": "Incline dumbbell curl",
+    "description": "Lie back on an incline bench and curl with your arms hanging behind you for a deep stretch.",
     "focus": "biceps",
     "moods": [
       "focused"
@@ -71,6 +76,7 @@
   {
     "id": "biceps-006",
     "name": "Band curl",
+    "description": "Stand on a band and curl your hands up, keeping your elbows close to your body.",
     "focus": "biceps",
     "moods": [
       "tired",
@@ -85,6 +91,7 @@
   {
     "id": "biceps-007",
     "name": "Cable curl",
+    "description": "Curl a cable handle up with steady tension through the full range.",
     "focus": "biceps",
     "moods": [
       "stressed",
@@ -99,6 +106,7 @@
   {
     "id": "biceps-008",
     "name": "Chin-up",
+    "description": "Grip the bar with palms facing you and pull your chin over it with control.",
     "focus": "biceps",
     "moods": [
       "energized",
@@ -114,6 +122,7 @@
   {
     "id": "biceps-009",
     "name": "Zottman curl",
+    "description": "Curl up with palms up, rotate at the top, and lower with palms down.",
     "focus": "biceps",
     "moods": [
       "playful"
@@ -127,6 +136,7 @@
   {
     "id": "biceps-010",
     "name": "Isometric curl hold",
+    "description": "Hold a dumbbell at the middle of a curl and resist for a set time.",
     "focus": "biceps",
     "moods": [
       "calm",

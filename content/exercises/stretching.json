@@ -2,6 +2,7 @@
   {
     "id": "stretching-001",
     "name": "Standing hamstring stretch",
+    "description": "With one heel forward, hinge at the hips until you feel a stretch behind the thigh.",
     "focus": "stretching",
     "moods": [
       "tired",
@@ -16,6 +17,7 @@
   {
     "id": "stretching-002",
     "name": "Hip flexor stretch",
+    "description": "In a lunge, tuck your pelvis and shift forward to open the front of the hip.",
     "focus": "stretching",
     "moods": [
       "stressed",
@@ -30,6 +32,7 @@
   {
     "id": "stretching-003",
     "name": "Child's pose",
+    "description": "Kneel, sit back on your heels, and reach your arms forward to relax your back.",
     "focus": "stretching",
     "moods": [
       "calm",
@@ -44,6 +47,7 @@
   {
     "id": "stretching-004",
     "name": "Cat-cow",
+    "description": "On hands and knees, alternate arching and rounding your back with your breath.",
     "focus": "stretching",
     "moods": [
       "calm",
@@ -58,6 +62,7 @@
   {
     "id": "stretching-005",
     "name": "Seated spinal twist",
+    "description": "Sit tall, cross one leg over the other, and gently rotate toward the bent knee.",
     "focus": "stretching",
     "moods": [
       "calm"
@@ -71,6 +76,7 @@
   {
     "id": "stretching-006",
     "name": "Doorway shoulder stretch",
+    "description": "Place your forearm on a doorframe and turn your body away to open the chest and shoulder.",
     "focus": "stretching",
     "moods": [
       "stressed",
@@ -85,6 +91,7 @@
   {
     "id": "stretching-007",
     "name": "Figure-four glute stretch",
+    "description": "Lying down, cross one ankle over the opposite knee and draw that leg toward you.",
     "focus": "stretching",
     "moods": [
       "tired",
@@ -99,6 +106,7 @@
   {
     "id": "stretching-008",
     "name": "Thoracic rotation",
+    "description": "On hands and knees, rotate one arm up toward the ceiling and follow it with your eyes.",
     "focus": "stretching",
     "moods": [
       "unmotivated",
@@ -113,6 +121,7 @@
   {
     "id": "stretching-009",
     "name": "Neck release",
+    "description": "Gently tilt your head to one side and hold, without forcing it.",
     "focus": "stretching",
     "moods": [
       "stressed"
@@ -126,6 +135,7 @@
   {
     "id": "stretching-010",
     "name": "Standing quad stretch",
+    "description": "Stand on one leg and gently pull the other heel toward your glutes.",
     "focus": "stretching",
     "moods": [
       "tired",

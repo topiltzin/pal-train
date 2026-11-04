@@ -2,6 +2,7 @@
   {
     "id": "legs-001",
     "name": "Goblet squat",
+    "description": "Hold a weight at your chest and squat down, keeping your torso upright.",
     "focus": "legs",
     "moods": [
       "focused",
@@ -16,6 +17,7 @@
   {
     "id": "legs-002",
     "name": "Walking lunge",
+    "description": "Step forward into a lunge, bring the back knee down, then step through.",
     "focus": "legs",
     "moods": [
       "playful",
@@ -30,6 +32,7 @@
   {
     "id": "legs-003",
     "name": "Romanian deadlift",
+    "description": "With soft knees, hinge at the hips and lower the bar along your legs, then stand tall.",
     "focus": "legs",
     "moods": [
       "energized"
@@ -44,6 +47,7 @@
   {
     "id": "legs-004",
     "name": "Leg press",
+    "description": "Press the platform away with your feet, then lower with control without locking your knees.",
     "focus": "legs",
     "moods": [
       "focused"
@@ -57,6 +61,7 @@
   {
     "id": "legs-005",
     "name": "Glute bridge",
+    "description": "Lying on your back, lift your hips by squeezing your glutes, then lower.",
     "focus": "legs",
     "moods": [
       "calm",
@@ -71,6 +76,7 @@
   {
     "id": "legs-006",
     "name": "Step-up",
+    "description": "Step onto a box with one foot, drive through that heel, then step down slowly.",
     "focus": "legs",
     "moods": [
       "unmotivated",
@@ -85,6 +91,7 @@
   {
     "id": "legs-007",
     "name": "Seated leg curl",
+    "description": "Curl the pad toward your seat by bending your knees, then return slowly.",
     "focus": "legs",
     "moods": [
       "calm",
@@ -99,6 +106,7 @@
   {
     "id": "legs-008",
     "name": "Standing calf raise",
+    "description": "Rise onto your toes and hold briefly, then lower to a full stretch.",
     "focus": "legs",
     "moods": [
       "unmotivated"
@@ -112,6 +120,7 @@
   {
     "id": "legs-009",
     "name": "Wall sit",
+    "description": "Slide down a wall until your thighs are parallel to the floor, and hold.",
     "focus": "legs",
     "moods": [
       "stressed",
@@ -126,6 +135,7 @@
   {
     "id": "legs-010",
     "name": "Box jump",
+    "description": "Jump from both feet onto a box, land softly, then step back down.",
     "focus": "legs",
     "moods": [
       "energized",

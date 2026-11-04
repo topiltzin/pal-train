@@ -35,7 +35,7 @@ describe("buildEmbedUrl", () => {
 
     // Assert
     expect(url).toBe(
-      "https://www.youtube-nocookie.com/embed/IFzYdoNYJkY?autoplay=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1",
+      "https://www.youtube-nocookie.com/embed/IFzYdoNYJkY?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1",
     );
   });
 });

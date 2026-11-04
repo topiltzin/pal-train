@@ -2,6 +2,7 @@
   {
     "id": "chest-001",
     "name": "Push-up",
+    "description": "Keep a straight body, lower your chest to just above the floor, and press back up.",
     "focus": "chest",
     "moods": [
       "energized",
@@ -16,6 +17,7 @@
   {
     "id": "chest-002",
     "name": "Incline dumbbell press",
+    "description": "Press dumbbells up from an incline bench, keeping your wrists stacked over your elbows.",
     "focus": "chest",
     "moods": [
       "focused",
@@ -31,6 +33,7 @@
   {
     "id": "chest-003",
     "name": "Doorway chest stretch",
+    "description": "Place your forearms on a doorframe and step through gently to feel the chest open.",
     "focus": "chest",
     "moods": [
       "calm",
@@ -45,6 +48,7 @@
   {
     "id": "chest-004",
     "name": "Cable fly",
+    "description": "Bring the cable handles together in front of your chest with a soft bend in the elbows.",
     "focus": "chest",
     "moods": [
       "focused",
@@ -59,6 +63,7 @@
   {
     "id": "chest-005",
     "name": "Barbell bench press",
+    "description": "Lower the bar to mid-chest with control, then press it back up over your shoulders.",
     "focus": "chest",
     "moods": [
       "energized"
@@ -74,6 +79,7 @@
   {
     "id": "chest-006",
     "name": "Dumbbell floor press",
+    "description": "Lie on the floor and press dumbbells up, lowering until your upper arms touch the floor.",
     "focus": "chest",
     "moods": [
       "tired",
@@ -88,6 +94,7 @@
   {
     "id": "chest-007",
     "name": "Wide-grip push-up",
+    "description": "Place your hands wider than your shoulders and lower your chest with elbows flared slightly.",
     "focus": "chest",
     "moods": [
       "playful"
@@ -101,6 +108,7 @@
   {
     "id": "chest-008",
     "name": "Chest dip",
+    "description": "Lean forward on parallel bars, lower until you feel a stretch in the chest, then press up.",
     "focus": "chest",
     "moods": [
       "energized",
@@ -116,6 +124,7 @@
   {
     "id": "chest-009",
     "name": "Pec deck fly",
+    "description": "Sit tall and bring the pads together in front of your chest, squeezing at the center.",
     "focus": "chest",
     "moods": [
       "calm",
@@ -130,6 +139,7 @@
   {
     "id": "chest-010",
     "name": "Band chest press",
+    "description": "Press a band forward from chest height, extending your arms fully.",
     "focus": "chest",
     "moods": [
       "stressed",

@@ -2,6 +2,7 @@
   {
     "id": "shoulders-001",
     "name": "Band external rotation",
+    "description": "Keep your elbow at your side and rotate the band outward slowly.",
     "focus": "shoulders",
     "moods": [
       "calm",
@@ -16,6 +17,7 @@
   {
     "id": "shoulders-002",
     "name": "Wall slide",
+    "description": "Slide your arms up a wall in a V shape, keeping your wrists and elbows in contact.",
     "focus": "shoulders",
     "moods": [
       "calm",
@@ -30,6 +32,7 @@
   {
     "id": "shoulders-003",
     "name": "Prone Y raise",
+    "description": "Lie face down and raise your arms in a Y shape, squeezing your shoulder blades.",
     "focus": "shoulders",
     "moods": [
       "tired",
@@ -44,6 +47,7 @@
   {
     "id": "shoulders-004",
     "name": "Dumbbell lateral raise",
+    "description": "Raise dumbbells out to shoulder height with a slight bend in your elbows.",
     "focus": "shoulders",
     "moods": [
       "focused",
@@ -58,6 +62,7 @@
   {
     "id": "shoulders-005",
     "name": "Cable lateral raise",
+    "description": "Raise the cable handle out to the side at shoulder height with steady tension.",
     "focus": "shoulders",
     "moods": [
       "focused"
@@ -71,6 +76,7 @@
   {
     "id": "shoulders-006",
     "name": "Rear delt fly",
+    "description": "Bend forward and raise dumbbells out to the sides, squeezing the back of your shoulders.",
     "focus": "shoulders",
     "moods": [
       "focused",
@@ -85,6 +91,7 @@
   {
     "id": "shoulders-007",
     "name": "Dumbbell shoulder press",
+    "description": "Press dumbbells overhead from shoulder height, then lower them under control.",
     "focus": "shoulders",
     "moods": [
       "energized",
@@ -99,6 +106,7 @@
   {
     "id": "shoulders-008",
     "name": "Pike push-up",
+    "description": "With your hips high, lower your head toward the floor and press back up.",
     "focus": "shoulders",
     "moods": [
       "energized",
@@ -113,6 +121,7 @@
   {
     "id": "shoulders-009",
     "name": "Arnold press",
+    "description": "Start with palms facing you, then rotate as you press overhead.",
     "focus": "shoulders",
     "moods": [
       "energized",
@@ -128,6 +137,7 @@
   {
     "id": "shoulders-010",
     "name": "Barbell overhead press",
+    "description": "Press the bar from the front of your shoulders to overhead with a braced core.",
     "focus": "shoulders",
     "moods": [
       "energized"

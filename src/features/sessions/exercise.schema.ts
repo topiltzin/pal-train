@@ -9,11 +9,13 @@ const MINUTES_MAX = 30;
 const MOODS_MIN = 1;
 const MOODS_MAX = 4;
 const EXERCISE_ID_PATTERN = /^[a-z-]+-\d{3}$/;
+const DESCRIPTION_MAX = 200;
 
 export const exerciseSchema = z
   .object({
     id: z.string().regex(EXERCISE_ID_PATTERN),
     name: z.string().min(NAME_MIN).max(NAME_MAX),
+    description: z.string().min(1).max(DESCRIPTION_MAX).optional(),
     focus: z.enum(focusIds),
     moods: z.array(z.enum(moodIds)).min(MOODS_MIN).max(MOODS_MAX),
     minutes: z.number().int().min(MINUTES_MIN).max(MINUTES_MAX),

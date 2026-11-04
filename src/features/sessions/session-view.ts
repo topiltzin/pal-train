@@ -6,6 +6,7 @@ import type { DemoView } from "@/features/demos/demo-link";
 export type ExerciseView = {
   id: string;
   name: string;
+  description: string | null;
   focus: FocusId;
   minutes: number;
   intensity: IntensityLevel;
@@ -20,6 +21,7 @@ export function toExerciseView(exercise: Exercise): ExerciseView {
   return {
     id: exercise.id,
     name: exercise.name,
+    description: exercise.description ?? null,
     focus: exercise.focus,
     minutes: exercise.minutes,
     intensity: exercise.intensity,

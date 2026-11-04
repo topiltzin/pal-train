@@ -19,8 +19,9 @@ const LISTENING_MESSAGE = JSON.stringify({ event: "listening" });
 /**
  * The in-page demo window (contracts/demo-dialog.md). It is mounted only while open, so the
  * video host is not contacted until the user asks for the demo, and unmounting stops playback.
- * Ready and failed come from the player's own messages, because a frame can load without a video.
- * The browser history entry that makes Back close it is managed by the button, not here.
+ * The video starts muted (mute=1 in the embed URL). Ready and failed come from the player's own
+ * messages, because a frame can load without a video. The browser history entry that makes Back
+ * close it is managed by the button, not here.
  */
 export function DemoWindow({ videoId, exerciseName, onClose }: DemoWindowProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -81,33 +82,29 @@ export function DemoWindow({ videoId, exerciseName, onClose }: DemoWindowProps) 
       ref={dialogRef}
       aria-labelledby="demo-window-title"
       onClick={handleBackdropClick}
-      className="m-auto w-full max-w-md rounded-3xl bg-surface-raised p-0 text-foreground ring-1 ring-line backdrop:bg-background/70 backdrop:backdrop-blur-sm"
+      className="m-auto w-[calc(100%-2rem)] max-w-sm rounded-3xl bg-surface-raised p-0 text-foreground shadow-2xl shadow-black/40 ring-1 ring-line backdrop:bg-background/70 backdrop:backdrop-blur-sm"
     >
-      <div className="flex flex-col gap-4 p-5">
-        <header className="flex items-start justify-between gap-3">
-          <h2 id="demo-window-title" className="min-w-0 text-base font-semibold">
+      <div className="flex flex-col gap-4 p-4">
+        <header className="flex items-center justify-between gap-3">
+          <h2 id="demo-window-title" className="min-w-0 truncate text-base font-semibold">
             {exerciseName}
           </h2>
           <button
             ref={closeButtonRef}
             type="button"
             onClick={() => dialogRef.current?.close()}
-            className="inline-flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-semibold ring-1 ring-line"
+            className="inline-flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-semibold ring-1 ring-line transition-transform active:scale-[0.98]"
           >
             Close
           </button>
         </header>
-        <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-background">
+        {/* A phone-height frame: the whole demo fits on screen without scrolling. */}
+        <div className="relative mx-auto aspect-[9/16] h-[min(62dvh,520px)] max-w-full overflow-hidden rounded-2xl bg-background">
           {status === "failed" ? (
             <FallbackMessage />
           ) : (
             <>
-              <p
-                role="status"
-                className="absolute inset-0 flex items-center justify-center text-sm text-muted"
-              >
-                {status === "loading" ? "Loading the demo" : ""}
-              </p>
+              {status === "loading" ? <LoadingPlaceholder /> : null}
               <iframe
                 ref={frameRef}
                 title={exerciseName}
@@ -125,7 +122,7 @@ export function DemoWindow({ videoId, exerciseName, onClose }: DemoWindowProps) 
           href={shortsPageUrl(videoId)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-11 items-center justify-center text-sm font-semibold underline"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-foreground/5 text-sm font-semibold ring-1 ring-line transition-colors hover:bg-foreground/10"
         >
           Open on YouTube
         </a>
@@ -134,10 +131,24 @@ export function DemoWindow({ videoId, exerciseName, onClose }: DemoWindowProps) 
   );
 }
 
+function LoadingPlaceholder() {
+  return (
+    <div
+      role="status"
+      aria-label="Loading the demo"
+      className="absolute inset-0 animate-pulse bg-gradient-to-b from-surface to-background"
+    />
+  );
+}
+
 function FallbackMessage() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-      <p className="text-sm text-muted">This demo could not load.</p>
+    <div
+      role="status"
+      className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center"
+    >
+      <p className="text-sm font-medium">This demo could not load.</p>
+      <p className="text-xs text-muted">Open it on YouTube instead.</p>
     </div>
   );
 }

@@ -2,6 +2,7 @@
   {
     "id": "cardio-001",
     "name": "Jump rope",
+    "description": "Bounce lightly on the balls of your feet, turning the rope with your wrists.",
     "focus": "cardio",
     "moods": [
       "energized",
@@ -16,6 +17,7 @@
   {
     "id": "cardio-002",
     "name": "Brisk walk",
+    "description": "Walk at a pace that raises your breathing but still lets you talk.",
     "focus": "cardio",
     "moods": [
       "calm",
@@ -30,6 +32,7 @@
   {
     "id": "cardio-003",
     "name": "Bike sprint intervals",
+    "description": "Pedal hard for a short burst, then recover slowly before the next sprint.",
     "focus": "cardio",
     "moods": [
       "energized"
@@ -44,6 +47,7 @@
   {
     "id": "cardio-004",
     "name": "Steady rowing",
+    "description": "Row at a comfortable, even pace, driving with your legs and then pulling with your back and arms.",
     "focus": "cardio",
     "moods": [
       "focused"
@@ -57,6 +61,7 @@
   {
     "id": "cardio-005",
     "name": "Stair climb",
+    "description": "Climb stairs at a steady pace, using the handrail only for balance.",
     "focus": "cardio",
     "moods": [
       "tired",
@@ -71,6 +76,7 @@
   {
     "id": "cardio-006",
     "name": "High knees",
+    "description": "Run in place, driving each knee up toward hip height.",
     "focus": "cardio",
     "moods": [
       "playful"
@@ -84,6 +90,7 @@
   {
     "id": "cardio-007",
     "name": "Shadow boxing",
+    "description": "Throw punches in the air with light footwork and steady breathing.",
     "focus": "cardio",
     "moods": [
       "playful",
@@ -98,6 +105,7 @@
   {
     "id": "cardio-008",
     "name": "Jumping jacks",
+    "description": "Jump while spreading your legs and raising your arms overhead, then return to start.",
     "focus": "cardio",
     "moods": [
       "playful"
@@ -111,6 +119,7 @@
   {
     "id": "cardio-009",
     "name": "Easy cycling",
+    "description": "Ride at a relaxed pace that keeps you warm and breathing comfortably.",
     "focus": "cardio",
     "moods": [
       "calm",
@@ -125,6 +134,7 @@
   {
     "id": "cardio-010",
     "name": "Elliptical intervals",
+    "description": "Alternate short fast efforts with easy strides on the elliptical.",
     "focus": "cardio",
     "moods": [
       "focused",

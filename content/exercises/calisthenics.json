@@ -2,6 +2,7 @@
   {
     "id": "calisthenics-001",
     "name": "Pull-up",
+    "description": "Grip the bar wider than your shoulders and pull your chin above it, then lower fully.",
     "focus": "calisthenics",
     "moods": [
       "energized"
@@ -16,6 +17,7 @@
   {
     "id": "calisthenics-002",
     "name": "Archer push-up",
+    "description": "Keep one arm straight and lower your body over the other arm, then switch sides.",
     "focus": "calisthenics",
     "moods": [
       "focused"
@@ -29,6 +31,7 @@
   {
     "id": "calisthenics-003",
     "name": "Pistol squat progression",
+    "description": "Squat on one leg with the other leg straight out, using support as needed.",
     "focus": "calisthenics",
     "moods": [
       "focused"
@@ -43,6 +46,7 @@
   {
     "id": "calisthenics-004",
     "name": "Hollow body hold",
+    "description": "Lie flat with a tight core and your arms and legs lifted slightly off the floor.",
     "focus": "calisthenics",
     "moods": [
       "focused"
@@ -56,6 +60,7 @@
   {
     "id": "calisthenics-005",
     "name": "L-sit progression",
+    "description": "Support yourself on parallel bars or the floor with your legs lifted, staying tall.",
     "focus": "calisthenics",
     "moods": [
       "focused"
@@ -69,6 +74,7 @@
   {
     "id": "calisthenics-006",
     "name": "Wall handstand hold",
+    "description": "Kick up into a handstand against a wall and hold with a tight core and glutes.",
     "focus": "calisthenics",
     "moods": [
       "energized"
@@ -83,6 +89,7 @@
   {
     "id": "calisthenics-007",
     "name": "Parallel bar dip",
+    "description": "Lower yourself between parallel bars until your elbows reach about 90 degrees, then press up.",
     "focus": "calisthenics",
     "moods": [
       "want-to-sweat"
@@ -97,6 +104,7 @@
   {
     "id": "calisthenics-008",
     "name": "Australian pull-up",
+    "description": "Under a sturdy table, pull your chest to the edge with your body straight.",
     "focus": "calisthenics",
     "moods": [
       "playful"
@@ -110,6 +118,7 @@
   {
     "id": "calisthenics-009",
     "name": "Bodyweight squat",
+    "description": "Sit back and down with your chest up, then stand by driving through your heels.",
     "focus": "calisthenics",
     "moods": [
       "calm",
@@ -124,6 +133,7 @@
   {
     "id": "calisthenics-010",
     "name": "Forearm plank",
+    "description": "Rest on your forearms with your body straight from head to heels, and hold.",
     "focus": "calisthenics",
     "moods": [
       "stressed"

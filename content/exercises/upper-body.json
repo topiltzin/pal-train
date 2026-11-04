@@ -2,6 +2,7 @@
   {
     "id": "upper-body-001",
     "name": "Arm circles",
+    "description": "Extend your arms to the sides and make small circles, gradually increasing their size.",
     "focus": "upper-body",
     "moods": [
       "calm",
@@ -16,6 +17,7 @@
   {
     "id": "upper-body-002",
     "name": "Band row",
+    "description": "Anchor a band and pull toward your ribs, squeezing your shoulder blades.",
     "focus": "upper-body",
     "moods": [
       "tired",
@@ -30,6 +32,7 @@
   {
     "id": "upper-body-003",
     "name": "Wall push-up",
+    "description": "Place your hands on a wall and push your body away, keeping a straight line from head to heels.",
     "focus": "upper-body",
     "moods": [
       "tired",
@@ -44,6 +47,7 @@
   {
     "id": "upper-body-004",
     "name": "Push-up to row",
+    "description": "From a push-up, row one dumbbell up with each arm while keeping your hips level.",
     "focus": "upper-body",
     "moods": [
       "energized",
@@ -58,6 +62,7 @@
   {
     "id": "upper-body-005",
     "name": "Seated dumbbell press",
+    "description": "Sit tall and press dumbbells overhead, then lower them to shoulder height.",
     "focus": "upper-body",
     "moods": [
       "focused"
@@ -72,6 +77,7 @@
   {
     "id": "upper-body-006",
     "name": "Plank row",
+    "description": "From a plank on dumbbells, row one weight up while keeping your hips still.",
     "focus": "upper-body",
     "moods": [
       "focused",
@@ -86,6 +92,7 @@
   {
     "id": "upper-body-007",
     "name": "Single-arm dumbbell press",
+    "description": "Press one dumbbell overhead while keeping your core braced.",
     "focus": "upper-body",
     "moods": [
       "playful",
@@ -100,6 +107,7 @@
   {
     "id": "upper-body-008",
     "name": "Weighted pull-up",
+    "description": "Hang from a bar with extra load and pull your chin over it.",
     "focus": "upper-body",
     "moods": [
       "want-to-sweat"
@@ -115,6 +123,7 @@
   {
     "id": "upper-body-009",
     "name": "Clean and press",
+    "description": "Lift a barbell from the floor to your shoulders in one motion, then press it overhead.",
     "focus": "upper-body",
     "moods": [
       "energized"
@@ -129,6 +138,7 @@
   {
     "id": "upper-body-010",
     "name": "Heavy push press",
+    "description": "Use a leg drive to help press a heavy weight overhead.",
     "focus": "upper-body",
     "moods": [
       "energized",
