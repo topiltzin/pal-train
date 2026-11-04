@@ -7,8 +7,9 @@ import { getCurrentUser } from "@/features/auth/session";
 import { upsertUser } from "@/features/auth/user-repository";
 import { appNavCards } from "@/features/navigation/app-nav-items";
 
-const PIP_AVATAR_SRC = "/pal/buddy.png";
-const LOGO_PX = 36;
+/** The mascot logo, public/pal/logo.png, already includes the "Pal Buddy" wordmark. */
+const LOGO_SRC = "/pal/logo.png";
+const LOGO_PX = 48;
 
 /** Maps the menu's tokens onto the app's own theme, so the menu matches every screen. */
 const APP_NAV_STYLE = {
@@ -27,24 +28,7 @@ const APP_NAV_STYLE = {
 } as CSSProperties;
 
 function BrandMark() {
-  return (
-    <span className="flex items-center gap-2">
-      <span
-        className="relative block shrink-0 overflow-hidden rounded-full bg-surface ring-1 ring-line"
-        style={{ width: LOGO_PX, height: LOGO_PX }}
-      >
-        <Image
-          src={PIP_AVATAR_SRC}
-          alt=""
-          fill
-          sizes={`${LOGO_PX}px`}
-          className="object-cover"
-          style={{ objectPosition: "50% 20%", transform: "scale(1.3)" }}
-        />
-      </span>
-      <span className="text-sm font-semibold leading-tight">Pal Buddy</span>
-    </span>
-  );
+  return <Image src={LOGO_SRC} alt="" width={LOGO_PX} height={LOGO_PX} className="h-full w-auto" />;
 }
 
 async function AuthenticatedShell({ children }: { children: ReactNode }) {
