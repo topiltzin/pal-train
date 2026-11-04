@@ -22,7 +22,8 @@ test.describe("session length meter", () => {
     const meter = page.getByRole("slider", { name: METER_NAME });
 
     // Act
-    await meter.fill("45");
+    await meter.focus();
+    for (let step = 0; step < 3; step += 1) await meter.press("ArrowLeft");
     await meter.press("Tab");
 
     // Assert
@@ -53,7 +54,7 @@ test.describe("session length meter", () => {
     await page.getByRole("button", { name: "Energized" }).click();
 
     // Act
-    await page.getByRole("slider", { name: METER_NAME }).fill("60");
+    await page.getByRole("slider", { name: METER_NAME }).focus();
     await page.getByRole("slider", { name: METER_NAME }).press("Tab");
 
     // Assert
