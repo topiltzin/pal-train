@@ -81,8 +81,7 @@
     "name": "Sandbag lunge steady",
     "focus": "hyrox-style",
     "moods": [
-      "stressed",
-      "calm"
+      "stressed"
     ],
     "duration_minutes": 25,
     "intensity": "moderate",
@@ -127,7 +126,6 @@
     "name": "Rowing sprints",
     "focus": "hyrox-style",
     "moods": [
-      "focused",
       "energized"
     ],
     "duration_minutes": 15,
@@ -142,7 +140,6 @@
     "name": "Race-day pacing",
     "focus": "hyrox-style",
     "moods": [
-      "unmotivated",
       "focused"
     ],
     "duration_minutes": 30,
@@ -187,8 +184,7 @@
     "name": "Lunge and carry finisher",
     "focus": "hyrox-style",
     "moods": [
-      "want-to-sweat",
-      "unmotivated"
+      "want-to-sweat"
     ],
     "duration_minutes": 15,
     "intensity": "high",

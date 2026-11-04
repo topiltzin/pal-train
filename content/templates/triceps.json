@@ -18,8 +18,7 @@
     "name": "Overhead dumbbell extension",
     "focus": "triceps",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 20,
     "intensity": "moderate",
@@ -152,7 +151,6 @@
     "name": "Cable overhead extension",
     "focus": "triceps",
     "moods": [
-      "focused",
       "energized"
     ],
     "duration_minutes": 20,

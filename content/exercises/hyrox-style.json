@@ -48,8 +48,7 @@
     "name": "Burpee broad jump",
     "focus": "hyrox-style",
     "moods": [
-      "want-to-sweat",
-      "playful"
+      "want-to-sweat"
     ],
     "minutes": 7,
     "intensity": "high",
@@ -77,8 +76,7 @@
     "name": "Wall ball",
     "focus": "hyrox-style",
     "moods": [
-      "energized",
-      "playful"
+      "energized"
     ],
     "minutes": 6,
     "intensity": "high",
@@ -92,8 +90,7 @@
     "name": "Rowing 500 metres",
     "focus": "hyrox-style",
     "moods": [
-      "energized",
-      "focused"
+      "energized"
     ],
     "minutes": 4,
     "intensity": "moderate",

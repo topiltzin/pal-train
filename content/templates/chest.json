@@ -19,8 +19,7 @@
     "name": "Slow tempo bench press",
     "focus": "chest",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 35,
     "intensity": "moderate",
@@ -96,8 +95,7 @@
     "name": "Tempo push-up circuit",
     "focus": "chest",
     "moods": [
-      "stressed",
-      "calm"
+      "stressed"
     ],
     "duration_minutes": 20,
     "intensity": "moderate",
@@ -187,8 +185,7 @@
     "name": "Stress-release push-ups",
     "focus": "chest",
     "moods": [
-      "stressed",
-      "unmotivated"
+      "stressed"
     ],
     "duration_minutes": 20,
     "intensity": "moderate",

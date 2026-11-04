@@ -93,8 +93,7 @@
     "name": "Chest-supported row",
     "focus": "back",
     "moods": [
-      "stressed",
-      "calm"
+      "stressed"
     ],
     "duration_minutes": 25,
     "intensity": "moderate",

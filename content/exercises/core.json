@@ -46,8 +46,7 @@
     "name": "Plank",
     "focus": "core",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "minutes": 3,
     "intensity": "moderate",
@@ -130,8 +129,7 @@
     "name": "Hanging leg raise",
     "focus": "core",
     "moods": [
-      "energized",
-      "focused"
+      "energized"
     ],
     "minutes": 5,
     "intensity": "high",

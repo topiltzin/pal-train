@@ -19,8 +19,7 @@
     "name": "Goblet squat tempo",
     "focus": "legs",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 25,
     "intensity": "moderate",
@@ -183,8 +182,7 @@
     "name": "Sprint-and-squat circuit",
     "focus": "legs",
     "moods": [
-      "want-to-sweat",
-      "unmotivated"
+      "want-to-sweat"
     ],
     "duration_minutes": 20,
     "intensity": "high",

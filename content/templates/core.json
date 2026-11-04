@@ -49,8 +49,7 @@
     "name": "Plank",
     "focus": "core",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 10,
     "intensity": "moderate",
@@ -139,8 +138,7 @@
     "name": "Hanging leg raise",
     "focus": "core",
     "moods": [
-      "energized",
-      "focused"
+      "energized"
     ],
     "duration_minutes": 10,
     "intensity": "high",
@@ -155,7 +153,6 @@
     "name": "Turkish get-up",
     "focus": "core",
     "moods": [
-      "focused",
       "energized"
     ],
     "duration_minutes": 15,

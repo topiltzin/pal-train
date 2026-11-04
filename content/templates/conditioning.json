@@ -107,7 +107,6 @@
     "name": "Ladder of reps",
     "focus": "conditioning",
     "moods": [
-      "unmotivated",
       "focused"
     ],
     "duration_minutes": 20,
@@ -180,8 +179,7 @@
     "name": "Fun finisher",
     "focus": "conditioning",
     "moods": [
-      "playful",
-      "unmotivated"
+      "playful"
     ],
     "duration_minutes": 15,
     "intensity": "moderate",

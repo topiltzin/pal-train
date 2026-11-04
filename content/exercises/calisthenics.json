@@ -4,8 +4,7 @@
     "name": "Pull-up",
     "focus": "calisthenics",
     "moods": [
-      "energized",
-      "focused"
+      "energized"
     ],
     "minutes": 8,
     "intensity": "high",
@@ -19,7 +18,6 @@
     "name": "Archer push-up",
     "focus": "calisthenics",
     "moods": [
-      "calm",
       "focused"
     ],
     "minutes": 6,
@@ -36,7 +34,7 @@
       "focused"
     ],
     "minutes": 8,
-    "intensity": "high",
+    "intensity": "moderate",
     "equipment": [
       "none"
     ],
@@ -47,8 +45,7 @@
     "name": "Hollow body hold",
     "focus": "calisthenics",
     "moods": [
-      "focused",
-      "tired"
+      "focused"
     ],
     "minutes": 4,
     "intensity": "moderate",
@@ -74,8 +71,7 @@
     "name": "Wall handstand hold",
     "focus": "calisthenics",
     "moods": [
-      "energized",
-      "playful"
+      "energized"
     ],
     "minutes": 5,
     "intensity": "high",
@@ -89,7 +85,6 @@
     "name": "Parallel bar dip",
     "focus": "calisthenics",
     "moods": [
-      "energized",
       "want-to-sweat"
     ],
     "minutes": 7,
@@ -104,8 +99,7 @@
     "name": "Australian pull-up",
     "focus": "calisthenics",
     "moods": [
-      "playful",
-      "tired"
+      "playful"
     ],
     "minutes": 6,
     "intensity": "moderate",
@@ -132,8 +126,7 @@
     "name": "Forearm plank",
     "focus": "calisthenics",
     "moods": [
-      "calm",
-      "focused"
+      "stressed"
     ],
     "minutes": 3,
     "intensity": "moderate",

@@ -19,8 +19,7 @@
     "name": "Steady bike ride",
     "focus": "cardio",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 30,
     "intensity": "moderate",

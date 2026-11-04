@@ -46,8 +46,7 @@
     "name": "Leg press",
     "focus": "legs",
     "moods": [
-      "focused",
-      "tired"
+      "focused"
     ],
     "minutes": 8,
     "intensity": "moderate",

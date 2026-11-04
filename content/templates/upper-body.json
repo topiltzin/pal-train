@@ -34,7 +34,6 @@
     "name": "Wall push-up",
     "focus": "upper-body",
     "moods": [
-      "tired",
       "unmotivated"
     ],
     "duration_minutes": 10,
@@ -64,8 +63,7 @@
     "name": "Seated dumbbell press",
     "focus": "upper-body",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 12,
     "intensity": "moderate",
@@ -95,8 +93,7 @@
     "name": "Kettlebell halo",
     "focus": "upper-body",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 10,
     "intensity": "moderate",
@@ -157,8 +154,7 @@
     "name": "Clean and press",
     "focus": "upper-body",
     "moods": [
-      "energized",
-      "playful"
+      "energized"
     ],
     "duration_minutes": 15,
     "intensity": "high",

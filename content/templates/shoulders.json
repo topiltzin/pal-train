@@ -79,8 +79,7 @@
     "name": "Cable lateral raise",
     "focus": "shoulders",
     "moods": [
-      "calm",
-      "focused"
+      "stressed"
     ],
     "duration_minutes": 10,
     "intensity": "moderate",
@@ -140,8 +139,7 @@
     "name": "Handstand push-up negative",
     "focus": "shoulders",
     "moods": [
-      "energized",
-      "playful"
+      "energized"
     ],
     "duration_minutes": 10,
     "intensity": "high",

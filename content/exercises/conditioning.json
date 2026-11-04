@@ -75,7 +75,7 @@
     "name": "Sprint intervals",
     "focus": "conditioning",
     "moods": [
-      "energized"
+      "want-to-sweat"
     ],
     "minutes": 8,
     "intensity": "high",
@@ -130,8 +130,7 @@
     "name": "Plank to push-up",
     "focus": "conditioning",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "minutes": 5,
     "intensity": "moderate",

@@ -46,8 +46,7 @@
     "name": "Steady rowing",
     "focus": "cardio",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "minutes": 10,
     "intensity": "moderate",
@@ -64,7 +63,7 @@
       "unmotivated"
     ],
     "minutes": 8,
-    "intensity": "moderate",
+    "intensity": "low",
     "equipment": [
       "stairs"
     ]
@@ -101,7 +100,6 @@
     "name": "Jumping jacks",
     "focus": "cardio",
     "moods": [
-      "unmotivated",
       "playful"
     ],
     "minutes": 4,

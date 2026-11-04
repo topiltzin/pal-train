@@ -4,9 +4,7 @@
     "name": "Wall push-up flow",
     "focus": "calisthenics",
     "moods": [
-      "calm",
-      "tired",
-      "unmotivated"
+      "calm"
     ],
     "duration_minutes": 15,
     "intensity": "low",
@@ -36,8 +34,7 @@
     "name": "Hollow body holds",
     "focus": "calisthenics",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 12,
     "intensity": "moderate",
@@ -128,8 +125,7 @@
     "name": "Ring row sets",
     "focus": "calisthenics",
     "moods": [
-      "focused",
-      "unmotivated"
+      "focused"
     ],
     "duration_minutes": 18,
     "intensity": "moderate",
@@ -159,8 +155,7 @@
     "name": "Wall handstand hold",
     "focus": "calisthenics",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 15,
     "intensity": "moderate",
@@ -174,8 +169,7 @@
     "name": "Tuck L-sit holds",
     "focus": "calisthenics",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 12,
     "intensity": "moderate",

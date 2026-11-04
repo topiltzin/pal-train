@@ -19,8 +19,7 @@
     "name": "Slow eccentric curls",
     "focus": "biceps",
     "moods": [
-      "focused",
-      "calm"
+      "focused"
     ],
     "duration_minutes": 20,
     "intensity": "moderate",

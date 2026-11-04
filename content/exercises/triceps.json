@@ -4,8 +4,7 @@
     "name": "Close-grip push-up",
     "focus": "triceps",
     "moods": [
-      "focused",
-      "want-to-sweat"
+      "focused"
     ],
     "minutes": 7,
     "intensity": "moderate",
@@ -74,11 +73,10 @@
     "name": "Diamond push-up",
     "focus": "triceps",
     "moods": [
-      "energized",
-      "want-to-sweat"
+      "focused"
     ],
     "minutes": 6,
-    "intensity": "high",
+    "intensity": "moderate",
     "equipment": [
       "none"
     ],
