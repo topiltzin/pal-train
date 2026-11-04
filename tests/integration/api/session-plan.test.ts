@@ -107,4 +107,15 @@ describe("POST /api/session-plan count scaling", () => {
 
     expect(longCount).toBeGreaterThan(shortCount);
   });
+
+  it("returns INVALID_INPUT when a tired session is longer than 45 minutes", async () => {
+    const response = await handlePostSessionPlan(
+      planRequest({ minMinutes: 0, maxMinutes: 60, mood: "tired" }),
+      SIGNED_IN,
+    );
+    const body = await response.json();
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("INVALID_INPUT");
+    expect(body.error.message).toBe("Sessions for this mood stay at 45 minutes or less.");
+  });
 });

@@ -65,6 +65,9 @@ export function MoodStack({ moods, selectedMood, onSelect }: MoodStackProps) {
       >
         {isChosen ? `${browsing.label} chosen` : `Choose ${browsing.label}`}
       </button>
+      <p className="text-center text-sm text-muted">
+        Swipe to browse the moods, then tap Choose to pick yours.
+      </p>
     </div>
   );
 }

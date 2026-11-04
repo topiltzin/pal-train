@@ -69,4 +69,18 @@ test.describe("session length meter", () => {
     const total = Number.parseInt(await page.getByTestId("session-total").innerText(), 10);
     expect(sum).toBe(total);
   });
+
+  test("a tired mood stops the longest session at 45 minutes and explains why", async ({ page }) => {
+    // Arrange
+    await page.getByRole("button", { name: "Tired" }).click();
+    const meter = page.getByRole("slider", { name: METER_NAME });
+
+    // Act
+    await meter.focus();
+    await meter.press("ArrowRight");
+
+    // Assert
+    await expect(page.getByText("Up to 45 minutes")).toBeVisible();
+    await expect(page.getByRole("alertdialog")).toContainText("Buddy, let's take it easy");
+  });
 });

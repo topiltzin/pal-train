@@ -14,14 +14,29 @@ type SessionLengthControlProps = {
   onChange: (next: SessionLengthRange) => void;
   /** Fires when the pointer is released, a key is lifted, or focus leaves the slider. */
   onCommit: () => void;
+  /** The longest session allowed for the current mood. Movements past it stop here. */
+  limit?: number;
+  /** Fires when the user tries to go past `limit`, so the planner can explain why. */
+  onLimitReached?: () => void;
 };
 
 /**
  * One handle sets the longest session. The minimum stays at 0 and the exercise count drives the plan.
- * The Wake Slider draws the bars and handles the drag and the keys; the value is announced by the
- * slider's own ARIA values, and the sentence above it says the same thing for everyone.
+ * The Wake Slider draws the bars and handles the drag and the keys; the legend under it explains
+ * how to set the time and any limit the mood applies.
  */
-export function SessionLengthControl({ value, onChange, onCommit }: SessionLengthControlProps) {
+export function SessionLengthControl({
+  value,
+  onChange,
+  onCommit,
+  limit = MAX_MINUTES,
+  onLimitReached,
+}: SessionLengthControlProps) {
+  function handleMove(next: number) {
+    if (next > limit) onLimitReached?.();
+    onChange(clampRange("max", Math.min(next, limit), value));
+  }
+
   return (
     <div className="flex flex-col gap-3">
       <p className="text-base font-semibold" aria-live="polite">
@@ -30,7 +45,7 @@ export function SessionLengthControl({ value, onChange, onCommit }: SessionLengt
       <div onPointerUp={onCommit} onKeyUp={onCommit} onBlur={onCommit}>
         <WakeSlider
           value={value.maxMinutes}
-          onChange={(next) => onChange(clampRange("max", next, value))}
+          onChange={handleMove}
           min={SLIDER_MIN_MINUTES}
           max={MAX_MINUTES}
           step={STEP_MINUTES}
@@ -45,6 +60,11 @@ export function SessionLengthControl({ value, onChange, onCommit }: SessionLengt
         <span>{SLIDER_MIN_MINUTES}</span>
         <span>{MAX_MINUTES} min</span>
       </div>
+      <p className="text-sm text-muted">
+        Drag the bars, or use the arrow keys, to set the longest session. Each step is{" "}
+        {STEP_MINUTES} minutes.
+        {limit < MAX_MINUTES ? ` This mood keeps sessions to ${limit} minutes or less.` : null}
+      </p>
     </div>
   );
 }
