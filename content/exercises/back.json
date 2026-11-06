@@ -148,5 +148,35 @@
     "equipment": [
       "dumbbell"
     ]
+  },
+  {
+    "id": "back-011",
+    "name": "Standing band row",
+    "description": "Anchor a band at chest height and row toward your ribs with slow, steady pulls.",
+    "focus": "back",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "back-012",
+    "name": "Prone cobra",
+    "description": "Lie face down and lift your chest a few centimetres off the floor, holding briefly with a relaxed neck.",
+    "focus": "back",
+    "moods": [
+      "tired",
+      "stressed"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
   }
 ]

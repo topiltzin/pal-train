@@ -145,5 +145,66 @@
     "equipment": [
       "elliptical"
     ]
+  },
+  {
+    "id": "cardio-011",
+    "name": "Easy march in place",
+    "description": "March gently on the spot, swinging your arms, and keep your breathing easy.",
+    "focus": "cardio",
+    "moods": [
+      "unmotivated",
+      "stressed",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-012",
+    "name": "Free dance",
+    "description": "Move freely to a song you like, keeping the pace light and your breathing comfortable.",
+    "focus": "cardio",
+    "moods": [
+      "playful",
+      "unmotivated"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "cardio-013",
+    "name": "Hula hoop",
+    "description": "Keep a hula hoop turning around your waist with small steps and relaxed shoulders.",
+    "focus": "cardio",
+    "moods": [
+      "playful",
+      "unmotivated"
+    ],
+    "minutes": 6,
+    "intensity": "low",
+    "equipment": [
+      "hula hoop"
+    ]
+  },
+  {
+    "id": "cardio-014",
+    "name": "Slow mindful walk",
+    "description": "Walk at a relaxed pace, matching each step to a slow, even breath.",
+    "focus": "cardio",
+    "moods": [
+      "stressed",
+      "tired"
+    ],
+    "minutes": 8,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
   }
 ]

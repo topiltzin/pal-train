@@ -143,5 +143,21 @@
     "equipment": [
       "none"
     ]
+  },
+  {
+    "id": "calisthenics-011",
+    "name": "Sit-to-stand squat",
+    "description": "Sit down slowly on a chair and stand back up without using your hands.",
+    "focus": "calisthenics",
+    "moods": [
+      "unmotivated",
+      "tired",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "chair"
+    ]
   }
 ]

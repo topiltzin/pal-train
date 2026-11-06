@@ -147,5 +147,19 @@
     "equipment": [
       "dumbbell"
     ]
+  },
+  {
+    "id": "biceps-011",
+    "name": "Seated band curl",
+    "description": "Sit tall with a band under your feet and curl your hands up with your elbows close to your sides.",
+    "focus": "biceps",
+    "moods": [
+      "unmotivated"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
   }
 ]

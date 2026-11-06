@@ -147,5 +147,20 @@
     "equipment": [
       "cable machine"
     ]
+  },
+  {
+    "id": "triceps-011",
+    "name": "Chair dip",
+    "description": "With your hands on the edge of a sturdy chair, lower your hips slightly and press back up.",
+    "focus": "triceps",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "chair"
+    ]
   }
 ]

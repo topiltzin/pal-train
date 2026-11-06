@@ -148,5 +148,35 @@
       "barbell"
     ],
     "caution": "Brace the core and use a rack and spotter for heavy sets."
+  },
+  {
+    "id": "shoulders-011",
+    "name": "Shoulder roll",
+    "description": "Lift your shoulders toward your ears, then roll them slowly back and down.",
+    "focus": "shoulders",
+    "moods": [
+      "stressed",
+      "tired"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "shoulders-012",
+    "name": "Overhead reach",
+    "description": "Raise both arms slowly overhead, reach tall, then lower them with control.",
+    "focus": "shoulders",
+    "moods": [
+      "tired",
+      "stressed"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
   }
 ]

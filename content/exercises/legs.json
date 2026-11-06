@@ -147,5 +147,36 @@
       "plyo box"
     ],
     "caution": "Land softly with knees bent. Step down rather than jump down to protect the knees."
+  },
+  {
+    "id": "legs-011",
+    "name": "Chair squat",
+    "description": "Lower your hips toward a chair, touch it lightly, and stand back up through your heels.",
+    "focus": "legs",
+    "moods": [
+      "unmotivated",
+      "tired",
+      "stressed"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "chair"
+    ]
+  },
+  {
+    "id": "legs-012",
+    "name": "Standing hamstring curl",
+    "description": "Hold a band around one ankle, curl your heel toward your glutes, and hold the back of a chair for balance.",
+    "focus": "legs",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
   }
 ]

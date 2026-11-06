@@ -147,5 +147,34 @@
     "equipment": [
       "none"
     ]
+  },
+  {
+    "id": "conditioning-011",
+    "name": "Step march",
+    "description": "March on the spot with knees lifting and arms swinging to keep your heart rate gently up.",
+    "focus": "conditioning",
+    "moods": [
+      "unmotivated",
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
+  },
+  {
+    "id": "conditioning-012",
+    "name": "Medicine ball toss",
+    "description": "Toss a light medicine ball against a wall and catch it, keeping your feet light and moving.",
+    "focus": "conditioning",
+    "moods": [
+      "playful"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "medicine ball"
+    ]
   }
 ]

@@ -146,5 +146,21 @@
     "equipment": [
       "none"
     ]
+  },
+  {
+    "id": "stretching-011",
+    "name": "Supine knee hug",
+    "description": "Lie on your back, hug one knee toward your chest, and hold a gentle stretch in your lower back.",
+    "focus": "stretching",
+    "moods": [
+      "tired",
+      "stressed",
+      "unmotivated"
+    ],
+    "minutes": 3,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
   }
 ]

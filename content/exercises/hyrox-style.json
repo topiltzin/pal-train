@@ -149,5 +149,19 @@
     "equipment": [
       "rowing machine"
     ]
+  },
+  {
+    "id": "hyrox-style-011",
+    "name": "Slow farmer walk",
+    "description": "Walk slowly holding a light pair of dumbbells, keeping your shoulders down and your chest tall.",
+    "focus": "hyrox-style",
+    "moods": [
+      "unmotivated"
+    ],
+    "minutes": 5,
+    "intensity": "moderate",
+    "equipment": [
+      "dumbbell"
+    ]
   }
 ]

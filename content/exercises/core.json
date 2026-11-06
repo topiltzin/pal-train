@@ -147,5 +147,35 @@
       "pull-up bar"
     ],
     "caution": "Control the lowering. Stop if you feel low back strain or grip pain."
+  },
+  {
+    "id": "core-011",
+    "name": "Seated knee tuck",
+    "description": "Sit near the front of a chair, hold the sides, and draw your knees gently toward your chest.",
+    "focus": "core",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "chair"
+    ]
+  },
+  {
+    "id": "core-012",
+    "name": "Supine heel slide",
+    "description": "Lie on your back and slide one heel out and back, keeping your lower back gently pressed down.",
+    "focus": "core",
+    "moods": [
+      "tired",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "none"
+    ]
   }
 ]

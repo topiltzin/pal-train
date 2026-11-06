@@ -150,5 +150,36 @@
     "equipment": [
       "resistance band"
     ]
+  },
+  {
+    "id": "chest-011",
+    "name": "Standing band press",
+    "description": "Hold a band at chest height, press forward slowly, and return with control.",
+    "focus": "chest",
+    "moods": [
+      "unmotivated",
+      "tired"
+    ],
+    "minutes": 5,
+    "intensity": "low",
+    "equipment": [
+      "resistance band"
+    ]
+  },
+  {
+    "id": "chest-012",
+    "name": "Bench incline push-up",
+    "description": "Place your hands on a bench or sturdy table and lower your chest toward it, then press back up.",
+    "focus": "chest",
+    "moods": [
+      "unmotivated",
+      "tired",
+      "stressed"
+    ],
+    "minutes": 4,
+    "intensity": "low",
+    "equipment": [
+      "bench"
+    ]
   }
 ]
