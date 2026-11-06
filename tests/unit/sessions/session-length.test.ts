@@ -22,9 +22,9 @@ describe("session length constants", () => {
     expect(DEFAULT_MAX_MINUTES).toBe(60);
   });
 
-  it("uses 3 to 10 exercises as the count bounds", () => {
+  it("uses 3 to 15 exercises as the count bounds", () => {
     expect(MIN_EXERCISES).toBe(3);
-    expect(MAX_EXERCISES).toBe(10);
+    expect(MAX_EXERCISES).toBe(15);
   });
 });
 
@@ -33,16 +33,16 @@ describe("targetExerciseCount", () => {
     expect(targetExerciseCount(10)).toBe(3);
   });
 
-  it("returns 5 exercises for a 30-minute session", () => {
-    expect(targetExerciseCount(30)).toBe(5);
+  it("returns 6 exercises for a 30-minute session", () => {
+    expect(targetExerciseCount(30)).toBe(6);
   });
 
-  it("returns 7 exercises for a 60-minute session", () => {
-    expect(targetExerciseCount(60)).toBe(7);
+  it("returns 11 exercises for a 60-minute session", () => {
+    expect(targetExerciseCount(60)).toBe(11);
   });
 
-  it("returns 10 exercises for a 90-minute session", () => {
-    expect(targetExerciseCount(90)).toBe(10);
+  it("returns 15 exercises for a 90-minute session", () => {
+    expect(targetExerciseCount(90)).toBe(15);
   });
 
   it("never decreases as the maximum grows in 5-minute steps", () => {

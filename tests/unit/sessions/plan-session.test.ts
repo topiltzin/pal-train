@@ -153,7 +153,7 @@ describe("planSession count scaling", () => {
     expect(plan.totalMinutes).toBeLessThanOrEqual(10);
   });
 
-  it("plans exactly 10 exercises at the longest length", () => {
+  it("plans exactly 15 exercises at the longest length", () => {
     const plan = planSession({
       exercises: sixMinutePool,
       minMinutes: 60,
@@ -162,11 +162,11 @@ describe("planSession count scaling", () => {
       focus: "chest",
       random: seededRandom(9),
     });
-    expect(plan.exercises).toHaveLength(10);
-    expect(plan.totalMinutes).toBe(60);
+    expect(plan.exercises).toHaveLength(15);
+    expect(plan.totalMinutes).toBe(90);
   });
 
-  it("never plans more than 10 exercises, even to reach a longer minimum", () => {
+  it("never plans more than 15 exercises, even to reach a longer minimum", () => {
     const shortPool = sixMinutePool.map((exercise) => ({ ...exercise, minutes: 2 }));
     const plan = planSession({
       exercises: shortPool,
@@ -176,7 +176,7 @@ describe("planSession count scaling", () => {
       focus: "chest",
       random: seededRandom(10),
     });
-    expect(plan.exercises.length).toBeLessThanOrEqual(10);
+    expect(plan.exercises.length).toBeLessThanOrEqual(15);
   });
 
   it("never decreases the number of exercises as the maximum grows", () => {
@@ -200,6 +200,31 @@ describe("planSession count scaling", () => {
 });
 
 describe("planSession minimum is driven by exercise count", () => {
+  it("fills a long session with closest matches once the exact matches run out", () => {
+    // Arrange: three exact chest-and-energized exercises total 30 minutes; the back ones only match the mood.
+    const exact = [1, 2, 3].map((index) =>
+      makeExercise({ id: `chest-00${index}`, focus: "chest", moods: ["energized"], minutes: 10 }),
+    );
+    const closest = [1, 2, 3, 4].map((index) =>
+      makeExercise({ id: `back-00${index}`, focus: "back", moods: ["energized"], minutes: 10 }),
+    );
+
+    // Act
+    const plan = planSession({
+      exercises: [...exact, ...closest],
+      minMinutes: 0,
+      maxMinutes: 60,
+      mood: "energized",
+      focus: "chest",
+      random: seededRandom(21),
+    });
+
+    // Assert
+    expect(plan.totalMinutes).toBe(60);
+    expect(plan.exercises.length).toBeGreaterThan(3);
+    expect(plan.fallback).toBe(true);
+  });
+
   it("is not partial when three exercises fit even if the minimum minutes are not reached", () => {
     const shortPool = [1, 2, 3].map((index) =>
       makeExercise({ id: `chest-00${index}`, minutes: 2 }),

@@ -99,9 +99,11 @@ function fillPlan(
   return topUpToMinimum(picked, pool, input.minMinutes, input.maxMinutes);
 }
 
-// The count drives the plan: fewer than MIN_EXERCISES exercises means closest matches are needed.
-function needsClosestMatches(exercises: readonly Exercise[]): boolean {
-  return exercises.length < MIN_EXERCISES;
+// The count drives the plan. When the exact matches cannot reach the target count (for example one
+// mood and one focus with only three exercises), closest matches fill the rest, so a longer
+// request still gets a longer session instead of the same few exercises.
+function needsClosestMatches(exercises: readonly Exercise[], targetCount: number): boolean {
+  return exercises.length < targetCount;
 }
 
 export function planSession(input: PlanInput): SessionPlan {
@@ -120,14 +122,12 @@ export function planSession(input: PlanInput): SessionPlan {
   );
   const targetCount = targetExerciseCount(input.maxMinutes);
   const exactPlan = fillPlan(exact, input, targetCount);
-  const exercises = needsClosestMatches(exactPlan)
+  const exercises = needsClosestMatches(exactPlan, targetCount)
     ? fillPlan([...exact, ...closest], input, targetCount, exactPlan)
     : exactPlan;
 
   const totalMinutes = sumMinutes(exercises);
-  const fallback = exercises.some(
-    (exercise) => !fitsBoth(exercise, input.mood, input.focus),
-  );
+  const fallback = exercises.some((exercise) => !fitsBoth(exercise, input.mood, input.focus));
   // A plan is partial only when fewer than MIN_EXERCISES exercises fit. The time minimum is a best-effort target.
   const partial = exercises.length < MIN_EXERCISES;
   return { exercises, totalMinutes, targetCount, partial, fallback };
