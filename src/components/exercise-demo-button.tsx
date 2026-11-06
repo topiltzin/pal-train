@@ -2,9 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DemoWindow } from "@/components/demo-dialog";
+import { track } from "@/features/analytics/track";
 import type { DemoView } from "@/features/demos/demo-link";
 
 type ExerciseDemoButtonProps = {
+  exerciseId: string;
   exerciseName: string;
   demo: DemoView;
 };
@@ -16,7 +18,7 @@ const DEMO_HISTORY_STATE = { demoWindow: true } as const;
  * Back action closes the window instead of leaving the page. Closing by any other route removes
  * that entry again, so the address and history are the same as before the window opened.
  */
-export function ExerciseDemoButton({ exerciseName, demo }: ExerciseDemoButtonProps) {
+export function ExerciseDemoButton({ exerciseId, exerciseName, demo }: ExerciseDemoButtonProps) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const hasHistoryEntry = useRef(false);
@@ -43,7 +45,8 @@ export function ExerciseDemoButton({ exerciseName, demo }: ExerciseDemoButtonPro
       hasHistoryEntry.current = true;
     }
     setOpen(true);
-  }, []);
+    track("exercise demo watched", { exerciseId });
+  }, [exerciseId]);
 
   // Listener is always attached: an event for our own history.back() may arrive after the window
   // has already closed, and it must still be consumed by the ignore flag, not read as Back.

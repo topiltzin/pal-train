@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Stack from "@/components/stack";
+import { track } from "@/features/analytics/track";
 import type { Mood, MoodId } from "@/features/moods/moods";
 
 type MoodStackProps = {
@@ -59,7 +60,10 @@ export function MoodStack({ moods, selectedMood, onSelect }: MoodStackProps) {
       </p>
       <button
         type="button"
-        onClick={() => onSelect(browsing.id)}
+        onClick={() => {
+          track("mood selected");
+          onSelect(browsing.id);
+        }}
         disabled={isChosen}
         className="inline-flex min-h-11 items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold text-on-accent whitespace-nowrap transition-[filter,transform] duration-150 ease-out hover:brightness-110 motion-safe:active:scale-[0.98] disabled:cursor-default disabled:opacity-60 disabled:hover:brightness-100"
       >

@@ -3,6 +3,9 @@ import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense, type CSSProperties, type ReactNode } from "react";
 import CardNav from "@/components/card-nav";
+import { UmamiIdentify } from "@/components/analytics/umami-identify";
+import { getAnalyticsConfig } from "@/features/analytics/analytics-env";
+import { hashDistinctId } from "@/features/analytics/identity";
 import { getCurrentUser } from "@/features/auth/session";
 import { upsertUser } from "@/features/auth/user-repository";
 import { appNavCards } from "@/features/navigation/app-nav-items";
@@ -38,8 +41,12 @@ async function AuthenticatedShell({ children }: { children: ReactNode }) {
     redirect("/sign-in");
   }
   const user = await upsertUser(claims);
+  const analytics = getAnalyticsConfig();
   return (
     <div className="flex min-h-screen flex-col">
+      {analytics.enabled ? (
+        <UmamiIdentify distinctId={hashDistinctId(analytics.hashSecret, claims.sub)} />
+      ) : null}
       <header className="border-b border-line">
         <div className="mx-auto w-full max-w-md px-4 py-2 md:max-w-3xl">
           <CardNav

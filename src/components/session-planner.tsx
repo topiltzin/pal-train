@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { SessionNoticePopup, type SessionNotice } from "@/components/session-notice-popup";
 import { SessionLengthControl } from "@/components/session-length-range";
 import { SessionPlanList } from "@/components/session-plan-list";
+import { track } from "@/features/analytics/track";
 import type { FocusId } from "@/features/library/focus-areas";
 import type { MoodId } from "@/features/moods/moods";
 import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
@@ -81,6 +82,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         if (controller.signal.aborted) return;
         setSettledKey(wantedKey);
         if (response.success && response.data) {
+          track("session plan requested");
           setPlan(response.data);
           setNotice(response.data.shortfallMessage);
           return;

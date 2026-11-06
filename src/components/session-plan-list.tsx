@@ -52,7 +52,11 @@ export function SessionPlanList({ plan, notice, busy = false }: SessionPlanListP
                   </p>
                 ) : null}
                 {exercise.demo ? (
-                  <ExerciseDemoButton exerciseName={exercise.name} demo={exercise.demo} />
+                  <ExerciseDemoButton
+                    exerciseId={exercise.id}
+                    exerciseName={exercise.name}
+                    demo={exercise.demo}
+                  />
                 ) : null}
               </li>
             ))}

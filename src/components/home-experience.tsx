@@ -9,6 +9,7 @@ import { MoodStack } from "@/components/mood-stack";
 import { SuggestionList } from "@/components/suggestion-list";
 import { SessionPlanner } from "@/components/session-planner";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
+import { track } from "@/features/analytics/track";
 import type { FocusArea, FocusId } from "@/features/library/focus-areas";
 import type { Mood, MoodId } from "@/features/moods/moods";
 import type { SuggestionView } from "@/features/suggestions/suggestion-view";
@@ -58,7 +59,7 @@ export function HomeExperience({
   const selectedFocusArea = focusAreas.find((area) => area.id === selection.focus);
   const pipAccent = selectedMood ? `var(--color-${selectedMood.accent})` : DEFAULT_ACCENT;
 
-  async function request(endpoint: string, next: Selection) {
+  async function request(endpoint: string, next: Selection, onSuccess?: () => void) {
     setStatus("loading");
     try {
       const body = await postSelection(endpoint, next);
@@ -66,6 +67,7 @@ export function HomeExperience({
         setResult(body.data);
         setErrorCode(null);
         setStatus("ready");
+        onSuccess?.();
         return;
       }
       setErrorCode(body.error?.code ?? null);
@@ -90,7 +92,7 @@ export function HomeExperience({
   }
 
   function showAnotherIdea() {
-    void request("/api/suggestions/next", selection);
+    void request("/api/suggestions/next", selection, () => track("suggestion requested"));
   }
 
   return (
