@@ -45,8 +45,7 @@ const COLLECTED = [
   },
   {
     term: "Workout requests",
-    detail:
-      "The mood, focus area, and session length you choose, and the workouts we return.",
+    detail: "The mood, focus area, and session length you choose, and the workouts we return.",
   },
 ];
 
@@ -135,10 +134,10 @@ export default function PrivacyPage() {
           <h2 className={HEADING}>Tracking and analytics</h2>
           <p>
             The connector uses no cookies and no cross-site tracking. Its time stamps and request
-            counts exist only for security and the per-minute limit, and they are not used to build a
-            profile of you. The web app&apos;s analytics are self-hosted, cookie-free, and count page
-            views and named product actions. They do not include your email address, your name, or
-            your mood.
+            counts exist only for security and the per-minute limit, and they are not used to build
+            a profile of you. The web app&apos;s analytics are self-hosted, cookie-free, and count
+            page views and named product actions. They do not include your email address, your name,
+            or your mood.
           </p>
         </section>
 
@@ -166,9 +165,10 @@ export default function PrivacyPage() {
           <h2 className={HEADING}>What we do not collect</h2>
           <p>
             We do not collect payment card data, protected health information, government
-            identifiers such as social security numbers, or access credentials such as passwords, API
-            keys, or one-time codes. Pal Buddy is a general fitness idea tool, not a medical service.
-            The mood you choose is a label for the kind of workout you want, not a health record.
+            identifiers such as social security numbers, or access credentials such as passwords,
+            API keys, or one-time codes. Pal Buddy is a general fitness idea tool, not a medical
+            service. The mood you choose is a label for the kind of workout you want, not a health
+            record.
           </p>
         </section>
 
@@ -184,8 +184,8 @@ export default function PrivacyPage() {
           <h2 className={HEADING}>Your choices</h2>
           <ul className={BODY_LIST}>
             <li>
-              <strong>Disconnect any connected app</strong> from Connected apps in Pal Buddy. The app
-              loses access on its next request.
+              <strong>Disconnect any connected app</strong> from Connected apps in Pal Buddy. The
+              app loses access on its next request.
             </li>
             <li>
               <strong>Ask for a copy of your data, or for your data to be deleted,</strong> by
