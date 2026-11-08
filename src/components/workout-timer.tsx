@@ -15,9 +15,14 @@ type WorkoutTimerProps = {
   totalMinutes: number;
 };
 
-function Celebration() {
+type CelebrationProps = {
+  onClose: () => void;
+};
+
+/** The popup content shown when the session ends. The burst is decorative and hidden from screen readers. */
+function Celebration({ onClose }: CelebrationProps) {
   return (
-    <div role="status" className="timer-celebration">
+    <div className="timer-celebration">
       <span aria-hidden className="timer-celebration__burst">
         <span className="timer-celebration__shape" />
         <span className="timer-celebration__shape" />
@@ -25,7 +30,12 @@ function Celebration() {
         <span className="timer-celebration__shape" />
         <span className="timer-celebration__shape" />
       </span>
-      <p className="timer-celebration__text">{CELEBRATION_TEXT}</p>
+      <p role="status" className="timer-celebration__text">
+        {CELEBRATION_TEXT}
+      </p>
+      <button type="button" className="timer-celebration__close" onClick={onClose}>
+        Close
+      </button>
     </div>
   );
 }
@@ -36,9 +46,21 @@ export function WorkoutTimer({ totalMinutes }: WorkoutTimerProps) {
   const [now, setNow] = useState(() => Date.now());
   const [note, setNote] = useState("");
   const finishedByButton = useRef(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const remaining = remainingMs(state, now);
   const announcement = state.status === "finished" ? "Session complete" : note;
+
+  // The celebration is a modal popup: open it when the session ends, close it when the timer leaves "finished".
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (state.status === "finished" && !dialog.open) {
+      dialog.showModal();
+    } else if (state.status !== "finished" && dialog.open) {
+      dialog.close();
+    }
+  }, [state.status]);
 
   // Tick while running, and check the clock whenever the page comes back into view (research §3).
   useEffect(() => {
@@ -138,7 +160,20 @@ export function WorkoutTimer({ totalMinutes }: WorkoutTimerProps) {
         {announcement}
       </p>
 
-      {state.status === "finished" ? <Celebration /> : null}
+      <dialog
+        ref={dialogRef}
+        aria-label="Session complete"
+        className="timer-popup"
+        onCancel={(event) => {
+          // Escape closes the popup, the same as the Close button; the timer stays finished.
+          event.preventDefault();
+          dialogRef.current?.close();
+        }}
+      >
+        {state.status === "finished" ? (
+          <Celebration onClose={() => dialogRef.current?.close()} />
+        ) : null}
+      </dialog>
     </section>
   );
 }

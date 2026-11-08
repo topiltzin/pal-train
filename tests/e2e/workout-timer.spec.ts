@@ -82,6 +82,7 @@ test.describe("workout timer, signed in", () => {
     await page.getByRole("button", { name: "Finish" }).click();
 
     // Act
+    await page.getByRole("button", { name: "Close" }).click();
     await page.getByRole("button", { name: "Start again" }).click();
     await page.getByRole("button", { name: "Start timer" }).click();
     await page.getByRole("button", { name: "Finish" }).click();
