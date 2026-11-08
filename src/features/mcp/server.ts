@@ -10,6 +10,13 @@ import {
 
 const SERVER_INFO = { name: "paltrain", version: "1.0.0" } as const;
 
+/** Every tool is a read-only lookup inside Paltrain's own library (OpenAI plugin guidelines). */
+const READ_ONLY_ANNOTATIONS = {
+  readOnlyHint: true,
+  destructiveHint: false,
+  openWorldHint: false,
+} as const;
+
 type ToolOutcome = { content: { type: "text"; text: string }[]; isError?: boolean };
 
 /** Runs one tool and turns a refusal into a readable tool error with its code (contract). */
@@ -31,16 +38,20 @@ export function buildPaltrainServer(exercises: readonly Exercise[]): McpServer {
   server.registerTool(
     "list_focus_areas",
     {
-      description: "List the muscle-group focus areas in the Paltrain library.",
+      description:
+        "List the muscle-group focus areas (for example legs, chest, core) that a workout can target. Use first when the user has not named a focus area. Read-only.",
       inputSchema: z.object({}),
+      annotations: READ_ONLY_ANNOTATIONS,
     },
     async () => runTool(() => listFocusAreasTool()),
   );
   server.registerTool(
     "list_exercises",
     {
-      description: "List the exercises for one focus area.",
+      description:
+        "List the exercises in one focus area, with minutes, equipment, and caution notes. Use when the user wants to browse a muscle group. Needs a focus id from list_focus_areas. Read-only.",
       inputSchema: z.object({ focus: z.string() }),
+      annotations: READ_ONLY_ANNOTATIONS,
     },
     async ({ focus }) => runTool(() => listExercisesTool(exercises, { focus })),
   );
@@ -48,12 +59,13 @@ export function buildPaltrainServer(exercises: readonly Exercise[]): McpServer {
     "plan_session",
     {
       description:
-        "Plan a workout for a mood, a focus area, or both, for a length from 10 to 90 minutes in steps of 5.",
+        "Plan a workout for a mood, a focus area, or both, for a length from 10 to 90 minutes in steps of 5. Use when the user asks for a workout. Gentle moods (tired, stressed, unmotivated) are capped at 45 minutes. Returns exercises and a safety notice. Read-only.",
       inputSchema: z.object({
         mood: z.string().optional(),
         focus: z.string().optional(),
         minutes: z.number(),
       }),
+      annotations: READ_ONLY_ANNOTATIONS,
     },
     async ({ mood, focus, minutes }) =>
       runTool(() => planSessionTool(exercises, { mood, focus, minutes })),

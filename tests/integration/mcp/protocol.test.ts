@@ -30,6 +30,16 @@ describe("MCP protocol handler", () => {
     expect(text).toContain('"name":"plan_session"');
   });
 
+  it("marks every tool read-only, non-destructive, and closed-world with explicit annotations", async () => {
+    // Arrange, Act
+    const text = await rpc("tools/list", {});
+
+    // Assert: each tool carries the three hints as explicit booleans (OpenAI guidelines)
+    expect((text.match(/"readOnlyHint":true/g) ?? []).length).toBe(3);
+    expect((text.match(/"destructiveHint":false/g) ?? []).length).toBe(3);
+    expect((text.match(/"openWorldHint":false/g) ?? []).length).toBe(3);
+  });
+
   it("answers plan_session with an exercise plan and the medical notice", async () => {
     // Arrange, Act
     const text = await rpc("tools/call", {
