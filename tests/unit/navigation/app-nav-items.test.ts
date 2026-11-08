@@ -41,12 +41,15 @@ describe("appNavCards", () => {
     expect(library.links).toEqual([{ label: "Back", href: "/library/back" }]);
   });
 
-  it("ends with a log out link on the account card", () => {
+  it("offers connected apps and a log out link on the account card", () => {
     // Act
     const account = appNavCards("Sam", focusAreas)[2];
 
     // Assert
-    expect(account.links).toEqual([{ label: "Log out", href: LOG_OUT_HREF }]);
+    expect(account.links).toEqual([
+      { label: "Connected apps", href: "/connections" },
+      { label: "Log out", href: LOG_OUT_HREF },
+    ]);
     expect(LOG_OUT_HREF).toBe("/auth/logout");
   });
 });

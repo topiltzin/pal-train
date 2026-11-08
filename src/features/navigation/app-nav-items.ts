@@ -39,7 +39,10 @@ export function appNavCards(
     {
       label: `Hi, ${displayName}!`,
       description: "You are signed in to Pal Buddy.",
-      links: [{ label: "Log out", href: LOG_OUT_HREF }],
+      links: [
+        { label: "Connected apps", href: "/connections" },
+        { label: "Log out", href: LOG_OUT_HREF },
+      ],
     },
   ];
 }

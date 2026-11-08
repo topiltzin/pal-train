@@ -15,6 +15,13 @@
       "when": 1793811538008,
       "tag": "0001_minor_kinsey_walden",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794061932010,
+      "tag": "0002_magical_warbound",
+      "breakpoints": true
     }
   ]
 }

@@ -1,0 +1,67 @@
+import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
+import { z } from "zod";
+import type { Exercise } from "@/features/sessions/exercise.schema";
+import {
+  ToolInputError,
+  listExercisesTool,
+  listFocusAreasTool,
+  planSessionTool,
+} from "@/features/mcp/tools";
+
+const SERVER_INFO = { name: "paltrain", version: "1.0.0" } as const;
+
+type ToolOutcome = { content: { type: "text"; text: string }[]; isError?: boolean };
+
+/** Runs one tool and turns a refusal into a readable tool error with its code (contract). */
+function runTool(run: () => unknown): ToolOutcome {
+  try {
+    return { content: [{ type: "text", text: JSON.stringify(run()) }] };
+  } catch (error) {
+    if (!(error instanceof ToolInputError)) {
+      throw error;
+    }
+    const body = { code: error.code, message: error.message, detail: error.detail ?? [] };
+    return { content: [{ type: "text", text: JSON.stringify(body) }], isError: true };
+  }
+}
+
+/** Builds one MCP server with the three read-only tools (spec US2). */
+export function buildPaltrainServer(exercises: readonly Exercise[]): McpServer {
+  const server = new McpServer(SERVER_INFO, { capabilities: { tools: {} } });
+  server.registerTool(
+    "list_focus_areas",
+    {
+      description: "List the muscle-group focus areas in the Paltrain library.",
+      inputSchema: z.object({}),
+    },
+    async () => runTool(() => listFocusAreasTool()),
+  );
+  server.registerTool(
+    "list_exercises",
+    {
+      description: "List the exercises for one focus area.",
+      inputSchema: z.object({ focus: z.string() }),
+    },
+    async ({ focus }) => runTool(() => listExercisesTool(exercises, { focus })),
+  );
+  server.registerTool(
+    "plan_session",
+    {
+      description:
+        "Plan a workout for a mood, a focus area, or both, for a length from 10 to 90 minutes in steps of 5.",
+      inputSchema: z.object({
+        mood: z.string().optional(),
+        focus: z.string().optional(),
+        minutes: z.number(),
+      }),
+    },
+    async ({ mood, focus, minutes }) =>
+      runTool(() => planSessionTool(exercises, { mood, focus, minutes })),
+  );
+  return server;
+}
+
+/** The Streamable HTTP handler: a fresh server per request, serving the tools above. */
+export function createPaltrainHandler(exercises: readonly Exercise[]) {
+  return createMcpHandler(() => buildPaltrainServer(exercises));
+}

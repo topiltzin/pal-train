@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.33.0",
+    "@modelcontextprotocol/server": "2.4.0",
     "@neondatabase/serverless": "^1.2.0",
     "@phosphor-icons/react": "^2.1.10",
     "drizzle-orm": "^0.45.4",
+    "jose": "6.2.15",
     "motion": "^14.9.0",
     "next": "16.4.3",
     "react": "19.3.0",

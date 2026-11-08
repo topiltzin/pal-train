@@ -74,3 +74,67 @@ export const exerciseDemoLinks = pgTable(
       .where(sql`${table.active} = true`),
   ],
 );
+
+const MCP_CLIENT_ID_MAX_LENGTH = 255;
+const MCP_CLIENT_NAME_MAX_LENGTH = 100;
+const MCP_REASON_CODE_MAX_LENGTH = 64;
+
+/**
+ * One approved link between a Paltrain user and an OpenAI connector client (spec FR-008, FR-009).
+ * Data model: `status` is `active` or `removed`; one row per (user, client).
+ */
+export const mcpConnections = pgTable(
+  "mcp_connections",
+  {
+    id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    clientId: varchar("client_id", { length: MCP_CLIENT_ID_MAX_LENGTH }).notNull(),
+    clientName: varchar("client_name", { length: MCP_CLIENT_NAME_MAX_LENGTH }).notNull(),
+    grantedScopes: text("granted_scopes").notNull(),
+    status: text("status").notNull().default("active"),
+    approvedAt: timestamp("approved_at", { withTimezone: true }).notNull().defaultNow(),
+    lastUsedAt: timestamp("last_used_at", { withTimezone: true }),
+    removedAt: timestamp("removed_at", { withTimezone: true }),
+  },
+  (table) => [
+    unique("mcp_connections_user_client").on(table.userId, table.clientId),
+    check("mcp_connections_status", sql`${table.status} in ('active', 'removed')`),
+  ],
+);
+
+/**
+ * Append-only record of security-relevant connector events (spec FR-015). Holds no tokens, codes,
+ * emails, names, or mood values (data model rule). No foreign key, so entries survive account deletion.
+ */
+export const mcpAuditEntries = pgTable(
+  "mcp_audit_entries",
+  {
+    id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    event: text("event").notNull(),
+    userId: text("user_id"),
+    clientId: varchar("client_id", { length: MCP_CLIENT_ID_MAX_LENGTH }),
+    reasonCode: varchar("reason_code", { length: MCP_REASON_CODE_MAX_LENGTH }),
+  },
+  (table) => [
+    check(
+      "mcp_audit_entries_event",
+      sql`${table.event} in ('consent_granted', 'consent_denied', 'token_accepted', 'token_refused', 'connection_refused', 'disconnected', 'rate_limited')`,
+    ),
+  ],
+);
+
+/** Requests counted per user per one-minute window (spec FR-013). */
+export const mcpRateWindows = pgTable(
+  "mcp_rate_windows",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+    requestCount: integer("request_count").notNull().default(0),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.windowStart] })],
+);
