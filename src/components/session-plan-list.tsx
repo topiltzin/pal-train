@@ -1,4 +1,5 @@
 import { ExerciseDemoButton } from "@/components/exercise-demo-button";
+import { WorkoutTimer } from "@/components/workout-timer";
 import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
 
 type SessionPlanListProps = {
@@ -26,6 +27,10 @@ export function SessionPlanList({ plan, notice, busy = false }: SessionPlanListP
             <span className="text-4xl font-semibold tabular-nums">{plan.totalMinutes}</span>
             <span className="text-sm text-muted">minutes</span>
           </p>
+          <WorkoutTimer
+            key={plan.exercises.map((exercise) => exercise.id).join(",")}
+            totalMinutes={plan.totalMinutes}
+          />
           <ul className="flex flex-col gap-2">
             {plan.exercises.map((exercise) => (
               <li

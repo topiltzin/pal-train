@@ -1,0 +1,82 @@
+/* Finish celebration. Motion uses only transform and opacity. Reduced motion shows the words alone. */
+
+.timer-celebration {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 7rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.timer-celebration__burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.timer-celebration__shape {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0;
+  animation: timer-burst 2.5s ease-out forwards;
+}
+
+.timer-celebration__shape:nth-child(1) {
+  --angle: -70deg;
+}
+.timer-celebration__shape:nth-child(2) {
+  --angle: -35deg;
+}
+.timer-celebration__shape:nth-child(3) {
+  --angle: 0deg;
+}
+.timer-celebration__shape:nth-child(4) {
+  --angle: 35deg;
+}
+.timer-celebration__shape:nth-child(5) {
+  --angle: 70deg;
+}
+
+.timer-celebration__text {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@keyframes timer-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-6.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timer-celebration__burst {
+    display: none;
+  }
+
+  .timer-celebration__shape {
+    animation: none;
+    display: none;
+  }
+}
