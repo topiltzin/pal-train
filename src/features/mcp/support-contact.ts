@@ -1,5 +1,5 @@
 /**
  * Support address shown on the connector and privacy pages. OpenAI requires a reachable contact
- * (plugin guidelines). REPLACE before submission with the owner's real support address.
+ * (plugin guidelines).
  */
-export const SUPPORT_EMAIL = "support@pal-train.example";
+export const SUPPORT_EMAIL = "support@lv-prime.eu";
