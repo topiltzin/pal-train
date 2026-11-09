@@ -12,7 +12,6 @@ import { loadExerciseLibrary } from "@/features/sessions/exercise-library";
 
 const RESOURCE_METADATA_PATH = "/.well-known/oauth-protected-resource/mcp";
 const REQUIRED_SCOPE = "plans:read";
-const JWKS_PATH = ".well-known/jwks.json";
 /** The name shown for the connection in the user's connected apps list. */
 const CONNECTOR_NAME = "ChatGPT";
 
@@ -22,7 +21,7 @@ type ProtocolHandler = ReturnType<typeof createPaltrainHandler>;
 let cachedGate: AuthGate | undefined;
 let cachedHandler: ProtocolHandler | undefined;
 
-/** Built once per instance: the remote key set caches Auth0's signing keys between requests. */
+/** Built once per instance: the remote key set caches Better Auth's signing keys between requests. */
 function authGate(): AuthGate {
   if (cachedGate === undefined) {
     const config = getMcpConfig();
@@ -30,7 +29,7 @@ function authGate(): AuthGate {
       settings: {
         issuer: config.issuer,
         resource: config.resource,
-        jwks: createRemoteJWKSet(new URL(JWKS_PATH, config.issuer)),
+        jwks: createRemoteJWKSet(new URL(config.jwksUrl)),
         requiredScope: REQUIRED_SCOPE,
       },
       resourceMetadataUrl: new URL(RESOURCE_METADATA_PATH, config.resource).toString(),

@@ -1,6 +1,8 @@
-import { getAuth0 } from "@/lib/auth/auth0";
+import { headers } from "next/headers";
+import { getAuth } from "@/lib/auth/better-auth";
 
 export type SessionUser = {
+  /** The Better Auth user id. It is the key of the app's `users` row. */
   sub: string;
   email: string;
   name?: string;
@@ -12,6 +14,11 @@ export type SessionLike = {
 
 export type SessionGetter = () => Promise<SessionLike | null>;
 
+/** The shape of a Better Auth server session that the app reads. */
+type BetterAuthSession = {
+  user: { id: string; email: string; name?: string | null };
+} | null;
+
 export class UnauthenticatedError extends Error {
   constructor() {
     super("Please sign in to continue.");
@@ -19,15 +26,25 @@ export class UnauthenticatedError extends Error {
   }
 }
 
-// A session without an email cannot create a user row (email is required), so it counts as signed out.
-const defaultGetSession: SessionGetter = async () => {
-  const session = await getAuth0().getSession();
+/**
+ * Pure: maps a Better Auth session to the app's user. A session without an email cannot create
+ * a user row (email is required), so it counts as signed out.
+ */
+export function toSessionUser(session: BetterAuthSession): SessionUser | null {
   if (!session?.user?.email) {
     return null;
   }
   return {
-    user: { sub: session.user.sub, email: session.user.email, name: session.user.name },
+    sub: session.user.id,
+    email: session.user.email,
+    name: session.user.name ?? undefined,
   };
+}
+
+const defaultGetSession: SessionGetter = async () => {
+  const session = await getAuth().api.getSession({ headers: await headers() });
+  const user = toSessionUser(session);
+  return user ? { user } : null;
 };
 
 export async function getCurrentUser(

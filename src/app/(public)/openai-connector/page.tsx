@@ -88,10 +88,10 @@ export default function OpenAiConnectorPage() {
         <section className={SECTION}>
           <h2 className={HEADING}>Sign-in and permissions</h2>
           <p>
-            You sign in with Auth0, the same account system as Pal Buddy, not inside ChatGPT. Auth0
-            then shows a consent screen that names the app and lists the two permissions it asks
-            for: reading workout plans and reading the focus areas and exercises. The connector gets
-            no other permission.
+            You sign in on Pal Buddy&apos;s own sign-in page, not inside ChatGPT. Pal Buddy then
+            shows a consent screen that names the app and lists the two permissions it asks for:
+            reading workout plans and reading the focus areas and exercises. The connector gets no
+            other permission.
           </p>
         </section>
 

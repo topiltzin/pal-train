@@ -8,7 +8,8 @@ export type AppNavCard = {
   links: AppNavLink[];
 };
 
-export const LOG_OUT_HREF = "/auth/logout";
+/** The sign-out route ends the Better Auth session (see src/app/sign-out/route.ts). */
+export const LOG_OUT_HREF = "/sign-out";
 
 /** Muscle groups offered as quick links in the header menu. */
 const LIBRARY_SHORTCUT_IDS: readonly FocusId[] = ["chest", "back", "legs", "core"];

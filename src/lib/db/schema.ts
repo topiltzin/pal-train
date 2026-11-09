@@ -138,3 +138,6 @@ export const mcpRateWindows = pgTable(
   },
   (table) => [primaryKey({ columns: [table.userId, table.windowStart] })],
 );
+
+// Better Auth tables (see auth-schema.ts): included so drizzle-kit generates their migration.
+export * from "./auth-schema";

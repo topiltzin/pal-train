@@ -2,15 +2,15 @@ import { describe, expect, it } from "vitest";
 import { SignJWT, createLocalJWKSet, exportJWK, generateKeyPair } from "jose";
 import { createMcpAuthGate } from "@/features/mcp/mcp-auth";
 
-const ISSUER = "https://example.us.auth0.com/";
+const ISSUER = "https://pal-train.vercel.app/api/auth";
 const RESOURCE = "https://pal-train.vercel.app/mcp";
 const RESOURCE_METADATA_URL =
   "https://pal-train.vercel.app/.well-known/oauth-protected-resource/mcp";
 const KID = "gate-test-key";
 
 async function fixtures() {
-  const { publicKey, privateKey } = await generateKeyPair("RS256");
-  const jwk = { ...(await exportJWK(publicKey)), kid: KID, alg: "RS256", use: "sig" };
+  const { publicKey, privateKey } = await generateKeyPair("EdDSA", { crv: "Ed25519" });
+  const jwk = { ...(await exportJWK(publicKey)), kid: KID, alg: "EdDSA", use: "sig" };
   const gate = createMcpAuthGate({
     settings: {
       issuer: ISSUER,
@@ -25,10 +25,10 @@ async function fixtures() {
 
 async function tokenWith(privateKey: CryptoKey, scope = "plans:read library:read") {
   return new SignJWT({ scope, azp: "client-1" })
-    .setProtectedHeader({ alg: "RS256", kid: KID })
+    .setProtectedHeader({ alg: "EdDSA", kid: KID })
     .setIssuer(ISSUER)
     .setAudience(RESOURCE)
-    .setSubject("auth0|user-1")
+    .setSubject("user-1")
     .setIssuedAt()
     .setExpirationTime(Math.floor(Date.now() / 1000) + 600)
     .sign(privateKey);

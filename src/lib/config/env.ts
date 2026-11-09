@@ -1,13 +1,19 @@
 import { z } from "zod";
 
-const AUTH0_SECRET_MIN_LENGTH = 32;
+const BETTER_AUTH_SECRET_MIN_LENGTH = 32;
+const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1"]);
+
+/** Plain HTTP is allowed only for local development, never for a public host. */
+function isAllowedAuthUrl(value: string): boolean {
+  const url = new URL(value);
+  return url.protocol === "https:" || (url.protocol === "http:" && LOCAL_HOSTS.has(url.hostname));
+}
 
 const envSchema = z.object({
-  AUTH0_SECRET: z.string().min(AUTH0_SECRET_MIN_LENGTH),
-  APP_BASE_URL: z.string().min(1),
-  AUTH0_DOMAIN: z.string().min(1),
-  AUTH0_CLIENT_ID: z.string().min(1),
-  AUTH0_CLIENT_SECRET: z.string().min(1),
+  BETTER_AUTH_SECRET: z.string().min(BETTER_AUTH_SECRET_MIN_LENGTH),
+  BETTER_AUTH_URL: z.string().refine(isAllowedAuthUrl, {
+    message: "BETTER_AUTH_URL must use HTTPS unless it points at localhost",
+  }),
   DATABASE_URL: z.string().min(1),
 });
 

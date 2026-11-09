@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { connection } from "next/server";
 import { Suspense } from "react";
+import { SignInForm } from "@/features/auth/sign-in-form";
 import { pickRandomMood } from "@/features/moods/random-mood";
 
 const STICKER_PX = 176;
@@ -36,12 +37,7 @@ export default function SignInPage() {
         Tell me how you feel today and I&apos;ll throw a few workout ideas your way. No coaching, no
         plans, just friendly suggestions.
       </p>
-      <a
-        href="/auth/login?returnTo=/"
-        className="rounded-full bg-accent px-6 py-3 text-base font-semibold text-on-accent transition-transform duration-150 ease-out active:scale-[0.97]"
-      >
-        Sign in to get started
-      </a>
+      <SignInForm />
     </main>
   );
 }

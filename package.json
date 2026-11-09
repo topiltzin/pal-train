@@ -18,10 +18,11 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^4.33.0",
+    "@better-auth/mcp": "^1.7.18",
     "@modelcontextprotocol/server": "2.4.0",
     "@neondatabase/serverless": "^1.2.0",
     "@phosphor-icons/react": "^2.1.10",
+    "better-auth": "^1.7.18",
     "drizzle-orm": "^0.45.4",
     "jose": "6.2.15",
     "motion": "^14.9.0",

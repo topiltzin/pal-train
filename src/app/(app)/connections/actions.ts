@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireUser } from "@/features/auth/session";
 import { createDrizzleAuditSink } from "@/features/mcp/audit-repository";
 import { createDrizzleConnectionRepository } from "@/features/mcp/connection-repository";
+import { createDrizzleConsentRevoker } from "@/features/mcp/consent-revoker";
 import { disconnectConnection } from "@/features/mcp/disconnect";
 
 const CLIENT_ID_MAX_LENGTH = 255;
@@ -15,10 +16,15 @@ export async function disconnectAction(formData: FormData): Promise<void> {
   if (clientId === "" || clientId.length > CLIENT_ID_MAX_LENGTH) {
     return;
   }
-  await disconnectConnection(createDrizzleConnectionRepository(), createDrizzleAuditSink(), {
-    userId: user.sub,
-    clientId,
-    now: new Date(),
-  });
+  await disconnectConnection(
+    createDrizzleConnectionRepository(),
+    createDrizzleAuditSink(),
+    createDrizzleConsentRevoker(),
+    {
+      userId: user.sub,
+      clientId,
+      now: new Date(),
+    },
+  );
   revalidatePath("/connections");
 }

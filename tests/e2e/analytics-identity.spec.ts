@@ -56,7 +56,7 @@ test.describe("signed-in identity, analytics on", () => {
     expect((await identifyValues(page.context())).length).toBeGreaterThan(0);
 
     // Act: sign-out is a full navigation, which resets the in-memory identity
-    await page.goto("/auth/logout");
+    await page.goto("/sign-out");
     await page.goto("/sign-in");
 
     // Assert

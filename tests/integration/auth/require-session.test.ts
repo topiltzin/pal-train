@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getCurrentUser, requireUser, UnauthenticatedError } from "@/features/auth/session";
 
 const SIGNED_IN_SESSION = {
-  user: { sub: "auth0|abc123", email: "sam@example.com", name: "Sam" },
+  user: { sub: "user-abc123", email: "sam@example.com", name: "Sam" },
 };
 
 describe("requireUser", () => {
@@ -22,7 +22,7 @@ describe("requireUser", () => {
     const user = await requireUser(signedIn);
 
     // Assert
-    expect(user).toEqual({ sub: "auth0|abc123", email: "sam@example.com", name: "Sam" });
+    expect(user).toEqual({ sub: "user-abc123", email: "sam@example.com", name: "Sam" });
   });
 });
 

@@ -26,7 +26,7 @@ const COLLECTED = [
   {
     term: "Account",
     detail:
-      "Your display name, your email address, and an internal account identifier. Sign-in is handled by Auth0, which holds your login credentials. We never see your password.",
+      "Your display name, your email address, and an internal account identifier. Sign-in is handled by Pal Buddy, which stores only a hashed form of your password and never shares it.",
   },
   {
     term: "Connector approvals",
@@ -115,7 +115,8 @@ export default function PrivacyPage() {
           <h2 className={HEADING}>Who receives it</h2>
           <ul className={BODY_LIST}>
             <li>
-              <strong>Auth0</strong> runs sign-in and issues the access tokens that connectors use.
+              <strong>Pal Buddy</strong> runs sign-in and issues the access tokens that connectors
+              use.
             </li>
             <li>
               <strong>Our database and hosting providers</strong> store and serve the app. Neon

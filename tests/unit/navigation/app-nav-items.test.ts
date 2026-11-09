@@ -50,6 +50,7 @@ describe("appNavCards", () => {
       { label: "Connected apps", href: "/connections" },
       { label: "Log out", href: LOG_OUT_HREF },
     ]);
-    expect(LOG_OUT_HREF).toBe("/auth/logout");
+    expect(LOG_OUT_HREF).toBe("/sign-out");
+    expect(LOG_OUT_HREF.startsWith("/auth/")).toBe(false);
   });
 });

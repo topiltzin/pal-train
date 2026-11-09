@@ -10,7 +10,7 @@ export type ConnectionCheckResult = { ok: true } | { ok: false; reason: "missing
 export type ExistingConnection = { status: ConnectionStatus; removedAt?: Date | null } | undefined;
 
 /**
- * Consent happens at Auth0, and a token is issued only after it. So a valid token is the approval
+ * Consent happens at Better Auth, and a token is issued only after it. So a valid token is the approval
  * record: a first token creates the connection, and a token issued after a disconnect is a
  * reconnect. A token issued before the disconnect is not enough to bring the connection back.
  */

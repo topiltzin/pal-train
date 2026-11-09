@@ -12,6 +12,6 @@ export function UmamiScript() {
   if (!config.enabled) {
     return null;
   }
-  const attributes = buildTrackerAttributes(config, getEnv().APP_BASE_URL);
+  const attributes = buildTrackerAttributes(config, getEnv().BETTER_AUTH_URL);
   return <Script src={config.scriptUrl} strategy="afterInteractive" {...attributes} />;
 }

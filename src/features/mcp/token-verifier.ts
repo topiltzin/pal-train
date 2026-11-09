@@ -1,7 +1,7 @@
 import { errors, jwtVerify, type JWTVerifyGetKey } from "jose";
 
 /** The only signing algorithm accepted. Pinning it rejects `alg: none` and downgrades. */
-const ALLOWED_ALGORITHMS = ["RS256"];
+const ALLOWED_ALGORITHMS = ["EdDSA"];
 const SCOPE_SEPARATOR = " ";
 
 export type VerifierSettings = {
@@ -18,7 +18,7 @@ export type VerifiedAuth = {
   clientId: string | undefined;
   scopes: string[];
   expiresAt: number;
-  /** When Auth0 issued the token, i.e. when the user last consented (used for reconnects). */
+  /** When Better Auth issued the token, i.e. when the user last consented (used for reconnects). */
   issuedAt: Date;
   resource: string;
 };
@@ -42,7 +42,7 @@ function scopesOf(scope: unknown): string[] {
 }
 
 /**
- * Verifies an access token issued by Auth0 for this resource. The token is never logged, and a
+ * Verifies an access token issued by Better Auth for this resource. The token is never logged, and a
  * refusal carries only a reason code, never the token or its claims.
  */
 export async function verifyAccessToken(

@@ -2,28 +2,35 @@ import { describe, expect, it } from "vitest";
 import { parseMcpConfig, MCP_READ_ONLY_SCOPES } from "@/features/mcp/mcp-config";
 
 const validSource = {
-  APP_BASE_URL: "https://pal-train.vercel.app",
-  AUTH0_DOMAIN: "example.us.auth0.com",
+  BETTER_AUTH_URL: "https://www.pal-buddy.eu",
 };
 
 describe("parseMcpConfig", () => {
   it("sets the resource identifier to the app origin plus /mcp, with no trailing slash", () => {
     // Arrange
-    const source = { ...validSource, APP_BASE_URL: "https://pal-train.vercel.app/" };
+    const source = { BETTER_AUTH_URL: "https://www.pal-buddy.eu/" };
 
     // Act
     const config = parseMcpConfig(source);
 
     // Assert
-    expect(config.resource).toBe("https://pal-train.vercel.app/mcp");
+    expect(config.resource).toBe("https://www.pal-buddy.eu/mcp");
   });
 
-  it("sets the issuer to the Auth0 domain with a trailing slash", () => {
+  it("sets the issuer to the Better Auth base URL, which includes /api/auth and has no trailing slash", () => {
     // Arrange, Act
     const config = parseMcpConfig(validSource);
 
     // Assert
-    expect(config.issuer).toBe("https://example.us.auth0.com/");
+    expect(config.issuer).toBe("https://www.pal-buddy.eu/api/auth");
+  });
+
+  it("points the key set at the JWKS path under the issuer", () => {
+    // Arrange, Act
+    const config = parseMcpConfig(validSource);
+
+    // Assert
+    expect(config.jwksUrl).toBe("https://www.pal-buddy.eu/api/auth/jwks");
   });
 
   it("offers only the two read-only scopes", () => {
@@ -35,11 +42,11 @@ describe("parseMcpConfig", () => {
     expect(MCP_READ_ONLY_SCOPES).toEqual(["plans:read", "library:read"]);
   });
 
-  it("throws an error naming APP_BASE_URL when it is missing", () => {
+  it("throws an error naming BETTER_AUTH_URL when it is missing", () => {
     // Arrange
-    const source = { AUTH0_DOMAIN: "example.us.auth0.com" };
+    const source = {};
 
     // Act and Assert
-    expect(() => parseMcpConfig(source)).toThrow(/APP_BASE_URL/);
+    expect(() => parseMcpConfig(source)).toThrow(/BETTER_AUTH_URL/);
   });
 });

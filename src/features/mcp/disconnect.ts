@@ -3,14 +3,21 @@ import type { ConnectionKey, ConnectionRepository } from "@/features/mcp/connect
 
 export type DisconnectResult = { outcome: "removed" } | { outcome: "not_found" };
 
+/** Removes the user's approval of one client: its Better Auth consent and refresh tokens. */
+export type ConsentRevoker = {
+  revokeForClient(userId: string, clientId: string): Promise<void>;
+};
+
 /**
  * Disconnects one of the signed-in user's connections (spec FR-008). Only the user's own
  * connections can be reached, so another user's connection reports not found and changes nothing.
  * Disconnecting twice is a no-op with the same success outcome and no second audit entry.
+ * The approval is revoked too, so reconnecting goes through consent again (spec US3).
  */
 export async function disconnectConnection(
   connections: ConnectionRepository,
   audit: AuditSink,
+  consents: ConsentRevoker,
   key: ConnectionKey,
 ): Promise<DisconnectResult> {
   const current = await connections.findConnection(key.userId, key.clientId);
@@ -21,6 +28,7 @@ export async function disconnectConnection(
     return { outcome: "removed" };
   }
   await connections.markRemoved(key);
+  await consents.revokeForClient(key.userId, key.clientId);
   await writeAuditEntry(
     audit,
     { event: "disconnected", userId: key.userId, clientId: key.clientId },

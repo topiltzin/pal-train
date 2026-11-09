@@ -4,19 +4,22 @@ import { getEnv } from "@/lib/config/env";
 export const MCP_READ_ONLY_SCOPES = ["plans:read", "library:read"] as const;
 
 const MCP_PATH = "/mcp";
-const AUTH0_ISSUER_SCHEME = "https://";
+/** Where Better Auth mounts its routes, and therefore its signing keys (see research.md). */
+const AUTH_BASE_PATH = "/api/auth";
+const JWKS_PATH = "/jwks";
 
 export type McpConfig = {
   /** The resource identifier: the audience every access token must carry. */
   resource: string;
-  /** The Auth0 issuer that signs tokens for this resource. */
+  /** The Better Auth issuer that signs tokens for this resource (the origin, no trailing slash). */
   issuer: string;
+  /** Where the connector fetches the public keys that verify token signatures. */
+  jwksUrl: string;
   scopesSupported: readonly string[];
 };
 
 type McpSource = {
-  APP_BASE_URL?: string;
-  AUTH0_DOMAIN?: string;
+  BETTER_AUTH_URL?: string;
 };
 
 function requireValue(source: McpSource, name: keyof McpSource): string {
@@ -29,11 +32,12 @@ function requireValue(source: McpSource, name: keyof McpSource): string {
 
 /** Pure: derives the MCP resource settings from already-validated values. */
 export function parseMcpConfig(source: McpSource): McpConfig {
-  const origin = new URL(requireValue(source, "APP_BASE_URL")).origin;
-  const domain = requireValue(source, "AUTH0_DOMAIN");
+  const origin = new URL(requireValue(source, "BETTER_AUTH_URL")).origin;
+  const issuer = `${origin}${AUTH_BASE_PATH}`;
   return {
     resource: `${origin}${MCP_PATH}`,
-    issuer: `${AUTH0_ISSUER_SCHEME}${domain}/`,
+    issuer,
+    jwksUrl: `${issuer}${JWKS_PATH}`,
     scopesSupported: MCP_READ_ONLY_SCOPES,
   };
 }
@@ -41,5 +45,5 @@ export function parseMcpConfig(source: McpSource): McpConfig {
 /** Reads the app's validated environment and derives the MCP settings. */
 export function getMcpConfig(): McpConfig {
   const env = getEnv();
-  return parseMcpConfig({ APP_BASE_URL: env.APP_BASE_URL, AUTH0_DOMAIN: env.AUTH0_DOMAIN });
+  return parseMcpConfig({ BETTER_AUTH_URL: env.BETTER_AUTH_URL });
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { disconnectConnection } from "@/features/mcp/disconnect";
+import { disconnectConnection, type ConsentRevoker } from "@/features/mcp/disconnect";
 import type { ConnectionKey, ConnectionRepository } from "@/features/mcp/connection-repository";
 import type { AuditSink, AuditRecord } from "@/features/mcp/audit-log";
 
@@ -29,6 +29,17 @@ function repoWith(rows: { userId: string; clientId: string; status: "active" | "
   return { repo, rows, removedKeys };
 }
 
+/** Fake consent store that records every revocation it is asked to make. */
+function recordingConsents(): ConsentRevoker & { revoked: { userId: string; clientId: string }[] } {
+  const revoked: { userId: string; clientId: string }[] = [];
+  return {
+    revoked,
+    async revokeForClient(userId, clientId) {
+      revoked.push({ userId, clientId });
+    },
+  };
+}
+
 function recordingSink(): AuditSink & { records: AuditRecord[] } {
   const records: AuditRecord[] = [];
   return {
@@ -46,7 +57,7 @@ describe("disconnectConnection", () => {
     const sink = recordingSink();
 
     // Act
-    const result = await disconnectConnection(repo, sink, {
+    const result = await disconnectConnection(repo, sink, recordingConsents(), {
       userId: "user-1",
       clientId: "client-1",
       now: NOW,
@@ -58,13 +69,30 @@ describe("disconnectConnection", () => {
     expect(sink.records.map((record) => record.event)).toEqual(["disconnected"]);
   });
 
+  it("revokes the user's consent for that client, so reconnecting asks for consent again", async () => {
+    // Arrange
+    const { repo } = repoWith([{ userId: "user-1", clientId: "client-1", status: "active" }]);
+    const consents = recordingConsents();
+
+    // Act
+    await disconnectConnection(repo, recordingSink(), consents, {
+      userId: "user-1",
+      clientId: "client-1",
+      now: NOW,
+    });
+
+    // Assert
+    expect(consents.revoked).toEqual([{ userId: "user-1", clientId: "client-1" }]);
+  });
+
   it("treats a second disconnect as a no-op that reports the same outcome", async () => {
     // Arrange
     const { repo } = repoWith([{ userId: "user-1", clientId: "client-1", status: "removed" }]);
     const sink = recordingSink();
+    const consents = recordingConsents();
 
     // Act
-    const result = await disconnectConnection(repo, sink, {
+    const result = await disconnectConnection(repo, sink, consents, {
       userId: "user-1",
       clientId: "client-1",
       now: NOW,
@@ -73,6 +101,7 @@ describe("disconnectConnection", () => {
     // Assert
     expect(result).toEqual({ outcome: "removed" });
     expect(sink.records).toHaveLength(0);
+    expect(consents.revoked).toHaveLength(0);
   });
 
   it("reports not found and changes nothing for a connection that belongs to someone else", async () => {
@@ -81,9 +110,10 @@ describe("disconnectConnection", () => {
       { userId: "user-2", clientId: "client-1", status: "active" },
     ]);
     const sink = recordingSink();
+    const consents = recordingConsents();
 
     // Act
-    const result = await disconnectConnection(repo, sink, {
+    const result = await disconnectConnection(repo, sink, consents, {
       userId: "user-1",
       clientId: "client-1",
       now: NOW,
@@ -94,5 +124,6 @@ describe("disconnectConnection", () => {
     expect(rows[0].status).toBe("active");
     expect(removedKeys).toHaveLength(0);
     expect(sink.records).toHaveLength(0);
+    expect(consents.revoked).toHaveLength(0);
   });
 });

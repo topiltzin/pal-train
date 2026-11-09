@@ -35,7 +35,8 @@ describe("disconnect (database)", () => {
     });
 
     // Act
-    const result = await disconnectConnection(repo, audit, { ...key, now: new Date() });
+    const consents = { revokeForClient: async () => {} };
+    const result = await disconnectConnection(repo, audit, consents, { ...key, now: new Date() });
     const afterDisconnect = await checkConnection(repo, key);
     await repo.approve({
       ...key,
