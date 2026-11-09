@@ -15,7 +15,7 @@ export async function signIn(page: Page): Promise<void> {
   }
   await page.goto("/sign-in");
   await page.getByLabel("Email").fill(E2E_EMAIL);
-  await page.getByLabel("Password").fill(E2E_PASSWORD);
+  await page.getByLabel("Password", { exact: true }).fill(E2E_PASSWORD);
   await page.getByRole("button", { name: "Sign in" }).click();
   await page.getByText(/^Hi, /).waitFor();
 }

@@ -17,6 +17,7 @@ export function SignInForm() {
   const [mode, setMode] = useState<Mode>("sign-in");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -64,17 +65,28 @@ export function SignInForm() {
           className="rounded-md px-3 py-2"
         />
       </label>
-      <label className="flex flex-col gap-1">
-        <span>Password</span>
-        <input
-          name="password"
-          type="password"
-          required
-          minLength={8}
-          autoComplete={isSignUp ? "new-password" : "current-password"}
-          className="rounded-md px-3 py-2"
-        />
-      </label>
+      <div className="relative flex flex-col gap-1">
+        <label className="flex flex-col gap-1">
+          <span>Password</span>
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            required
+            minLength={8}
+            autoComplete={isSignUp ? "new-password" : "current-password"}
+            className="rounded-md px-3 py-2 pr-16"
+          />
+        </label>
+        <button
+          type="button"
+          onClick={() => setShowPassword((shown) => !shown)}
+          aria-pressed={showPassword}
+          aria-label={showPassword ? "Hide password" : "Show password"}
+          className="absolute bottom-1.5 right-2 rounded px-2 py-1 text-sm underline underline-offset-4"
+        >
+          {showPassword ? "Hide" : "Show"}
+        </button>
+      </div>
       {error ? (
         <p role="alert" className="text-sm">
           {error}
