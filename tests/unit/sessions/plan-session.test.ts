@@ -242,3 +242,33 @@ describe("planSession minimum is driven by exercise count", () => {
     expect(plan.partial).toBe(false);
   });
 });
+
+describe("groupNotices", () => {
+  it("is empty when the plan has no focus", () => {
+    // Arrange, Act
+    const plan = planSession({
+      exercises: chestPool,
+      minMinutes: 0,
+      maxMinutes: 30,
+      mood: "energized",
+      random: seededRandom(1),
+    });
+
+    // Assert
+    expect(plan.groupNotices).toEqual([]);
+  });
+
+  it("is empty for a single focus", () => {
+    // Arrange, Act
+    const plan = planSession({
+      exercises: chestPool,
+      minMinutes: 0,
+      maxMinutes: 30,
+      focus: "chest",
+      random: seededRandom(1),
+    });
+
+    // Assert
+    expect(plan.groupNotices).toEqual([]);
+  });
+});

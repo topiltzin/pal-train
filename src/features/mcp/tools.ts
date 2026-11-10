@@ -2,6 +2,8 @@ import { focusAreas, focusIds, type FocusId } from "@/features/library/focus-are
 import { moodIds, type MoodId } from "@/features/moods/moods";
 import type { Exercise } from "@/features/sessions/exercise.schema";
 import { MEDICAL_NOTICE_TEXT } from "@/features/sessions/medical-notice-text";
+import { parseFocusSelection } from "@/features/sessions/focus-selection";
+import type { GroupNotice } from "@/features/sessions/plan-notices";
 import { describePlanNotice, planSession } from "@/features/sessions/plan-session";
 import { maxMinutesFor } from "@/features/sessions/session-cap";
 import { MAX_MINUTES, MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
@@ -33,11 +35,13 @@ export type PlanView = {
   totalMinutes: number;
   shortfallMessage: string | null;
   medicalNotice: string;
+  groupNotices: GroupNotice[];
 };
 
 export type PlanRequest = {
   mood?: string;
-  focus?: string;
+  /** One muscle group, or a list of up to three. */
+  focus?: string | string[];
   minutes: number;
   random?: () => number;
 };
@@ -54,15 +58,33 @@ function toExerciseView(exercise: Exercise): ExerciseView {
   };
 }
 
-function requireFocus(focus: string): FocusId {
-  if (!(focusIds as readonly string[]).includes(focus)) {
+/** For tools that need exactly one muscle group. */
+function requireOneFocus(focus: string): FocusId {
+  const [group] = requireFocusGroups(focus);
+  if (group === undefined) {
     throw new ToolInputError(
       "invalid_focus",
       `Choose one of the focus areas: ${focusIds.join(", ")}.`,
       focusIds,
     );
   }
-  return focus as FocusId;
+  return group;
+}
+
+/** Reads the focus value the user named. Refuses a fourth group and any unknown group. */
+function requireFocusGroups(focus: string | string[] | undefined): FocusId[] {
+  const selection = parseFocusSelection(focus);
+  if (selection.ok) {
+    return selection.groups;
+  }
+  if (selection.reason === "too_many") {
+    throw new ToolInputError("invalid_focus", "Choose up to three muscle groups.", focusIds);
+  }
+  throw new ToolInputError(
+    "invalid_focus",
+    `Choose one of the focus areas: ${focusIds.join(", ")}.`,
+    focusIds,
+  );
 }
 
 function requireMood(mood: string): MoodId {
@@ -103,7 +125,7 @@ export function listExercisesTool(
   exercises: readonly Exercise[],
   input: { focus: string },
 ): ExerciseView[] {
-  const focus = requireFocus(input.focus);
+  const focus = requireOneFocus(input.focus);
   return exercises.filter((exercise) => exercise.focus === focus).map(toExerciseView);
 }
 
@@ -116,7 +138,10 @@ export function planSessionTool(exercises: readonly Exercise[], input: PlanReque
     throw new ToolInputError("missing_source", "Pick a mood, a focus area, or both.");
   }
   const mood = input.mood === undefined ? undefined : requireMood(input.mood);
-  const focus = input.focus === undefined ? undefined : requireFocus(input.focus);
+  const groups = requireFocusGroups(input.focus);
+  if (input.mood === undefined && groups.length === 0) {
+    throw new ToolInputError("missing_source", "Pick a mood, a focus area, or both.");
+  }
   requireLength(input.minutes, mood);
 
   const plan = planSession({
@@ -124,7 +149,7 @@ export function planSessionTool(exercises: readonly Exercise[], input: PlanReque
     minMinutes: input.minutes,
     maxMinutes: input.minutes,
     mood,
-    focus,
+    focus: groups.length > 0 ? groups : undefined,
     random: input.random,
   });
   return {
@@ -132,5 +157,6 @@ export function planSessionTool(exercises: readonly Exercise[], input: PlanReque
     totalMinutes: plan.totalMinutes,
     shortfallMessage: describePlanNotice(plan, input.minutes, input.minutes),
     medicalNotice: MEDICAL_NOTICE_TEXT,
+    groupNotices: plan.groupNotices,
   };
 }

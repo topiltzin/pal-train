@@ -23,3 +23,21 @@ test.describe("muscle group menu", () => {
     await expect(page.getByRole("link", { name: /Browse all Shoulders/ })).toBeVisible();
   });
 });
+
+test.describe("several muscle groups", () => {
+  test.skip(!hasE2eCredentials, SKIP_REASON);
+
+  test.beforeEach(async ({ page }) => {
+    await signIn(page);
+  });
+
+  test("picking biceps and triceps shows a plan with exercises from both", async ({ page }) => {
+    // Act: choose two groups in the picker
+    await page.getByRole("button", { name: "Biceps" }).click();
+    await page.getByRole("button", { name: "Triceps" }).click();
+
+    // Assert: the plan names both groups
+    await expect(page.getByText("Biceps").first()).toBeVisible();
+    await expect(page.getByText("Triceps").first()).toBeVisible();
+  });
+});

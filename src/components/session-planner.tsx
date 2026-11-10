@@ -11,6 +11,7 @@ import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
 import type { SessionLengthRange } from "@/features/sessions/range";
 import { capRange, maxMinutesFor } from "@/features/sessions/session-cap";
 import { DEFAULT_MAX_MINUTES, DEFAULT_MIN_MINUTES } from "@/features/sessions/session-length";
+import { joinNotices } from "@/features/sessions/plan-notices";
 
 const ENDPOINT = "/api/session-plan";
 const PICK_SOURCE_NOTICE = "Pick a mood or a muscle group to plan a session.";
@@ -28,7 +29,8 @@ type ApiResponse = {
 
 type SessionPlannerProps = {
   mood?: MoodId;
-  focus?: FocusId;
+  /** The muscle groups picked on the home screen, in the order they were picked. */
+  focus?: readonly FocusId[];
 };
 
 function sameRange(first: SessionLengthRange, second: SessionLengthRange): boolean {
@@ -38,13 +40,17 @@ function sameRange(first: SessionLengthRange, second: SessionLengthRange): boole
 async function fetchPlan(
   range: SessionLengthRange,
   mood: MoodId | undefined,
-  focus: FocusId | undefined,
+  focus: readonly FocusId[] | undefined,
   signal: AbortSignal,
 ): Promise<ApiResponse> {
   const response = await fetch(ENDPOINT, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ ...range, ...(mood ? { mood } : {}), ...(focus ? { focus } : {}) }),
+    body: JSON.stringify({
+      ...range,
+      ...(mood ? { mood } : {}),
+      ...(focus && focus.length > 0 ? { focus: [...focus] } : {}),
+    }),
     signal,
   });
   return (await response.json()) as ApiResponse;
@@ -65,10 +71,10 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
   const closeNotice = useCallback(() => setSessionNotice(null), []);
   const [plan, setPlan] = useState<SessionPlanView | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const hasSource = mood !== undefined || focus !== undefined;
+  const hasSource = mood !== undefined || (focus?.length ?? 0) > 0;
   // The request the shown plan belongs to. While it differs from the request now wanted, a new
   // plan is on its way: the previous plan stays on screen, dimmed, so the page never looks frozen.
-  const wantedKey = `${planMin}-${planMax}-${mood ?? ""}-${focus ?? ""}`;
+  const wantedKey = `${planMin}-${planMax}-${mood ?? ""}-${(focus ?? []).join(",")}`;
   const [settledKey, setSettledKey] = useState<string | null>(null);
   const pending = hasSource && settledKey !== wantedKey;
 
@@ -84,7 +90,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         if (response.success && response.data) {
           track("session plan requested");
           setPlan(response.data);
-          setNotice(response.data.shortfallMessage);
+          setNotice(joinNotices(response.data.shortfallMessage, response.data.groupNotices));
           return;
         }
         setPlan(null);

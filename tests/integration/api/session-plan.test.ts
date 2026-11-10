@@ -1,6 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { handlePostSessionPlan } from "@/features/sessions/handle-session-plan";
-import { createInMemoryDemoLinkRepository, type DemoLinkRepository } from "@/features/demos/demo-link-repository";
+import {
+  createInMemoryDemoLinkRepository,
+  type DemoLinkRepository,
+} from "@/features/demos/demo-link-repository";
 import { loadExerciseLibrary } from "@/features/sessions/exercise-library";
 
 const SIGNED_IN = async () => ({
@@ -29,10 +32,7 @@ describe("POST /api/session-plan", () => {
   });
 
   it("returns INVALID_INPUT when the body is not JSON", async () => {
-    const response = await handlePostSessionPlan(
-      planRequest("hello", "text/plain"),
-      SIGNED_IN,
-    );
+    const response = await handlePostSessionPlan(planRequest("hello", "text/plain"), SIGNED_IN);
     const body = await response.json();
     expect(body.error.code).toBe("INVALID_INPUT");
     expect(body.error.message).toBe("Send the request as JSON.");
@@ -136,7 +136,11 @@ describe("POST /api/session-plan count scaling", () => {
     // Arrange: a link for every exercise in the library
     const demoLinks = createInMemoryDemoLinkRepository();
     for (const exercise of loadExerciseLibrary().list()) {
-      await demoLinks.upsertActive({ exerciseId: exercise.id, videoId: "IFzYdoNYJkY", sourceTitle: "Demo" });
+      await demoLinks.upsertActive({
+        exerciseId: exercise.id,
+        videoId: "IFzYdoNYJkY",
+        sourceTitle: "Demo",
+      });
     }
 
     // Act
@@ -165,21 +169,29 @@ describe("POST /api/session-plan count scaling", () => {
     const errorLog = vi.spyOn(console, "error").mockImplementation(() => undefined);
 
     // Act
-    const response = await handlePostSessionPlan(planRequest(VALID_BODY), SIGNED_IN, failingDemoLinks);
+    const response = await handlePostSessionPlan(
+      planRequest(VALID_BODY),
+      SIGNED_IN,
+      failingDemoLinks,
+    );
     const body = await response.json();
     const failureWasLogged = errorLog.mock.calls.length > 0;
     errorLog.mockRestore();
 
     // Assert
     expect(response.status).toBe(200);
-    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(true);
+    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(
+      true,
+    );
     expect(failureWasLogged).toBe(true);
   });
 
   it("returns no demo for an exercise once its link is deactivated", async () => {
     // Arrange: a link for every exercise, then deactivate them all
     const demoLinks = createInMemoryDemoLinkRepository();
-    const exerciseIds = loadExerciseLibrary().list().map((exercise) => exercise.id);
+    const exerciseIds = loadExerciseLibrary()
+      .list()
+      .map((exercise) => exercise.id);
     for (const exerciseId of exerciseIds) {
       await demoLinks.upsertActive({ exerciseId, videoId: "IFzYdoNYJkY", sourceTitle: "Demo" });
       await demoLinks.deactivate(exerciseId);
@@ -191,6 +203,52 @@ describe("POST /api/session-plan count scaling", () => {
 
     // Assert
     expect(body.data.exercises.length).toBeGreaterThan(0);
-    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(true);
+    expect(body.data.exercises.every((exercise: { demo: unknown }) => exercise.demo === null)).toBe(
+      true,
+    );
+  });
+});
+
+describe("POST /api/session-plan groupNotices", () => {
+  it("includes groupNotices as an empty list for a single focus", async () => {
+    const response = await handlePostSessionPlan(planRequest(VALID_BODY), SIGNED_IN);
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    expect(body.data.groupNotices).toEqual([]);
+  });
+});
+
+describe("POST /api/session-plan with several focus areas", () => {
+  it("returns exercises from both groups for a two-group request", async () => {
+    const response = await handlePostSessionPlan(
+      planRequest({ minMinutes: 0, maxMinutes: 30, focus: ["biceps", "triceps"] }),
+      SIGNED_IN,
+    );
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    const focuses = body.data.exercises.map((exercise: { focus: string }) => exercise.focus);
+    expect(focuses).toContain("biceps");
+    expect(focuses).toContain("triceps");
+  });
+
+  it("refuses a fourth group with the limit message", async () => {
+    const response = await handlePostSessionPlan(
+      planRequest({ minMinutes: 0, maxMinutes: 30, focus: ["chest", "back", "legs", "core"] }),
+      SIGNED_IN,
+    );
+    const body = await response.json();
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("INVALID_INPUT");
+    expect(body.error.message).toMatch(/three/);
+  });
+
+  it("refuses an unknown group and lists the valid ones", async () => {
+    const response = await handlePostSessionPlan(
+      planRequest({ minMinutes: 0, maxMinutes: 30, focus: ["elbows"] }),
+      SIGNED_IN,
+    );
+    const body = await response.json();
+    expect(response.status).toBe(400);
+    expect(body.error.message).toMatch(/biceps/);
   });
 });

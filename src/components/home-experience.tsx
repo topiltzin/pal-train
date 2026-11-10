@@ -11,6 +11,7 @@ import { SessionPlanner } from "@/components/session-planner";
 import { SuggestionSkeleton } from "@/components/suggestion-skeleton";
 import { track } from "@/features/analytics/track";
 import type { FocusArea, FocusId } from "@/features/library/focus-areas";
+import { MAX_FOCUS_GROUPS } from "@/features/sessions/focus-selection";
 import type { Mood, MoodId } from "@/features/moods/moods";
 import type { SuggestionView } from "@/features/suggestions/suggestion-view";
 
@@ -22,7 +23,9 @@ type SuggestionsResponse = {
   error: { code: string; message: string } | null;
 };
 
-type Selection = { mood: MoodId | null; focus: FocusId | null };
+type Selection = { mood: MoodId | null; focus: FocusId[] };
+
+const FOCUS_LIMIT_NOTICE = "Choose up to three muscle groups. Tap one to remove it first.";
 
 const GENERIC_ERROR = "I couldn't fetch ideas just now. Give it another try in a moment.";
 const INTRO_COPY = "Hi, I'm Pip. Pick how you feel, then a muscle group for ideas.";
@@ -32,7 +35,8 @@ const DEFAULT_ACCENT = "var(--color-accent-sky)";
 async function postSelection(endpoint: string, selection: Selection): Promise<SuggestionsResponse> {
   const body = {
     ...(selection.mood ? { mood: selection.mood } : {}),
-    ...(selection.focus ? { focus: selection.focus } : {}),
+    // Pip's ideas are for one muscle group, so the first picked group is used.
+    ...(selection.focus.length > 0 ? { focus: selection.focus[0] } : {}),
   };
   const response = await fetch(endpoint, {
     method: "POST",
@@ -49,14 +53,15 @@ export function HomeExperience({
   moods: readonly Mood[];
   focusAreas: readonly FocusArea[];
 }) {
-  const [selection, setSelection] = useState<Selection>({ mood: null, focus: null });
+  const [selection, setSelection] = useState<Selection>({ mood: null, focus: [] });
+  const [focusNotice, setFocusNotice] = useState<string | null>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<SuggestionsResponse["data"]>(null);
   const [errorCode, setErrorCode] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(GENERIC_ERROR);
 
   const selectedMood = moods.find((mood) => mood.id === selection.mood);
-  const selectedFocusArea = focusAreas.find((area) => area.id === selection.focus);
+  const selectedFocusArea = focusAreas.find((area) => area.id === selection.focus[0]);
   const pipAccent = selectedMood ? `var(--color-${selectedMood.accent})` : DEFAULT_ACCENT;
 
   async function request(endpoint: string, next: Selection, onSuccess?: () => void) {
@@ -82,13 +87,28 @@ export function HomeExperience({
 
   function runSelection(next: Selection) {
     setSelection(next);
-    if (next.mood === null && next.focus === null) {
+    if (next.mood === null && next.focus.length === 0) {
       setResult(null);
       setErrorCode(null);
       setStatus("idle");
       return;
     }
     void request("/api/suggestions", next);
+  }
+
+  function toggleFocus(focus: FocusId) {
+    const current = selection.focus;
+    if (current.includes(focus)) {
+      setFocusNotice(null);
+      runSelection({ ...selection, focus: current.filter((id) => id !== focus) });
+      return;
+    }
+    if (current.length >= MAX_FOCUS_GROUPS) {
+      setFocusNotice(FOCUS_LIMIT_NOTICE);
+      return;
+    }
+    setFocusNotice(null);
+    runSelection({ ...selection, focus: [...current, focus] });
   }
 
   function showAnotherIdea() {
@@ -125,8 +145,13 @@ export function HomeExperience({
           <FocusPicker
             focusAreas={focusAreas}
             selectedFocus={selection.focus}
-            onSelect={(focus) => runSelection({ ...selection, focus })}
+            onToggle={toggleFocus}
           />
+          {focusNotice ? (
+            <p role="status" className="text-sm">
+              {focusNotice}
+            </p>
+          ) : null}
           {selectedFocusArea ? (
             <Link
               href={`/library/${selectedFocusArea.id}`}
@@ -145,7 +170,10 @@ export function HomeExperience({
           ) : null}
         </section>
 
-        <SessionPlanner mood={selection.mood ?? undefined} focus={selection.focus ?? undefined} />
+        <SessionPlanner
+          mood={selection.mood ?? undefined}
+          focus={selection.focus.length > 0 ? selection.focus : undefined}
+        />
 
         {status === "loading" ? <SuggestionSkeleton /> : null}
         {status === "error" && errorCode === LIBRARY_UNAVAILABLE ? <LibraryError /> : null}

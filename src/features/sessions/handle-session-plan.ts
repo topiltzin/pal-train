@@ -2,9 +2,10 @@ import { z } from "zod";
 import { requireUser, type SessionGetter } from "@/features/auth/session";
 import { attachDemos } from "@/features/demos/attach-demos";
 import type { DemoLinkRepository } from "@/features/demos/demo-link-repository";
+import type { GroupNotice } from "@/features/sessions/plan-notices";
+import { MAX_FOCUS_GROUPS, parseFocusSelection } from "@/features/sessions/focus-selection";
 import { withLinkCache } from "@/features/demos/cached-demo-link-repository";
 import { createDrizzleDemoLinkRepository } from "@/features/demos/drizzle-demo-link-repository";
-import { focusIds } from "@/features/library/focus-areas";
 import { moodIds } from "@/features/moods/moods";
 import {
   ExerciseLibraryUnavailableError,
@@ -38,6 +39,21 @@ const SHORT_MESSAGE = `Plan at least ${SHORTEST_MINUTES} minutes.`;
 const GENTLE_LIMIT_MESSAGE = `Sessions for this mood stay at ${GENTLE_MAX_MINUTES} minutes or less.`;
 const JSON_CONTENT_TYPE = "application/json";
 
+const FOCUS_LIMIT_MESSAGE = "Choose up to three muscle groups.";
+
+/** The message for a focus value that cannot be used (spec FR-002, FR-009). */
+function focusMessage(selection: { reason: "too_many" | "unknown"; validIds: readonly string[] }) {
+  return selection.reason === "too_many"
+    ? FOCUS_LIMIT_MESSAGE
+    : `Choose one of the focus areas: ${selection.validIds.join(", ")}.`;
+}
+
+/** The groups a request names. A value that cannot be used names none. */
+function selectedGroups(focus: string | string[] | undefined) {
+  const selection = parseFocusSelection(focus);
+  return selection.ok ? selection.groups : [];
+}
+
 const lengthField = z
   .number()
   .int()
@@ -50,14 +66,20 @@ const sessionPlanRequestSchema = z
     minMinutes: lengthField,
     maxMinutes: lengthField,
     mood: z.enum(moodIds).optional(),
-    focus: z.enum(focusIds).optional(),
+    focus: z.union([z.string(), z.array(z.string())]).optional(),
+  })
+  .superRefine((body, context) => {
+    const selection = parseFocusSelection(body.focus);
+    if (!selection.ok) {
+      context.addIssue({ code: "custom", message: focusMessage(selection), path: ["focus"] });
+    }
   })
   .refine((body) => body.minMinutes <= body.maxMinutes, { error: ORDER_MESSAGE })
   .refine((body) => !isTooShort(body.maxMinutes), { error: SHORT_MESSAGE })
   .refine((body) => body.mood === undefined || body.maxMinutes <= maxMinutesFor(body.mood), {
     error: GENTLE_LIMIT_MESSAGE,
   })
-  .refine((body) => body.mood !== undefined || body.focus !== undefined, {
+  .refine((body) => body.mood !== undefined || selectedGroups(body.focus).length > 0, {
     error: SOURCE_MESSAGE,
   });
 
@@ -69,6 +91,7 @@ export type SessionPlanView = {
   targetCount: number;
   partial: boolean;
   shortfallMessage: string | null;
+  groupNotices: GroupNotice[];
 };
 
 function isJsonRequest(request: Request): boolean {
@@ -117,6 +140,7 @@ function toPlanView(
     targetCount: plan.targetCount,
     partial: plan.partial,
     shortfallMessage: describePlanNotice(plan, request.minMinutes, request.maxMinutes),
+    groupNotices: plan.groupNotices,
   };
 }
 
@@ -143,7 +167,7 @@ export async function handlePostSessionPlan(
       minMinutes: body.minMinutes,
       maxMinutes: body.maxMinutes,
       mood: body.mood,
-      focus: body.focus,
+      focus: selectedGroups(body.focus),
     });
     const libraryIds = loadExerciseLibrary()
       .list()

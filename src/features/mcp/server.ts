@@ -59,7 +59,7 @@ export function buildPaltrainServer(exercises: readonly Exercise[]): McpServer {
     "plan_session",
     {
       description:
-        "Plan a workout for a mood, a focus area, or both, for a length from 10 to 90 minutes in steps of 5. Use when the user asks for a workout. Gentle moods (tired, stressed, unmotivated) are capped at 45 minutes. Returns exercises and a safety notice. Read-only.",
+        "Plan a workout for a mood, one or more focus areas (up to three), or both, for a length from 10 to 90 minutes in steps of 5. Use when the user asks for a workout. Gentle moods (tired, stressed, unmotivated) are capped at 45 minutes. Returns exercises and a safety notice. Read-only.",
       inputSchema: z.object({
         mood: z.string().optional(),
         focus: z.string().optional(),

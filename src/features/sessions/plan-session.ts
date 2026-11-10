@@ -6,6 +6,7 @@ import {
   MIN_EXERCISES,
   targetExerciseCount,
 } from "@/features/sessions/session-length";
+import { buildGroupNotices, type GroupNotice } from "@/features/sessions/plan-notices";
 import { sumMinutes } from "@/features/sessions/session-view";
 
 export type PlanInput = {
@@ -13,7 +14,8 @@ export type PlanInput = {
   minMinutes: number;
   maxMinutes: number;
   mood?: MoodId;
-  focus?: FocusId;
+  /** One muscle group, or a list of up to three for a plan that covers each of them. */
+  focus?: FocusId | readonly FocusId[];
   random?: () => number;
 };
 
@@ -25,6 +27,8 @@ export type SessionPlan = {
   partial: boolean;
   /** True when some exercises match only the mood or only the focus, not both. */
   fallback: boolean;
+  /** Muscle groups that could not be fully covered. Empty for one group or full coverage. */
+  groupNotices: GroupNotice[];
 };
 
 function fitsBoth(exercise: Exercise, mood?: MoodId, focus?: FocusId): boolean {
@@ -106,7 +110,115 @@ function needsClosestMatches(exercises: readonly Exercise[], targetCount: number
   return exercises.length < targetCount;
 }
 
+/** A plan input that names at most one muscle group. */
+type SingleGroupInput = Omit<PlanInput, "focus"> & { focus?: FocusId };
+
+function groupsOf(focus: PlanInput["focus"]): FocusId[] {
+  if (focus === undefined) return [];
+  return [...new Set(typeof focus === "string" ? [focus] : focus)];
+}
+
+/** Plans a workout for the request's groups. One group or none uses the single-group rules. */
 export function planSession(input: PlanInput): SessionPlan {
+  const groups = groupsOf(input.focus);
+  if (groups.length <= 1) {
+    return planOneGroup({ ...input, focus: groups[0] });
+  }
+  return planGroups(input, groups);
+}
+
+/**
+ * Fills each group in turn with its share of the count, while the minutes cap stays shared by
+ * the whole plan. Pools are used in the order given, so earlier groups are not crowded out.
+ */
+function fillGroups(
+  pools: Exercise[][],
+  input: PlanInput,
+  share: number,
+  targetCount: number,
+  start: readonly Exercise[] = [],
+): Exercise[] {
+  let chosen = [...start];
+  for (const pool of pools) {
+    const limit = Math.min(targetCount, chosen.length + share);
+    chosen = takeUpToLimit(pool, input.maxMinutes, limit, chosen);
+  }
+  return topUpToMinimum(chosen, pools.flat(), input.minMinutes, input.maxMinutes);
+}
+
+/**
+ * Orders the picks so the groups alternate (biceps, triceps, biceps, ...) instead of one block per
+ * group. The set of exercises does not change, only their order.
+ */
+function interleaveByGroup(exercises: readonly Exercise[], groups: readonly FocusId[]): Exercise[] {
+  const buckets = groups.map((group) => exercises.filter((exercise) => exercise.focus === group));
+  const longest = Math.max(0, ...buckets.map((bucket) => bucket.length));
+  const mixed: Exercise[] = [];
+  for (let round = 0; round < longest; round += 1) {
+    for (const bucket of buckets) {
+      const exercise = bucket[round];
+      if (exercise !== undefined) mixed.push(exercise);
+    }
+  }
+  return mixed;
+}
+
+function planGroups(input: PlanInput, groups: readonly FocusId[]): SessionPlan {
+  const random = input.random ?? Math.random;
+  const targetCount = targetExerciseCount(input.maxMinutes);
+  const share = Math.ceil(targetCount / groups.length);
+  const exact = groups.map((group) =>
+    shuffled(
+      input.exercises.filter((exercise) => fitsBoth(exercise, input.mood, group)),
+      random,
+    ),
+  );
+  const closest = groups.map((group) =>
+    shuffled(
+      input.exercises.filter(
+        (exercise) =>
+          !fitsBoth(exercise, input.mood, group) && fitsEither(exercise, input.mood, group),
+      ),
+      random,
+    ),
+  );
+  const exactPlan = fillGroups(exact, input, share, targetCount);
+  const exercises = needsClosestMatches(exactPlan, targetCount)
+    ? fillGroups(
+        exact.map((pool, index) => [...pool, ...closest[index]]),
+        input,
+        share,
+        targetCount,
+        exactPlan,
+      )
+    : exactPlan;
+
+  const totalMinutes = sumMinutes(exercises);
+  const fallback = exercises.some(
+    (exercise) => !groups.some((group) => fitsBoth(exercise, input.mood, group)),
+  );
+  const partial = exercises.length < MIN_EXERCISES;
+  const available = Object.fromEntries(
+    groups.map((group) => [group, input.exercises.filter((exercise) => exercise.focus === group)]),
+  );
+  const groupNotices = buildGroupNotices({
+    groups,
+    share,
+    chosen: exercises,
+    available,
+    maxMinutes: input.maxMinutes,
+  });
+  return {
+    exercises: interleaveByGroup(exercises, groups),
+    totalMinutes,
+    targetCount,
+    partial,
+    fallback,
+    groupNotices,
+  };
+}
+
+function planOneGroup(input: SingleGroupInput): SessionPlan {
   const random = input.random ?? Math.random;
   const exact = shuffled(
     input.exercises.filter((exercise) => fitsBoth(exercise, input.mood, input.focus)),
@@ -130,7 +242,7 @@ export function planSession(input: PlanInput): SessionPlan {
   const fallback = exercises.some((exercise) => !fitsBoth(exercise, input.mood, input.focus));
   // A plan is partial only when fewer than MIN_EXERCISES exercises fit. The time minimum is a best-effort target.
   const partial = exercises.length < MIN_EXERCISES;
-  return { exercises, totalMinutes, targetCount, partial, fallback };
+  return { exercises, totalMinutes, targetCount, partial, fallback, groupNotices: [] };
 }
 
 /**

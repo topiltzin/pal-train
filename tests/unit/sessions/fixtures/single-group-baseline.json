@@ -1,0 +1,120 @@
+[
+  {
+    "name": "tired legs 0-30",
+    "input": {
+      "mood": "tired",
+      "focus": "legs",
+      "minMinutes": 0,
+      "maxMinutes": 30,
+      "seed": 1
+    },
+    "output": {
+      "exerciseIds": ["legs-012", "legs-006", "legs-005", "legs-011", "legs-008", "core-001"],
+      "totalMinutes": 27,
+      "targetCount": 6,
+      "partial": false,
+      "fallback": true
+    }
+  },
+  {
+    "name": "biceps only 0-60",
+    "input": {
+      "mood": null,
+      "focus": "biceps",
+      "minMinutes": 0,
+      "maxMinutes": 60,
+      "seed": 2
+    },
+    "output": {
+      "exerciseIds": [
+        "biceps-006",
+        "biceps-001",
+        "biceps-008",
+        "biceps-002",
+        "biceps-011",
+        "biceps-010",
+        "biceps-007",
+        "biceps-005",
+        "biceps-003"
+      ],
+      "totalMinutes": 55,
+      "targetCount": 11,
+      "partial": false,
+      "fallback": false
+    }
+  },
+  {
+    "name": "energized any-focus 20-45",
+    "input": {
+      "mood": "energized",
+      "focus": null,
+      "minMinutes": 20,
+      "maxMinutes": 45,
+      "seed": 3
+    },
+    "output": {
+      "exerciseIds": [
+        "hyrox-style-002",
+        "chest-008",
+        "back-010",
+        "upper-body-009",
+        "hyrox-style-006",
+        "conditioning-001"
+      ],
+      "totalMinutes": 42,
+      "targetCount": 8,
+      "partial": false,
+      "fallback": false
+    }
+  },
+  {
+    "name": "chest 10-20",
+    "input": {
+      "mood": null,
+      "focus": "chest",
+      "minMinutes": 10,
+      "maxMinutes": 20,
+      "seed": 4
+    },
+    "output": {
+      "exerciseIds": ["chest-006", "chest-008", "chest-003"],
+      "totalMinutes": 20,
+      "targetCount": 5,
+      "partial": false,
+      "fallback": false
+    }
+  },
+  {
+    "name": "calm core 0-90",
+    "input": {
+      "mood": "calm",
+      "focus": "core",
+      "minMinutes": 0,
+      "maxMinutes": 90,
+      "seed": 5
+    },
+    "output": {
+      "exerciseIds": [
+        "core-001",
+        "core-002",
+        "core-005",
+        "shoulders-001",
+        "core-011",
+        "cardio-009",
+        "back-007",
+        "stretching-007",
+        "core-007",
+        "stretching-001",
+        "stretching-003",
+        "legs-005",
+        "shoulders-002",
+        "chest-009",
+        "biceps-010"
+      ],
+      "totalMinutes": 69,
+      "targetCount": 15,
+      "partial": false,
+      "fallback": true
+    }
+  }
+]
