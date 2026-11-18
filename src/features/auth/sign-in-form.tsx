@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { authClient } from "@/lib/auth/auth-client";
@@ -87,6 +88,11 @@ export function SignInForm() {
           {showPassword ? "Hide" : "Show"}
         </button>
       </div>
+      {isSignUp ? null : (
+        <Link href="/forgot-password" className="text-sm underline underline-offset-4">
+          Forgot password?
+        </Link>
+      )}
       {error ? (
         <p role="alert" className="text-sm">
           {error}

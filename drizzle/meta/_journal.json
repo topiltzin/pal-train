@@ -29,6 +29,20 @@
       "when": 1794245328753,
       "tag": "0003_wakeful_hex",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795004192841,
+      "tag": "0004_clammy_shape",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1795004895938,
+      "tag": "0005_large_firedrake",
+      "breakpoints": true
     }
   ]
 }

@@ -15,6 +15,8 @@ const envSchema = z.object({
     message: "BETTER_AUTH_URL must use HTTPS unless it points at localhost",
   }),
   DATABASE_URL: z.string().min(1),
+  RESEND_API_KEY: z.string().min(1),
+  PASSWORD_RESET_FROM: z.email(),
 });
 
 export type Env = z.infer<typeof envSchema>;

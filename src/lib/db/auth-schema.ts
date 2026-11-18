@@ -6,6 +6,7 @@
  * in tests/unit/auth/auth-schema.test.ts.
  */
 import {
+  bigint,
   boolean,
   index,
   integer,
@@ -91,6 +92,17 @@ export const verification = pgTable(
   },
   (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
+
+/**
+ * Better Auth's rate-limit counters, kept in the database so every server instance shares them
+ * (see `rateLimit.storage` in auth-options.ts). One row per rate-limited key.
+ */
+export const rateLimit = pgTable("rate_limit", {
+  id: idColumn(),
+  key: text("key").notNull().unique(),
+  count: integer("count").notNull(),
+  lastRequest: bigint("last_request", { mode: "number" }).notNull(),
+});
 
 /** Signing keys for access tokens (the JWT plugin). No endpoint returns the private key. */
 export const jwks = pgTable("jwks", {

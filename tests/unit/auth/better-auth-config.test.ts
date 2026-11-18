@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { buildAuthOptions, buildMcpSettings } from "@/lib/auth/auth-options";
+import { AUTH_ADAPTER_OPTIONS, buildAuthOptions, buildMcpSettings } from "@/lib/auth/auth-options";
 
+const sendResetPassword = async () => {};
+const onPasswordResetHandler = async () => {};
 const settings = {
   baseURL: "https://www.pal-buddy.eu",
   secret: "s".repeat(32),
   resource: "https://www.pal-buddy.eu/mcp",
   database: {} as never,
+  sendResetPassword,
 };
 
 function pluginById(options: ReturnType<typeof buildAuthOptions>, id: string) {
@@ -84,5 +87,54 @@ describe("buildMcpSettings", () => {
 
     // Assert
     expect(mcp.scopes.some((scope) => /write|update|delete/.test(scope))).toBe(false);
+  });
+});
+
+describe("password reset configuration", () => {
+  it("expires reset links after 3600 seconds", () => {
+    // Arrange, Act
+    const options = buildAuthOptions(settings);
+
+    // Assert
+    expect(options.emailAndPassword?.resetPasswordTokenExpiresIn).toBe(3600);
+  });
+
+  it("revokes every session when a password is reset", () => {
+    // Arrange, Act
+    const options = buildAuthOptions(settings);
+
+    // Assert
+    expect(options.emailAndPassword?.revokeSessionsOnPasswordReset).toBe(true);
+  });
+
+  it("delivers reset emails through the sender it was given", () => {
+    // Arrange, Act
+    const options = buildAuthOptions(settings);
+
+    // Assert
+    expect(options.emailAndPassword?.sendResetPassword).toBe(sendResetPassword);
+  });
+
+  it("uses a transaction-capable adapter, so a failed reset keeps the link usable", () => {
+    // Arrange, Act, Assert
+    expect(AUTH_ADAPTER_OPTIONS.transaction).toBe(true);
+  });
+
+  it("calls the completion handler after a reset, so the success is logged", () => {
+    // Arrange, Act
+    const options = buildAuthOptions({ ...settings, onPasswordReset: onPasswordResetHandler });
+
+    // Assert
+    expect(options.emailAndPassword?.onPasswordReset).toBe(onPasswordResetHandler);
+  });
+
+  it("keeps rate-limit counters in the database, not in each server instance's memory", () => {
+    // Arrange, Act
+    const options = buildAuthOptions(settings);
+
+    // Assert
+    expect(options.rateLimit).toEqual(
+      expect.objectContaining({ enabled: true, storage: "database" }),
+    );
   });
 });

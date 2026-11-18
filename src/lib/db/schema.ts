@@ -2,6 +2,7 @@ import { sql } from "drizzle-orm";
 import {
   boolean,
   check,
+  index,
   integer,
   pgTable,
   primaryKey,
@@ -11,6 +12,7 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
+import { user } from "./auth-schema";
 
 const DISPLAY_NAME_MIN_LENGTH = 1;
 const DISPLAY_NAME_MAX_LENGTH = 40;
@@ -137,6 +139,22 @@ export const mcpRateWindows = pgTable(
     requestCount: integer("request_count").notNull().default(0),
   },
   (table) => [primaryKey({ columns: [table.userId, table.windowStart] })],
+);
+
+/**
+ * One accepted password reset request for a Better Auth account (spec FR-010). Used only to count
+ * requests in the last hour; a refused request writes no row. No email or token is stored here.
+ */
+export const passwordResetRequests = pgTable(
+  "password_reset_request",
+  {
+    id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    requestedAt: timestamp("requested_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [index("password_reset_request_user_time").on(table.userId, table.requestedAt)],
 );
 
 // Better Auth tables (see auth-schema.ts): included so drizzle-kit generates their migration.

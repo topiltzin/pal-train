@@ -9,6 +9,7 @@ const options = buildAuthOptions({
   secret: "s".repeat(32),
   resource: "https://www.pal-buddy.eu/mcp",
   database: {} as never,
+  sendResetPassword: async () => {},
 });
 
 const tables = getAuthTables(options as never);

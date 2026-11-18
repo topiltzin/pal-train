@@ -39,9 +39,9 @@ export function createDrizzleDemoLinkRepository(): DemoLinkRepository {
     },
 
     async upsertActive(link: NewDemoLink) {
-      const db = getDb();
-      const [, inserted] = await db.batch([
-        db
+      // One transaction: the old active link is deactivated only if the new one is inserted.
+      const inserted = await getDb().transaction(async (tx) => {
+        await tx
           .update(exerciseDemoLinks)
           .set({ active: false })
           .where(
@@ -49,8 +49,8 @@ export function createDrizzleDemoLinkRepository(): DemoLinkRepository {
               eq(exerciseDemoLinks.exerciseId, link.exerciseId),
               eq(exerciseDemoLinks.active, true),
             ),
-          ),
-        db
+          );
+        return tx
           .insert(exerciseDemoLinks)
           .values({
             exerciseId: link.exerciseId,
@@ -59,8 +59,8 @@ export function createDrizzleDemoLinkRepository(): DemoLinkRepository {
             channel: DEMO_CHANNEL,
             active: true,
           })
-          .returning(),
-      ]);
+          .returning();
+      });
       return toDomain(inserted[0]);
     },
 
