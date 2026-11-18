@@ -24,6 +24,16 @@ This is the contract between the app and the analytics data. Every event the app
 |-------|------|---------|-------|
 | `exerciseId` | string, at most 100 characters | `"push-up"` | The content identifier of the exercise. Not personal. |
 
+### `exercise swapped`
+
+- **Trigger**: a swap or a chosen replacement is applied to a plan card (`session-planner.tsx`, after the replacement is applied). Added by feature 012-exercise-swap.
+- **Data**:
+
+| Field | Type | Example | Notes |
+|-------|------|---------|-------|
+| `exerciseId` | string, at most 100 characters | `"biceps-004"` | The exercise being replaced. Not personal. |
+| `focus` | string, at most 40 characters | `"biceps"` | The muscle group both exercises share. |
+
 ### `session plan requested`
 
 - **Trigger**: a session plan request succeeds (`session-planner.tsx`, after `fetchPlan` returns a plan).

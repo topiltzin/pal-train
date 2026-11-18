@@ -5,17 +5,40 @@ const MAX_EVENT_NAME_LENGTH = 50;
 const PERSONAL_FIELD_DENYLIST = ["email", "name", "mood", "note", "weight", "measurement"];
 
 describe("event catalog", () => {
-  it("defines exactly the four approved events", () => {
+  it("defines exactly the five approved events", () => {
     // Arrange, Act
     const names = Object.keys(EVENT_CATALOG).sort();
 
     // Assert
     expect(names).toEqual([
       "exercise demo watched",
+      "exercise swapped",
       "mood selected",
       "session plan requested",
       "suggestion requested",
     ]);
+  });
+
+  it("accepts an exercise swap with only the exercise id and muscle group", () => {
+    // Arrange
+    const data = { exerciseId: "biceps-004", focus: "biceps" };
+
+    // Act
+    const result = validateEvent("exercise swapped", data);
+
+    // Assert
+    expect(result).toEqual({ name: "exercise swapped", data });
+  });
+
+  it("rejects an exercise swap that carries any other field", () => {
+    // Arrange
+    const data = { exerciseId: "biceps-004", focus: "biceps", name: "Barbell curl" };
+
+    // Act
+    const result = validateEvent("exercise swapped", data);
+
+    // Assert
+    expect(result).toBeNull();
   });
 
   it("keeps every event name within the Umami limit", () => {

@@ -1,11 +1,10 @@
 import { z } from "zod";
 import { requireUser, type SessionGetter } from "@/features/auth/session";
-import { attachDemos } from "@/features/demos/attach-demos";
+import { attachActiveDemos } from "@/features/demos/attach-active-demos";
+import { defaultDemoLinks } from "@/features/demos/default-demo-links";
 import type { DemoLinkRepository } from "@/features/demos/demo-link-repository";
 import type { GroupNotice } from "@/features/sessions/plan-notices";
-import { MAX_FOCUS_GROUPS, parseFocusSelection } from "@/features/sessions/focus-selection";
-import { withLinkCache } from "@/features/demos/cached-demo-link-repository";
-import { createDrizzleDemoLinkRepository } from "@/features/demos/drizzle-demo-link-repository";
+import { parseFocusSelection } from "@/features/sessions/focus-selection";
 import { moodIds } from "@/features/moods/moods";
 import {
   ExerciseLibraryUnavailableError,
@@ -24,6 +23,7 @@ import {
 } from "@/features/sessions/session-cap";
 import { MAX_MINUTES, SLIDER_MIN_MINUTES, STEP_MINUTES } from "@/features/sessions/session-length";
 import { toExerciseView, type ExerciseView } from "@/features/sessions/session-view";
+import { isJsonRequest, readJsonBody } from "@/lib/api/json-body";
 import { ok } from "@/lib/api/envelope";
 import { ErrorCodes } from "@/lib/api/error-codes";
 import { errorResponse } from "@/lib/api/errors";
@@ -37,7 +37,6 @@ const ORDER_MESSAGE = "The shortest session cannot be longer than the longest.";
 const SOURCE_MESSAGE = "Pick a mood, a focus area, or both.";
 const SHORT_MESSAGE = `Plan at least ${SHORTEST_MINUTES} minutes.`;
 const GENTLE_LIMIT_MESSAGE = `Sessions for this mood stay at ${GENTLE_MAX_MINUTES} minutes or less.`;
-const JSON_CONTENT_TYPE = "application/json";
 
 const FOCUS_LIMIT_MESSAGE = "Choose up to three muscle groups.";
 
@@ -94,41 +93,6 @@ export type SessionPlanView = {
   groupNotices: GroupNotice[];
 };
 
-function isJsonRequest(request: Request): boolean {
-  const contentType = request.headers.get("content-type") ?? "";
-  return contentType.toLowerCase().startsWith(JSON_CONTENT_TYPE);
-}
-
-async function readJsonBody(request: Request): Promise<unknown> {
-  try {
-    return await request.json();
-  } catch {
-    return undefined;
-  }
-}
-
-const defaultDemoLinks: DemoLinkRepository = withLinkCache(createDrizzleDemoLinkRepository());
-
-/**
- * Attaches each exercise's active demo. Demos are an enhancement, so a failed lookup is logged
- * and the plan still returns, with every demo set to null.
- */
-async function attachActiveDemos(
-  exercises: ExerciseView[],
-  demoLinks: DemoLinkRepository,
-  libraryIds: string[],
-): Promise<ExerciseView[]> {
-  try {
-    // Every library id is looked up, not only the picked ones: plans are random, so one lookup for
-    // the whole library fills the cache once instead of a little more on every request.
-    const links = await demoLinks.listActiveByExerciseIds(libraryIds);
-    return attachDemos(exercises, links);
-  } catch (error) {
-    console.error(`${ROUTE_LABEL} demo lookup failed`, error);
-    return exercises.map((exercise) => ({ ...exercise, demo: null }));
-  }
-}
-
 function toPlanView(
   plan: SessionPlan,
   request: SessionPlanRequest,
@@ -176,6 +140,7 @@ export async function handlePostSessionPlan(
       plan.exercises.map(toExerciseView),
       demoLinks,
       libraryIds,
+      ROUTE_LABEL,
     );
     return Response.json(ok(toPlanView(plan, body, exercises)));
   } catch (error) {

@@ -13,6 +13,8 @@ const CELEBRATION_TEXT = "Well Done, we made it today!!";
 type WorkoutTimerProps = {
   /** The session's total length in minutes, from the plan. */
   totalMinutes: number;
+  /** Told whenever the timer starts or stops running, so the plan can lock its swap controls. */
+  onRunningChange?: (running: boolean) => void;
 };
 
 type CelebrationProps = {
@@ -41,7 +43,7 @@ function Celebration({ onClose }: CelebrationProps) {
 }
 
 /** A countdown for the session on screen: start, stop, finish early, and reset (spec US1 to US3). */
-export function WorkoutTimer({ totalMinutes }: WorkoutTimerProps) {
+export function WorkoutTimer({ totalMinutes, onRunningChange }: WorkoutTimerProps) {
   const [state, dispatch] = useReducer(timerReducer, totalMinutes * MS_PER_MINUTE, createTimer);
   const [now, setNow] = useState(() => Date.now());
   const [note, setNote] = useState("");
@@ -50,6 +52,10 @@ export function WorkoutTimer({ totalMinutes }: WorkoutTimerProps) {
 
   const remaining = remainingMs(state, now);
   const announcement = state.status === "finished" ? "Session complete" : note;
+
+  useEffect(() => {
+    onRunningChange?.(state.status === "running");
+  }, [state.status, onRunningChange]);
 
   // The celebration is a modal popup: open it when the session ends, close it when the timer leaves "finished".
   useEffect(() => {

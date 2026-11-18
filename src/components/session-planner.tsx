@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { SessionNoticePopup, type SessionNotice } from "@/components/session-notice-popup";
 import { SessionLengthControl } from "@/components/session-length-range";
 import { SessionPlanList } from "@/components/session-plan-list";
+import { useExerciseSwaps } from "@/components/use-exercise-swaps";
 import { track } from "@/features/analytics/track";
 import type { FocusId } from "@/features/library/focus-areas";
 import type { MoodId } from "@/features/moods/moods";
@@ -70,7 +71,12 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
   const openShort = useCallback(() => setSessionNotice("short"), []);
   const closeNotice = useCallback(() => setSessionNotice(null), []);
   const [plan, setPlan] = useState<SessionPlanView | null>(null);
+  const [planRevision, setPlanRevision] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
+  const { controls: swaps, resetSwaps } = useExerciseSwaps(plan, setPlan, {
+    minMinutes: planMin,
+    maxMinutes: planMax,
+  });
   const hasSource = mood !== undefined || (focus?.length ?? 0) > 0;
   // The request the shown plan belongs to. While it differs from the request now wanted, a new
   // plan is on its way: the previous plan stays on screen, dimmed, so the page never looks frozen.
@@ -89,6 +95,8 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         setSettledKey(wantedKey);
         if (response.success && response.data) {
           track("session plan requested");
+          resetSwaps();
+          setPlanRevision((revision) => revision + 1);
           setPlan(response.data);
           setNotice(joinNotices(response.data.shortfallMessage, response.data.groupNotices));
           return;
@@ -103,7 +111,7 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         setNotice(GENERIC_ERROR);
       });
     return () => controller.abort();
-  }, [planMin, planMax, mood, focus, hasSource, wantedKey]);
+  }, [planMin, planMax, mood, focus, hasSource, wantedKey, resetSwaps]);
 
   function commitRange() {
     const next = capRange(liveRange, cap);
@@ -126,6 +134,8 @@ export function SessionPlanner({ mood, focus }: SessionPlannerProps) {
         plan={hasSource ? plan : null}
         notice={hasSource ? notice : PICK_SOURCE_NOTICE}
         busy={pending}
+        swaps={swaps}
+        planRevision={planRevision}
       />
     </section>
   );

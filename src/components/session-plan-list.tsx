@@ -1,15 +1,27 @@
-import { ExerciseDemoButton } from "@/components/exercise-demo-button";
+import { ExerciseCard } from "@/components/exercise-card";
+import type { SwapControls } from "@/components/use-exercise-swaps";
 import { WorkoutTimer } from "@/components/workout-timer";
 import type { SessionPlanView } from "@/features/sessions/handle-session-plan";
+
+const TIMER_LOCKED_TEXT = "Stop the timer to swap an exercise.";
 
 type SessionPlanListProps = {
   plan: SessionPlanView | null;
   notice: string | null;
   /** A new plan is loading. The current one stays visible, dimmed. */
   busy?: boolean;
+  swaps: SwapControls;
+  /** Changes whenever a new plan is generated, so the timer starts fresh for it. */
+  planRevision: number;
 };
 
-export function SessionPlanList({ plan, notice, busy = false }: SessionPlanListProps) {
+export function SessionPlanList({
+  plan,
+  notice,
+  busy = false,
+  swaps,
+  planRevision,
+}: SessionPlanListProps) {
   const hasExercises = plan !== null && plan.exercises.length > 0;
   return (
     <div className="flex flex-col gap-4">
@@ -28,42 +40,23 @@ export function SessionPlanList({ plan, notice, busy = false }: SessionPlanListP
             <span className="text-sm text-muted">minutes</span>
           </p>
           <WorkoutTimer
-            key={plan.exercises.map((exercise) => exercise.id).join(",")}
+            key={`${planRevision}-${plan.totalMinutes}`}
             totalMinutes={plan.totalMinutes}
+            onRunningChange={swaps.onTimerRunningChange}
           />
           <ul className="flex flex-col gap-2">
-            {plan.exercises.map((exercise) => (
-              <li
-                key={exercise.id}
-                className="flex flex-col gap-1 rounded-2xl bg-surface px-4 py-3"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="min-w-0 font-medium">{exercise.name}</span>
-                  <span data-testid="exercise-minutes" className="shrink-0 text-sm text-muted">
-                    {exercise.minutes}
-                  </span>
-                </div>
-                {exercise.description ? (
-                  <p data-testid="exercise-description" className="text-sm text-foreground/80">
-                    {exercise.description}
-                  </p>
-                ) : null}
-                <p data-testid="exercise-equipment" className="text-sm text-muted">
-                  {exercise.equipment.join(", ")}
-                </p>
-                {exercise.caution ? (
-                  <p data-testid="exercise-caution" className="text-sm text-muted">
-                    {exercise.caution}
-                  </p>
-                ) : null}
-                {exercise.demo ? (
-                  <ExerciseDemoButton
-                    exerciseId={exercise.id}
-                    exerciseName={exercise.name}
-                    demo={exercise.demo}
-                  />
-                ) : null}
-              </li>
+            {plan.exercises.map((exercise, index) => (
+              // Keyed by position: a card keeps its place, and its focus, when it is swapped.
+              <ExerciseCard
+                key={index}
+                exercise={exercise}
+                swapDisabledReason={swaps.timerRunning ? TIMER_LOCKED_TEXT : null}
+                swapping={swaps.swapping}
+                message={swaps.message?.index === index ? swaps.message.text : null}
+                onSwap={() => swaps.onSwap(index)}
+                loadOptions={() => swaps.loadOptions(index)}
+                onChoose={(option) => swaps.chooseOption(index, option)}
+              />
             ))}
           </ul>
         </div>

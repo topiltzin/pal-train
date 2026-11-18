@@ -9,6 +9,9 @@ type TextField = { maxLength: number };
 
 export const EVENT_CATALOG = {
   "exercise demo watched": { fields: { exerciseId: { maxLength: 100 } } },
+  "exercise swapped": {
+    fields: { exerciseId: { maxLength: 100 }, focus: { maxLength: 40 } },
+  },
   "session plan requested": { fields: {} },
   "suggestion requested": { fields: {} },
   "mood selected": { fields: {} },
