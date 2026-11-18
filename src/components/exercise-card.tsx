@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useRef, useState, type RefObject } from "react";
 import { ExerciseDemoButton } from "@/components/exercise-demo-button";
 import { ExerciseSwapOptions, type OptionsState } from "@/components/exercise-swap-options";
+import { ShinyText } from "@/components/shiny-text";
 import type { ExerciseView, SwapOption } from "@/features/sessions/session-view";
 
 const FADE_SECONDS = 0.2;
@@ -38,7 +39,7 @@ function ExerciseDetails({ exercise }: { exercise: ExerciseView }) {
     >
       <div className="flex items-center justify-between gap-3">
         <span data-testid="plan-card-name" className="min-w-0 font-medium">
-          {exercise.name}
+          <ShinyText>{exercise.name}</ShinyText>
         </span>
         <span data-testid="exercise-minutes" className="shrink-0 text-sm text-muted">
           {exercise.minutes}
